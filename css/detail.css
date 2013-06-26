@@ -1,0 +1,64 @@
+ul
+{
+	list-style: none;
+}
+
+.adjectives li
+{
+	line-height: 50px;
+}
+
+.adjectives li:hover
+{
+	text-decoration: underline;
+}
+
+.detailed-header
+{
+	font-size: 24px;
+}
+
+.accordian-inner  /* because twitter bootstrap is weird */
+{
+
+	font-size: 14px;
+}
+
+.detailed-tag
+{
+	padding: 40px;
+}
+
+
+.data-row
+{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.line
+{
+	margin-top: -20px;
+	margin-bottom: -20px;
+}
+
+.user
+{
+	font-weight: bold;
+}
+
+.time
+{
+	color: #aaaaaa;
+}
+
+.profile-pic img
+{
+	width: 65px;
+}
+
+
+.adjectives
+{
+	margin-top: -35px;
+}
