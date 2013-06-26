@@ -1,0 +1,98 @@
+<!doctype html>
+ 
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>jQuery UI Slider - Vertical slider</title>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://jquery-in-place-editor.googlecode.com/svn/trunk/lib/jquery.editinplace.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css" />
+  <script>
+   var startYear = 2008;
+   var startMonth = 1; //January
+
+  $(function() {
+    $( "#slider-vertical" ).slider({
+      orientation: "vertical",
+      range: "min",
+      min: 0,
+      max: getMaxDateValue(startYear, startMonth),
+      value: getMaxDateValue(startYear, startMonth),
+      step: 1,
+      slide: function( event, ui ) {
+        $( "#amount" ).val( getDisplayedValue(ui.value ));
+      }
+    });
+    $( "#amount" ).val(getDisplayedValue($( "#slider-vertical" ).slider( "value" )) );
+  });
+
+  function getMaxDateValue(year, month){
+    var today = new Date();
+    var currentMonth = today.getMonth()+1;
+    var currentYear = today.getFullYear();
+    return (currentYear-year)*12 + currentMonth - month;
+  }
+
+  function getDisplayedValue(val){
+    var y = Math.floor(val/12) + startYear;
+    var m = val%12 + startMonth;
+
+    return getMonthName(m) + " " + y;
+  }
+
+  function getMonthName(a){
+    switch(a){
+      case 1:
+        return "Jan";
+      case 2:
+        return "Feb";
+      case 3:
+        return "Mar";
+      case 4:
+        return "Apr";
+      case 5:
+        return "May";
+      case 6:
+        return "Jun";
+      case 7:
+        return "Jul";
+      case 8:
+        return "Aug";
+      case 9:
+        return "Sep";
+      case 10:
+        return "Oct";
+      case 11:
+        return "Nov";
+      case 12:
+        return "Dec";
+    }
+  }
+
+ $(document).ready(function() {
+      $('#albumTitle').editInPlace({
+        callback: function(unused, enteredText) { return enteredText; },
+        show_buttons: true
+      });
+ });
+
+  </script>
+</head>
+<body>
+
+  <div>
+    <a href="#" id="albumTitle">Album Title</a>
+</div>
+ 
+<p>
+  <label for="amount">Date:</label>
+  <input type="text" id="amount" style="border: 0; color: #f6931f; font-weight: bold;" />
+</p>
+ 
+<div id="slider-vertical" style="min-height: 700px;"></div>
+ 
+ 
+</body>
+</html>
