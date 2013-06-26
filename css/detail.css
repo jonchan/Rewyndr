@@ -3,12 +3,12 @@ ul
 	list-style: none;
 }
 
-.adjectives li
+.detailed-adjectives li
 {
 	line-height: 50px;
 }
 
-.adjectives li:hover
+.detailed-adjectives li:hover
 {
 	text-decoration: underline;
 }
@@ -91,9 +91,15 @@ ul
 }
 
 
-.adjectives
+.detailed-adjectives
 {
+	height: 45px;
 	margin-top: -35px;
+}
+
+.detailed-adjectives li
+{
+	width: 450px;
 }
 
 .hidden
