@@ -115,6 +115,8 @@ $(document).ready(function()
 		});		
 	}
 
+	openModalWindow();
+
 });
 
 /********

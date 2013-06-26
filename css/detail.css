@@ -13,6 +13,33 @@ ul
 	text-decoration: underline;
 }
 
+#detailed-photo
+{
+	position: fixed;
+	top: 50px;
+	left: 100px;
+	z-index: 1;
+	padding: 20px;
+}
+
+#detailed-photo img
+{
+	display: block;
+	max-height: 600px;
+}
+
+#detailed-tags
+{
+	position: fixed;
+	top: 50px;
+	left: 600px;
+	z-index: 1;	
+	overflow-y: auto;
+	color: #ffffff;
+	height: 500px;
+	width: 400px;
+}
+
 .detailed-header
 {
 	font-size: 24px;
@@ -42,6 +69,12 @@ ul
 	margin-bottom: -20px;
 }
 
+.line hr 
+{
+	color: #000000;
+	border-color: #555555;
+}
+
 .user
 {
 	font-weight: bold;
@@ -61,4 +94,9 @@ ul
 .adjectives
 {
 	margin-top: -35px;
+}
+
+.hidden
+{
+	display: none;
 }
