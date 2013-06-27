@@ -1,6 +1,7 @@
 var PHOTO_CONTAINER_CLASS_NAME = ".photo-container";
 var PHOTO_CONTAINERS;
 var PHOTO_CONTAINER_IN_VIEW;
+var SOUND_OFF = false;
 
 /*****
 ** PhotoContainer
@@ -29,7 +30,7 @@ PhotoContainer.prototype.disable = function ()
 PhotoContainer.prototype.playSound = function () 
 {
 	var audio = $("audio", this.container).get(0);
-	if (audio)
+	if (audio && !SOUND_OFF)
 	{
 		$("audio", this.container).get(0).play();
 	}
@@ -126,12 +127,81 @@ $(document).ready(function()
 			});		
 		}
 
+	$("#audio-control a").click(function(e) {
+		e.preventDefault();
+
+		if ($(this).text().indexOf("off") != -1)
+		{
+			SOUND_OFF = true;
+			PHOTO_CONTAINER_IN_VIEW.fade();
+			$(this).text("Turn sound on");
+		}
+		else
+		{
+			SOUND_OFF = false;
+			PHOTO_CONTAINER_IN_VIEW.playSound();
+			$(this).text("Turn sound off");
+		}
+	})
+
+	$(".thoughts-form").hide();
+
+	$(".add-thoughts").click(function(){
+		$(this).hide();
+		$(this).next().show();
+	})
+
+	$(".btn-cancel").click(function() {
+		var $formContainer = $(this).parent().parent();
+		hideAddThoughtsForm($formContainer);
+	})
 
 	$(".photo").click(function(){
 		openModalWindow();
 	})
 
+	$(".btn-save").click(function() {
+		var $formContainer = $(this).parent().parent();
+
+		var status = $formContainer.find(".input-noun").text() + " " + $formContainer.find(".input-verb option:selected").text() + " " + $formContainer.find(".input-adjective").val();
+
+		var $recentData = $formContainer.parent().next().clone();
+		$recentData.after($("<div class='row-fluid line'><hr/> </div>"));
+		$recentData.find(".user").text("You");
+		$recentData.find(".time").text("Just Now");
+		$recentData.find(".content").text(status);
+		$recentData.find(".people-like-link").text("0 people liked this");
+
+		$formContainer.after($recentData);
+		hideAddThoughtsForm($formContainer);
+	})
+
+	$("#moment-header-content form").hide();
+
+	$("#moment-header-content a").click(function(){
+		$(this).hide();
+		var $form = $(this).next();
+		$form.find("input").val($(this).text());
+		$(this).next().show();
+	})
+
+	$("#moment-header-content button").click(function(){
+		var $form = $(this).parent();
+		var $title = $form.parent().find("a");
+		$form.hide();
+		var inputValue = $form.find("input").val();
+		$title.text(inputValue);
+		$title.show();
+		var $form = $(this).next();
+	})
+
 });
+
+function hideAddThoughtsForm($formContainer)
+{
+	$formContainer.hide();
+	$formContainer.prev().show();
+}
 
 /********
 ** TESTS

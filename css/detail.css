@@ -13,6 +13,11 @@ ul
 	text-decoration: underline;
 }
 
+.modal-tag
+{
+	margin-bottom: 20px;
+}
+
 #detailed-photo
 {
 	position: fixed;
@@ -105,4 +110,33 @@ ul
 .hidden
 {
 	display: none;
+}
+
+.add-thoughts
+{
+	margin-top: 4px;
+	width: 100%;
+}
+
+.input-noun
+{
+	font-size: 18px;
+}
+
+.thoughts-form
+{
+	width: 400px;
+	padding: 10px;
+	background-color: #00728c;
+	opacity: .9;
+}
+.button-wrapper
+{
+	margin-left: 250px;
+	margin-top: 5px;
+}
+
+.input-segment
+{
+	margin-right: 5px;
 }

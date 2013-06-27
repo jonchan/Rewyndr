@@ -29,16 +29,40 @@ body
 #moment-header
 {
 	background-color: #444;
-	height: 90px;
+	height: 70px;
 	margin-top: 15px;
-
+	margin-right: auto;
+	margin-left: auto;
+	padding: 15px;
 }
+
+#moment-header-content
+{
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+}
+
+#moment-header-content a
+{
+	font-size: 36px;
+}
+
+#moment-caption
+{
+	margin-right: auto;
+	margin-left: auto;
+	width: 50%;
+	color: #fff;
+}
+
 
 #photo-container
 {
-	padding-top: 100px;
 	z-index: 0;
 	padding-bottom: 800px;
+	margin-top: 200px;
+
 }
 
 ul
@@ -48,7 +72,7 @@ ul
 
 .photo-container
 {
-	margin-top: 120px;
+	margin-bottom: 30px;
 	padding: 0px;
 }
 
@@ -99,7 +123,6 @@ img
 {
 	border-color: #eee;
 }
-
 
 .adjectives
 {
