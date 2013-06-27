@@ -2,39 +2,39 @@ var jonLines = {};
 // basketball to apt shopping
 jonLines.line1 = {};
 jonLines.line1.x1 = 130;
-jonLines.line1.y1 = 330;
+jonLines.line1.y1 = 400;
 jonLines.line1.x2 = 420;
-jonLines.line1.y2 = 650;
+jonLines.line1.y2 = 630;
 // apt shopping to matt's house
 jonLines.line2 = {};
 jonLines.line2.x1 = 420;
-jonLines.line2.y1 = 650;
+jonLines.line2.y1 = 630;
 jonLines.line2.x2 = 420;
-jonLines.line2.y2 = 870;
+jonLines.line2.y2 = 920;
 // matt's house to grad
 jonLines.line3 = {};
 jonLines.line3.x1 = 412;
-jonLines.line3.y1 = 870;
-jonLines.line3.x2 = 122;
-jonLines.line3.y2 = 1150;
+jonLines.line3.y1 = 920;
+jonLines.line3.x2 = 128;
+jonLines.line3.y2 = 1202;
 // grad to beach bbq
 jonLines.line4 = {};
-jonLines.line4.x1 = 130;
-jonLines.line4.y1 = 1150;
+jonLines.line4.x1 = 122;
+jonLines.line4.y1 = 1152;
 jonLines.line4.x2 = 420;
-jonLines.line4.y2 = 1320;
+jonLines.line4.y2 = 1400;
 // beach bbq to dance
 jonLines.line5 = {};
 jonLines.line5.x1 = 420;
-jonLines.line5.y1 = 1320;
+jonLines.line5.y1 = 1400;
 jonLines.line5.x2 = 130;
-jonLines.line5.y2 = 1350;
+jonLines.line5.y2 = 1650;
 // dance to dorms
 jonLines.line6 = {};
 jonLines.line6.x1 = 130;
-jonLines.line6.y1 = 1350;
+jonLines.line6.y1 = 1650;
 jonLines.line6.x2 = 130;
-jonLines.line6.y2 = 1900;
+jonLines.line6.y2 = 2400;
 
 var samLines = {};
 // wedding to matt's house
@@ -42,31 +42,31 @@ samLines.line1 = {};
 samLines.line1.x1 = 724;
 samLines.line1.y1 = 200;
 samLines.line1.x2 = 420;
-samLines.line1.y2 = 870;
+samLines.line1.y2 = 750;
 // matt's house to grad
 samLines.line2 = {};
 samLines.line2.x1 = 420;
-samLines.line2.y1 = 870;
-samLines.line2.x2 = 130;
-samLines.line2.y2 = 1150;
+samLines.line2.y1 = 750;
+samLines.line2.x2 = 128;
+samLines.line2.y2 = 1202;
 // grad to nyc
 samLines.line3 = {};
-samLines.line3.x1 = 130;
-samLines.line3.y1 = 1150;
+samLines.line3.x1 = 128;
+samLines.line3.y1 = 1202;
 samLines.line3.x2 = 724;
-samLines.line3.y2 = 1400;
+samLines.line3.y2 = 1950;
 // nyc to halloween
 samLines.line4 = {};
 samLines.line4.x1 = 724;
-samLines.line4.y1 = 1400;
+samLines.line4.y1 = 1950;
 samLines.line4.x2 = 420;
-samLines.line4.y2 = 1600;
+samLines.line4.y2 = 2200;
 // halloween to dorms
 samLines.line5 = {};
 samLines.line5.x1 = 420;
-samLines.line5.y1 = 1600;
+samLines.line5.y1 = 2200;
 samLines.line5.x2 = 130;
-samLines.line5.y2 = 1900;
+samLines.line5.y2 = 2450;
 
 $(document).ready (function() {
   initializeLines();
