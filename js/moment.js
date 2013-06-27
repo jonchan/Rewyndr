@@ -126,12 +126,46 @@ $(document).ready(function()
 			});		
 		}
 
+	$(".thoughts-form").hide();
+
+	$(".add-thoughts").click(function(){
+		$(this).hide();
+		$(this).next().show();
+	})
+
+	$(".btn-cancel").click(function() {
+		var $formContainer = $(this).parent().parent();
+		hideAddThoughtsForm($formContainer);
+	})
 
 	$(".photo").click(function(){
 		openModalWindow();
 	})
 
+	$(".btn-save").click(function() {
+		var $formContainer = $(this).parent().parent();
+
+		var status = $formContainer.find(".input-noun").text() + " " + $formContainer.find(".input-verb option:selected").text() + " " + $formContainer.find(".input-adjective").val();
+
+		var $recentData = $formContainer.parent().next().clone();
+
+		$recentData.find(".user").text("You");
+		$recentData.find(".time").text("Just Now");
+		$recentData.find(".content").text(status);
+
+
+		$formContainer.after($recentData);
+		hideAddThoughtsForm($formContainer);
+
+	})
+
 });
+
+function hideAddThoughtsForm($formContainer)
+{
+	$formContainer.hide();
+	$formContainer.prev().show();
+}
 
 /********
 ** TESTS
