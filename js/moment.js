@@ -91,6 +91,7 @@ function initializePhotoContainerObjects()
 	return photoContainers;
 }
 
+
 $(document).ready(function() 
 {
 	PHOTO_CONTAINERS = initializePhotoContainerObjects();
@@ -112,8 +113,23 @@ $(document).ready(function()
 			directionOut: -1,
 			pause: 4000, 
 			transition: 200 
-		});		
+		});	
 	}
+
+		for (i=0; i<$(".detailed-adjectives").length; i++)
+		{
+			$($(".detailed-adjectives").get(i)).featurify({
+				directionIn : -1,
+				directionOut: -1,
+				pause: 4000, 
+				transition: 200 
+			});		
+		}
+
+
+	$(".photo").click(function(){
+		openModalWindow();
+	})
 
 });
 

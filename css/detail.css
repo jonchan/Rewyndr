@@ -1,0 +1,108 @@
+ul
+{
+	list-style: none;
+}
+
+.detailed-adjectives li
+{
+	line-height: 50px;
+}
+
+.detailed-adjectives li:hover
+{
+	text-decoration: underline;
+}
+
+#detailed-photo
+{
+	position: fixed;
+	top: 50px;
+	left: 100px;
+	z-index: 1;
+	padding: 20px;
+}
+
+#detailed-photo img
+{
+	display: block;
+	max-height: 600px;
+}
+
+#detailed-tags
+{
+	position: fixed;
+	top: 50px;
+	left: 600px;
+	z-index: 1;	
+	overflow-y: auto;
+	color: #ffffff;
+	height: 500px;
+	width: 400px;
+}
+
+.detailed-header
+{
+	font-size: 24px;
+}
+
+.accordian-inner  /* because twitter bootstrap is weird */
+{
+
+	font-size: 14px;
+}
+
+.detailed-tag
+{
+	padding: 40px;
+}
+
+
+.data-row
+{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.line
+{
+	margin-top: -20px;
+	margin-bottom: -20px;
+}
+
+.line hr 
+{
+	color: #000000;
+	border-color: #555555;
+}
+
+.user
+{
+	font-weight: bold;
+}
+
+.time
+{
+	color: #aaaaaa;
+}
+
+.profile-pic img
+{
+	width: 65px;
+}
+
+
+.detailed-adjectives
+{
+	height: 45px;
+	margin-top: -35px;
+}
+
+.detailed-adjectives li
+{
+	width: 450px;
+}
+
+.hidden
+{
+	display: none;
+}

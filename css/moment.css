@@ -1,13 +1,10 @@
 body
 {
-	background-color: #111111;
+	background-color: #fdfdfd;
 }
 
 #photo-container
 {
-	width: 70%;
-	margin-right: auto;
-	margin-left: auto;
 	padding-bottom: 800px;
 }
 
@@ -20,38 +17,24 @@ ul
 {
 	margin: 40px;
 	padding: 0px;
-	width: 100%;
+	width: 800px;
 }
 
-.tag-names
-{
-	padding-right: 100px;
-	padding: 20px;
-	width: 450px;
-	overflow: hidden;
-}
-
-.tag
-{
-	font-size: 14px;
-	line-height: 30px;
-	margin-left: 100px;
-}
-
-.adjectives
-{
-	margin-left: 100px;
-	margin-top: -24px;
-	font-weight: bold;
-}
-
-.adjectives:hover
+.photo:hover
 {
 	cursor: pointer;
 }
 
-.separator
+.tag-names
 {
+	margin-top: 20px;
+	font-size: 18px;
+	color: #eeeeee;
+}
+
+.tag
+{
+	line-height: 20px;
 }
 
 .photo-wrapper
@@ -68,7 +51,7 @@ img
 
 .enabled
 {
-	background-color: #fff;
+	background-color: #86d0e2;
 }
 
 .disabled .separator hr

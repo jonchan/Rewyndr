@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html lang>
+  <head>
+    <meta charset = "UTF-8" /> 
+    <title>Moments Page</title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://jquery-in-place-editor.googlecode.com/svn/trunk/lib/jquery.editinplace.js"></script>
+   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="578" height="1000"></canvas>
+
+    <a href="#" id="albumTitle">Album Title</a>
+    
+    <script>
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+      var imageObj = new Image();
+
+      var caption = document.getElementById('albumTitle');
+      caption.style.position = "absolute";
+      caption.style.left = 10;
+      caption.style.top = 10;
+
+      context.beginPath();
+      context.moveTo(80, 100);
+      context.lineTo(80, 1000);
+      context.stroke();
+
+      context.beginPath();
+      context.moveTo(50, 200);
+      context.lineTo(80, 200);
+      context.stroke();
+      context.font = "12px sans-serif";
+      context.fillText("date", 5, 205);
+      imageObj.onload = function() {
+        context.drawImage(imageObj, 90, 200, 150, 150)
+      };
+      imageObj.src = "basketball-1.jpg"
+
+      context.beginPath();
+      context.moveTo(50, 400);
+      context.lineTo(80, 400);
+      context.stroke();
+      context.font = "12px sans-serif";
+      context.fillText("date", 5, 405);
+
+      context.beginPath();
+      context.moveTo(50, 600);
+      context.lineTo(80, 600);
+      context.stroke();
+      context.font = "12px sans-serif";
+      context.fillText("date", 5, 605);
+
+      context.beginPath();
+      context.moveTo(50, 900);
+      context.lineTo(80, 900);
+      context.stroke();
+      context.font = "12px sans-serif";
+      context.fillText("date", 5, 905);
+
+      $(document).ready(function() {
+      $('#albumTitle').editInPlace({
+        callback: function(unused, enteredText) { return enteredText; },
+        show_buttons: true
+      });
+ });
+    </script>
+  </body>
+</html>
