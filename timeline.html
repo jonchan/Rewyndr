@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Alumni Timeline</title>
+    <title>My Alumni Timeline</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="css/timeline.css" rel="stylesheet" media="screen">
@@ -22,15 +22,15 @@
         <br><br><br>
         <p>Show People</p>
         <form id="people">
-          <input type="checkbox" name="Sam" value="sam">&nbsp;Sam<br>
-          <input type="checkbox" name="Jon" value="jon">&nbsp;Jon
+          <input type="checkbox" id="sam" name="sam">&nbsp;Sam<br>
+          <input type="checkbox" id="jon" name="jon">&nbsp;Jon
         </form>
       </div>
       <div id="timeline-axis">
         May 2013<br>Apr 2013<br>Mar 2013<br>Feb 2013<br>Jan 2013<br>Dec 2012<br>Nov 2012<br>Oct 2012<br>Sep 2012<br>Aug 2012<br>Jul 2012<br>Jun 2012<br>May 2012<br>Apr 2012<br>Mar 2012<br>Feb 2012<br>Jan 2012<br>Dec 2011<br>Nov 2011<br>Oct 2011<br>Sep 2011<br>Aug 2011<br>Jul 2011<br>Jun 2011<br>May 2011<br>Apr 2011<br>Mar 2011<br>Feb 2011<br>Jan 2011<br>Dec 2010<br>Nov 2010<br>Oct 2010
       </div>
       <div id="stage">
-        <div id="lines"></div>
+        
         <div id="swimlanes">
           <div class="swimlane">
             <div class="location">Berkeley</div>
@@ -42,22 +42,26 @@
             <div class="location">New York</div>
           </div>
         </div>
-
+        <div id="lines">
+        </div>
         <div id="basketball" class="moment">
           <div id="basketball1" class="photo"></div>
           <div class="moment-title">Basketball Game</div>
+          <div class="moment-hover">1 photo</div>
         </div>
         <div id="dance" class="moment">
           <div id="dance1" class="photo"></div>
           <div class="moment-title">Dance Showcase</div>
+          <div class="moment-hover">1 photo</div>
         </div>
-        <a href="moment-view.html">
+        <a href="index.html">
           <div id="graduation" class="moment">
             <div id="graduation1" class="photo"></div>
             <div id="graduation2" class="photo"></div>
             <div id="graduation3" class="photo"></div>
             <div id="graduation4" class="photo"></div>
             <div class="moment-title">Graduation</div>
+            <div class="moment-hover">4 photos</div>
           </div>
         </a>
         <div id="dorm" class="moment">
@@ -65,38 +69,45 @@
           <div id="dorm2" class="photo"></div>
           <div id="dorm3" class="photo"></div>
           <div class="moment-title">Dorms</div>
+          <div class="moment-hover">3 photos</div>
         </div>
         <div id="shopping" class="moment">
           <div id="shopping1" class="photo"></div>
           <div id="shopping2" class="photo"></div>
           <div id="shopping3" class="photo"></div>
           <div class="moment-title">Apartment shopping</div>
+          <div class="moment-hover">3 photos</div>
         </div>
         <div id="party" class="moment">
           <div id="party1" class="photo"></div>
           <div class="moment-title">Matt's House</div>
+          <div class="moment-hover">1 photo</div>
         </div>
         <div id="beach" class="moment">
           <div id="beach1" class="photo"></div>
           <div class="moment-title">Beach BBQ</div>
+          <div class="moment-hover">1 photo</div>
         </div>
         <div id="halloween" class="moment">
           <div id="halloween1" class="photo"></div>
           <div id="halloween2" class="photo"></div>
           <div id="halloween3" class="photo"></div>
           <div class="moment-title">Halloween 2006</div>
+          <div class="moment-hover">3 photos</div>
         </div>
         <div id="wedding" class="moment">
           <div id="wedding1" class="photo"></div>
           <div id="wedding2" class="photo"></div>
           <div id="wedding3" class="photo"></div>
           <div class="moment-title">Jen & Eric's Wedding</div>
+          <div class="moment-hover">3 photos</div>
         </div>
         <div id="trip-to-nyc" class="moment">
           <div id="trip-to-nyc1" class="photo"></div>
           <div id="trip-to-nyc2" class="photo"></div>
           <div id="trip-to-nyc3" class="photo"></div>
           <div class="moment-title">NYC Vacation</div>
+          <div class="moment-hover">3 photos</div>
         </div>
       </div>
     </div>
