@@ -1,0 +1,304 @@
+<html>
+<head> 
+  <meta charset="utf-8" />
+  <title>Canvas Filter Demo</title>
+
+  <body>
+
+  	<div id="image-space">
+	<canvas id="image-canvas" width=750px height=750px></canvas>
+	  
+     <button  id="viewTags" onclick="viewTags()">View Tags</button>
+     <button id="tagPhotos" onclick="tagPhoto()">Add Tags</button>
+
+<!--img id="photo1" src="mhci1.jpg" alt="Photo 1" -->
+
+
+<script type="text/javascript">
+	var image = new Image();
+	var taggerStarted;
+	image.src = "mhci1.jpg";
+    var canvas = document.getElementById("image-canvas");
+    var viewTagsButton = document.getElementById("viewTags");
+    viewTagsButton.style.position = "absolute";
+    viewTagsButton.style.left = 0;
+    viewTagsButton.style.top = 0;
+
+    var tagPhotosButton = document.getElementById("tagPhotos");
+    tagPhotosButton.style.position = "absolute";
+    tagPhotosButton.style.left = 80
+    tagPhotosButton.style.top = 0;
+    var context = canvas.getContext('2d');
+    var imageX = 10;
+    var imageY = 10;
+
+    image.onload = function() {
+       context.drawImage(image, imageX, imageY); // Draw image only after loading is finished
+    }
+
+
+
+function Box() {
+    this.x = 0;
+    this.y = 0;
+    this.w = 1; // default width and height?
+    this.h = 1;
+    this.fill = '#444444';
+    this.tag = "default tag";
+}
+ 
+// Methods on the Box class
+Box.prototype = {
+    draw: function(context, isFilled) {
+        context.fillStyle = this.fill;
+        context.strokeStyle =  '#444444';
+        // We can skip the drawing of elements that have moved off the screen:
+        //CHANGE
+       // if (this.x > WIDTH || this.y > HEIGHT)
+         //   return;
+        if (this.x + this.w < 0 || this.y + this.h < 0)
+            return;
+ 
+        if (isFilled) {
+
+            context.fillRect(this.x, this.y, this.w, this.h);
+        } else {
+            context.strokeRect(this.x,this.y,this.w,this.h);
+        }
+ 
+    } // end draw
+}
+ 
+ var boxes = new Array();
+
+//Initialize a new Box and add it
+function addRect(x, y, w, h, fill, tag) {
+    var rect = new Box;
+    rect.x = x;
+    rect.y = y;
+    rect.w = w
+    rect.h = h;
+    rect.fill = fill;
+    rect.tag = tag;
+   //rect.draw(context,  false);
+    boxes.push(rect);   // boxes is an array that holds all our current tags
+}
+
+
+
+ 
+/**
+ * Sets mx,my to the mouse position relative to the canvas
+ */
+function getMouse(e){
+    var element = canvas;
+    offsetX = 0;
+    offsetY = 0;
+ 
+    if (element.offsetParent){
+        do{
+            offsetX += element.offsetLeft;
+            offsetY += element.offsetTop;
+        }
+        while ((element = element.offsetParent));
+    }
+ 
+    // Add padding and border style widths to offset
+    offsetX += .5;
+    offsetY += .5;
+ 
+    offsetX +=  .5;
+    offsetY += .5;
+    console.log("inside getMouse");
+ 
+    mx = e.pageX - offsetX;
+    my = e.pageY - offsetY
+};
+ 
+// User started tagging
+taggerMouseDown = function(e){
+	console.log("inside taggerMouseDown");
+    getMouse(e);
+    taggerStarted = true;
+    rectX = mx;
+    rectY = my;
+};
+ 
+// Either user is moving mouse or drawing a box for tagging
+taggerMouseMove = function(e){
+
+ 
+    if (!taggerStarted){
+        return;
+    }
+ 
+    getMouse(e);
+ 
+    var x = Math.min(mx, rectX),
+        y = Math.min(my, rectY),
+        w = Math.abs(mx - rectX),
+        h = Math.abs(my - rectY);
+
+ 
+    mainDraw(x, y, w, h);       // This function draws the box at intermediate steps
+}
+ 
+// Tagging is completed
+taggerMouseUp = function(e){
+    getMouse(e);
+    if (taggerStarted){
+        var tag = prompt("Enter any tag");
+        if (tag != null && tag != "") {
+ 
+            var rectH = my - rectY;
+            var rectW = mx - rectX;
+ 
+            if ( rectH < 0) {
+                rectY = my;
+                rectH = -rectH;
+            }
+            if (rectW < 0) {
+                rectX = mx;
+                rectW = -rectW;
+            }
+ 
+            if (rectW == 0 || rectH == 0) {
+                alert("Error creating tag! Please specify non-zero height and width");
+            } else {
+            	console.log("inside creating a tag");
+                addRect (rectX, rectY, rectW, rectH, "#444444", tag);
+            }
+ 
+            // Clear the canvas and draw image on canvas
+            //context.clearRect(0, 0, canvas.width, canvas.height);
+            //context.drawImage(image, imageX, imageY);
+        }
+ 
+        taggerStarted = false;
+        taggerMouseMove(e);
+    }
+}
+ 
+function mainDraw(x, y, w, h) {
+     context.clearRect(0, 0, canvas.width, canvas.height);
+     context.drawImage(image, imageX, imageY);
+    //Draw background stuff here
+
+     
+    if (!w || !h){
+        return;
+    }
+ 
+    context.strokeRect(x, y, w, h);
+}
+
+
+
+annotatedMouseMove = function(e){
+    getMouse(e);
+ 
+    var backgroundDrew = false;
+ 
+    var l = boxes.length;
+    var i = 0;
+    var prevRectIndex = -2;
+    for (i = 0; i < l; i++) {
+        if (mx > boxes[i].x && mx < boxes[i].x+boxes[i].w &&  my > boxes[i].y && my < boxes[i].y+boxes[i].h) {
+            if (i != prevRectIndex) {
+                prevRectIndex = i;
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                context.drawImage(image, imageX, imageY)
+                //drawImage (context, image, resizeFactor);
+                boxes[i].draw(context, false);
+                //drawAllBoxes(false);
+ 
+                // Remove previously shown annotation (important when two annotations overlap)
+                if (annotation) {
+                    m_container.get()[0].removeChild(annotation);
+                    annotation = false;
+                }
+                if(annotationRemove) {
+                    m_container.get()[0].removeChild(annotationRemove);
+                    annotationRemove = false;
+                }
+ 
+                // Show annotation on mouse over
+                annotation = document.createElement("div");
+                annotation.style.position = 'absolute';
+                annotation.style.top = (offsetY + boxes[i].y) + "px";
+                annotation.style.left = offsetX + boxes[i].x + "px";
+                annotation.style.width = boxes[i].w + 'px';
+                annotation.style.lineHeight = boxes[i].h + 'px';
+                //annotation.style.background.
+                annotation.className += ' tagger-annotation';
+ 
+                annotation.innerHTML = boxes[i].tag;
+ 
+                annotationRemove = document.createElement("button");
+                annotationRemove.style.position = 'absolute';
+                annotationRemove.style.top = offsetY + boxes[i].y + "px";
+                annotationRemove.style.left = offsetX + boxes[i].x + boxes[i].w - 20 + "px";
+                annotationRemove.className += ' annotation';
+                annotationRemove.className += ' tagger-annotation-action-remove';
+ 
+                annotationRemove.onclick = function() {
+                    removeAnnotation(i);
+                };
+ 
+                document.getElementById("image-space").appendChild(annotation);
+                document.getElementById("image-space").appendChild(annotationRemove);
+            }
+ 
+            break;
+        }
+    }
+ 
+    if (i == l && prevRectIndex != -1) {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+
+        //drawImage (context, image, resizeFactor);
+        context.drawImage(image, imageX, imageY);
+        //drawAllBoxes(false);
+        prevRectIndex = -1;
+        if(annotation) {
+            document.getElementById("image-space").removeChild(annotation);
+            annotation = false;
+        }
+        if(annotationRemove) {
+            document.getElementById("image-space").removeChild(annotationRemove);
+            annotationRemove = false;
+        }
+    }
+}
+ 
+var removeAnnotation = function(i) {
+    boxes.splice(i,1);
+    canvasElem.mousemove();
+}
+
+function tagPhoto() { 
+
+canvas.onmousedown = taggerMouseDown;
+canvas.onmouseup = taggerMouseUp;
+canvas.onmousemove = taggerMouseMove;
+}; 
+
+//tagPhoto();
+
+  var annotation = false;
+   var annotationRemove = false;
+
+//viewTags();
+function viewTags(){
+   
+   canvas.onmousedown = null;
+   canvas.onmouseup = null;
+   canvas.onmousemove = annotatedMouseMove;
+}
+
+
+  </script>
+
+   </body>
+  	</head>
+</html>
