@@ -18,8 +18,8 @@ ul
 	position: fixed;
 	top: 50px;
 	left: 100px;
-	z-index: 1;
 	padding: 20px;
+	z-index: 3;
 }
 
 #detailed-photo img
@@ -33,11 +33,11 @@ ul
 	position: fixed;
 	top: 50px;
 	left: 600px;
-	z-index: 1;	
 	overflow-y: auto;
 	color: #ffffff;
 	height: 500px;
-	width: 400px;
+	width: 400px;	
+	z-index: 3;
 }
 
 .detailed-header
@@ -45,7 +45,7 @@ ul
 	font-size: 24px;
 }
 
-.accordian-inner  /* because twitter bootstrap is weird */
+.accordian-inner  
 {
 
 	font-size: 14px;
