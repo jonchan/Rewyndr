@@ -1,12 +1,12 @@
 body
 {
-  background-color: #111111;
+  background-color: #fdfdfd;
 }
 
 #header-color {
   width: 100%;
   height: 70px;
-  background-color: rgba(255,255,255,.1);
+  background-color: rgba(134,208,226,1);
 }
 
 #container {
@@ -20,7 +20,7 @@ body
 #header-text {
   display: block;
   height: 70px;
-  color: #cd6959;
+  color: #fdfdfd;
   font-size: 30px;
   line-height: 70px;
 }
@@ -34,7 +34,7 @@ body
   margin-top: 30px;
   padding-top: 70px;
   /*background-color: red;*/
-  color: white;
+  color: #555;
 }
 
 #granularity {
@@ -50,7 +50,7 @@ body
   margin-top: 180px;
   /*background-color: blue;*/
   text-align: right;
-  color: #BBB;
+  color: #555;
   line-height: 60px;
 }
 
@@ -70,7 +70,7 @@ body
   text-align: center;
   font-size: 18px;
   line-height: 38px;
-  color: #fff;
+  color: #555;
   /*background-color: green;*/
 }
 
@@ -79,7 +79,7 @@ body
   width: 850px;
   height: 2100px;
   margin-top: 30px;
-  margin-left: 10px;
+  margin-left: 20px;
   /*background-color: red;*/
 }
 
@@ -91,8 +91,8 @@ body
   /*background-color: green;*/
 }
 
-.swimlane:nth-child(2) {
-  background-color: rgba(25,25,25,1);
+.swimlane:nth-child(odd) {
+  background-color: rgba(134,208,226,.2);
 }
 
 #lines {
@@ -112,7 +112,7 @@ body
 
 .moment:hover {
   cursor: pointer;
-  box-shadow: 0px 0px 7px #fff;
+  box-shadow: 0px 0px 7px #21778c;
 }
 
 /* berkeley */
@@ -196,8 +196,10 @@ body
   top: 45%;
   width: 100%;
   height: auto;
-  background-color: rgba(10,10,10,.85);
-  color: white;
+  /*background-color: rgba(10,10,10,.85);
+  color: white;*/
+  background-color: rgba(255,255,255,.85);
+  color: #555;
   text-align: center;
   font-size: 18px;
 }
