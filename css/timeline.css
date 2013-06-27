@@ -1,0 +1,341 @@
+body
+{
+  background-color: #111111;
+}
+
+#header-color {
+  width: 100%;
+  height: 70px;
+  background-color: rgba(255,255,255,.1);
+}
+
+#container {
+  position: relative;
+  top: -70px;
+  width: 1140px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#header-text {
+  display: block;
+  height: 70px;
+  color: #cd6959;
+  font-size: 30px;
+  line-height: 70px;
+}
+
+#menus {
+  display: inline-block;
+  position: relative;
+  float: left;
+  width: 180px;
+  height: 2100px;
+  margin-top: 30px;
+  padding-top: 70px;
+  /*background-color: red;*/
+  color: white;
+}
+
+#granularity {
+  width: 100px;
+}
+
+#timeline-axis {
+  display: inline-block;
+  position: relative;
+  float: left;
+  width: 100px;
+  height: 600px;
+  margin-top: 180px;
+  /*background-color: blue;*/
+  text-align: right;
+  color: #BBB;
+  line-height: 60px;
+}
+
+#stage {
+  display: inline-block;
+  position: relative;
+  float: left;
+  width: 860px;
+  /*height: 100px;*/
+  /*background-color: blue; */
+}
+
+.location {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  line-height: 38px;
+  color: #fff;
+  /*background-color: green;*/
+}
+
+#swimlanes {
+  position: absolute;
+  width: 850px;
+  height: 2100px;
+  margin-top: 30px;
+  margin-left: 10px;
+  /*background-color: red;*/
+}
+
+.swimlane {
+  position: relative;
+  display: inline-block;
+  width: 33%;
+  height: 100%;
+  /*background-color: green;*/
+}
+
+.swimlane:nth-child(2) {
+  background-color: rgba(25,25,25,1);
+}
+
+#lines {
+  position: absolute;
+  width: 850px;
+  height: 2100px;
+  margin-top: 30px;
+  margin-left: 10px;
+  /*background-color: red;*/
+}
+
+.moment {
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.moment:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 7px #fff;
+}
+
+/* berkeley */
+#basketball {
+  width: 100px;
+  height: 100px;
+  left: 100px;
+  top: 280px;
+}
+#graduation {
+  width: 200px;
+  height: 200px;
+  left: 50px;
+  top: 1100px;
+}
+#dance {
+  width: 100px;
+  height: 100px;
+  left: 100px;
+  top: 1340px;
+}
+#dorm {
+  width: 200px;
+  height: 200px;
+  left: 50px;
+  top: 1800px;
+}
+/* sf */
+#shopping {
+  width: 200px;
+  height: 200px;
+  left: 335px;
+  top: 550px;
+}
+#party {
+  width: 100px;
+  height: 100px;
+  left: 385px;
+  top: 820px;
+}
+#beach {
+  width: 100px;
+  height: 100px;
+  left: 385px;
+  top: 1300px;
+}
+#halloween {
+  width: 200px;
+  height: 200px;
+  left: 335px;
+  top: 1500px;
+}
+/* nyc */
+#wedding {
+  width: 200px;
+  height: 200px;
+  left: 624px;
+  top: 100px;
+}
+#trip-to-nyc {
+  width: 200px;
+  height: 200px;
+  left: 624px;
+  top: 1300px;
+}
+
+.photo {
+  display: inline-block;
+  position: relative;
+  float: left;
+  background: #111 url("../img/alumni/graduation-1.jpg") no-repeat 50% 50%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.moment-title {
+  position: absolute;
+  left: 0;
+  top: 45%;
+  width: 100%;
+  height: auto;
+  background-color: rgba(10,10,10,.85);
+  color: white;
+  text-align: center;
+  font-size: 18px;
+}
+
+#graduation1 {
+  width: 50%;
+  height: 50%;
+  background-image: url("../img/alumni/graduation-1.jpg");
+}
+
+#graduation2 {
+  width: 50%;
+  height: 50%;
+  background-image: url("../img/alumni/graduation-2.jpg");
+}
+
+#graduation3 {
+  width: 50%;
+  height: 50%;
+  background-image: url("../img/alumni/graduation-3.jpg");
+}
+
+#graduation4 {
+  width: 50%;
+  height: 50%;
+  background-image: url("../img/alumni/graduation-4.jpg");
+}
+
+#dorm1 {
+  width: 100%;
+  height: 50%;
+  background-image: url("../img/alumni/dorm-1.jpg");
+}
+
+#dorm2 {
+  width: 50%;
+  height: 50%;
+  background-image: url("../img/alumni/dorm-2.jpg");
+}
+
+#dorm3 {
+  width: 50%;
+  height: 50%;
+  background-image: url("../img/alumni/dorm-3.jpg");
+}
+
+#dance1 {
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/alumni/dancing-1.jpg");
+}
+
+#basketball1 {
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/alumni/basketball-1.jpg");
+}
+
+#shopping1 {
+  width: 100%;
+  height: 50%;
+  background-image: url("../img/alumni/shopping-1.jpg");
+}
+
+#shopping2 {
+  width: 50%;
+  height: 50%;
+  background-image: url("../img/alumni/shopping-2.jpg");
+}
+
+#shopping3 {
+  width: 50%;
+  height: 50%;
+  background-image: url("../img/alumni/shopping-3.jpg");
+}
+
+#party1 {
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/alumni/party-1.jpg");
+}
+
+#beach1 {
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/alumni/beach-1.jpg");
+}
+
+#halloween1 {
+  width: 100%;
+  height: 50%;
+  background-image: url("../img/alumni/halloween.jpg");
+}
+
+#halloween2 {
+  width: 50%;
+  height: 50%;
+  background-image: url("../img/alumni/halloween-2.jpg");
+}
+
+#halloween3 {
+  width: 50%;
+  height: 50%;
+  background-image: url("../img/alumni/halloween-3.jpg");
+}
+
+#wedding1 {
+  width: 100%;
+  height: 50%;
+  background-image: url("../img/alumni/wedding-1.jpg");
+}
+
+#wedding2 {
+  width: 50%;
+  height: 50%;
+  background-image: url("../img/alumni/wedding-2.jpg");
+}
+
+#wedding3 {
+  width: 50%;
+  height: 50%;
+  background-image: url("../img/alumni/wedding-4.jpg");
+}
+
+#trip-to-nyc1 {
+  width: 100%;
+  height: 50%;
+  background-image: url("../img/alumni/trip-to-nyc.jpg");
+}
+
+#trip-to-nyc2 {
+  width: 50%;
+  height: 50%;
+  background-image: url("../img/alumni/trip-to-nyc-1.jpg");
+}
+
+#trip-to-nyc3 {
+  width: 50%;
+  height: 50%;
+  background-image: url("../img/alumni/trip-to-nyc-2.jpg");
+}
