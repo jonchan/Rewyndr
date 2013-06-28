@@ -41,14 +41,6 @@ PhotoContainer.prototype.fade = function ()
 	var audio = $("audio", this.container);
 	if (audio.get(0))
 	{
-		/*
-		audio.animate(
-			{
-				volume: 0
-			}, 
-			1000
-		);
-*/
 		audio.get(0).pause();
 
 	}
@@ -195,6 +187,8 @@ $(document).ready(function()
 		var $form = $(this).next();
 	})
 
+	momentTimeline.draw();
+
 });
 
 function hideAddThoughtsForm($formContainer)
@@ -203,10 +197,3 @@ function hideAddThoughtsForm($formContainer)
 	$formContainer.prev().show();
 }
 
-/********
-** TESTS
-*********/
-
-function testIsElementInView() {
-
-}

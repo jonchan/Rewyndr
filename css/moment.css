@@ -68,6 +68,7 @@ body
 ul
 {
 	list-style: none;
+	margin: 0px;
 }
 
 .photo-container
@@ -92,6 +93,7 @@ ul
 {
 	line-height: 20px;
 }
+
 
 .photo-wrapper
 {
