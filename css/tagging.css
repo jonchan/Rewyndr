@@ -1,0 +1,12 @@
+#image-canvas
+{
+	z-index: 100;
+	position: absolute;
+	height: 600px;
+	width: 477px;
+}
+
+#tag-photo
+{
+	margin-top: 700px;
+}
