@@ -30,7 +30,7 @@ body
   position: relative;
   float: left;
   width: 180px;
-  height: 2600px;
+  height: 1900px;
   margin-top: 30px;
   padding-top: 70px;
   /*background-color: red;*/
@@ -77,9 +77,9 @@ body
 #swimlanes, #lines {
   position: absolute;
   width: 850px;
-  height: 2600px;
+  height: 1900px;
   margin-top: 30px;
-  margin-left: 20px;
+  margin-left: 12px;
   /*background-color: red;*/
 }
 
@@ -103,11 +103,11 @@ div.line {
   height: 5px;  /*Line width of 3 */
 }
 
-div.line-jon {
+div.line-kpop {
   background: rgba(134,208,226,1);
 }
 
-div.line-sam {
+div.line-addy {
   background: rgba(140,100,255,1);
 }
 
@@ -129,12 +129,17 @@ div.line-sam {
   box-shadow: 0px 0px 7px #21778c;
 }
 
-/* berkeley */
-#basketball {
-  width: 100px;
-  height: 100px;
-  left: 100px;
-  top: 400px;
+#chachabday {
+  width: 200px;
+  height: 200px;
+  left: 50px;
+  top: 1600px;
+}
+#springbreak {
+  width: 200px;
+  height: 200px;
+  left: 624px;
+  top: 1350px;
 }
 #graduation {
   width: 200px;
@@ -142,55 +147,29 @@ div.line-sam {
   left: 50px;
   top: 1100px;
 }
-#dance {
-  width: 100px;
-  height: 100px;
-  left: 100px;
-  top: 1650px;
+#santacon {
+  width: 200px;
+  height: 200px;
+  left: 335px;
+  top: 850px;
 }
-#dorm {
+#carnival {
   width: 200px;
   height: 200px;
   left: 50px;
-  top: 2350px;
-}
-/* sf */
-#shopping {
-  width: 200px;
-  height: 200px;
-  left: 335px;
   top: 600px;
 }
-#party {
-  width: 100px;
-  height: 100px;
-  left: 385px;
-  top: 900px;
-}
-#beach {
-  width: 100px;
-  height: 100px;
-  left: 385px;
-  top: 1400px;
-}
 #halloween {
+  width: 100px;
+  height: 100px;
+  left: 385px;
+  top: 400px;
+}
+#birthdays{
   width: 200px;
   height: 200px;
   left: 335px;
-  top: 2100px;
-}
-/* nyc */
-#wedding {
-  width: 200px;
-  height: 200px;
-  left: 624px;
   top: 100px;
-}
-#trip-to-nyc {
-  width: 200px;
-  height: 200px;
-  left: 624px;
-  top: 1850px;
 }
 
 .photo {
@@ -236,140 +215,124 @@ div.line-sam {
   -webkit-transition: opacity .25s ease-in-out;
 }
 
+#chachabday1 {
+  width: 100%;
+  height: 50%;
+  background-image: url("../img/nyc-alumni/chachabday-1.jpg");
+}
+#chachabday2 {
+  width: 50%;
+  height: 50%;
+  background-image: url("../img/nyc-alumni/chachabday-2.jpg");
+}
+#chachabday3 {
+  width: 50%;
+  height: 50%;
+  background-image: url("../img/nyc-alumni/chachabday-3.jpg");
+}
+
+#springbreak1 {
+  width: 50%;
+  height: 50%;
+  background-image: url("../img/nyc-alumni/springbreak-1.jpg");
+}
+#springbreak2 {
+  width: 50%;
+  height: 50%;
+  background-image: url("../img/nyc-alumni/springbreak-30.jpg");
+}
+#springbreak3 {
+  width: 50%;
+  height: 50%;
+  background-image: url("../img/nyc-alumni/springbreak-3.jpg");
+}
+#springbreak4 {
+  width: 50%;
+  height: 50%;
+  background-image: url("../img/nyc-alumni/springbreak-10.jpg");
+}
+
 #graduation1 {
   width: 50%;
   height: 50%;
-  background-image: url("../img/alumni/graduation-1.jpg");
+  background-image: url("../img/nyc-alumni/graduation-1.jpg");
 }
-
 #graduation2 {
   width: 50%;
   height: 50%;
-  background-image: url("../img/alumni/graduation-2.jpg");
+  background-image: url("../img/nyc-alumni/graduation-16.jpg");
 }
-
 #graduation3 {
   width: 50%;
   height: 50%;
-  background-image: url("../img/alumni/graduation-3.jpg");
+  background-image: url("../img/nyc-alumni/graduation-8.jpg");
 }
-
 #graduation4 {
   width: 50%;
   height: 50%;
-  background-image: url("../img/alumni/graduation-4.jpg");
+  background-image: url("../img/nyc-alumni/graduation-18.jpg");
 }
 
-#dorm1 {
+#santacon1 {
   width: 100%;
   height: 50%;
-  background-image: url("../img/alumni/dorm-1.jpg");
+  background-image: url("../img/nyc-alumni/santacon-1.jpg");
 }
-
-#dorm2 {
+#santacon2 {
   width: 50%;
   height: 50%;
-  background-image: url("../img/alumni/dorm-2.jpg");
+  background-image: url("../img/nyc-alumni/santacon-2.jpg");
 }
-
-#dorm3 {
+#santacon3 {
   width: 50%;
   height: 50%;
-  background-image: url("../img/alumni/dorm-3.jpg");
+  background-image: url("../img/nyc-alumni/santacon-3.jpg");
 }
 
-#dance1 {
-  width: 100%;
-  height: 100%;
-  background-image: url("../img/alumni/dancing-1.jpg");
-}
-
-#basketball1 {
-  width: 100%;
-  height: 100%;
-  background-image: url("../img/alumni/basketball-1.jpg");
-}
-
-#shopping1 {
-  width: 100%;
-  height: 50%;
-  background-image: url("../img/alumni/shopping-1.jpg");
-}
-
-#shopping2 {
+#carnival1 {
   width: 50%;
   height: 50%;
-  background-image: url("../img/alumni/shopping-2.jpg");
+  background-image: url("../img/nyc-alumni/carnival-1.jpg");
 }
-
-#shopping3 {
+#carnival2 {
   width: 50%;
   height: 50%;
-  background-image: url("../img/alumni/shopping-3.jpg");
+  background-image: url("../img/nyc-alumni/carnival-2.jpg");
 }
-
-#party1 {
-  width: 100%;
-  height: 100%;
-  background-image: url("../img/alumni/party-1.jpg");
+#carnival3 {
+  width: 50%;
+  height: 50%;
+  background-image: url("../img/nyc-alumni/carnival-3.jpg");
 }
-
-#beach1 {
-  width: 100%;
-  height: 100%;
-  background-image: url("../img/alumni/beach-1.jpg");
+#carnival4 {
+  width: 50%;
+  height: 50%;
+  background-image: url("../img/nyc-alumni/carnival-5.jpg");
 }
 
 #halloween1 {
   width: 100%;
-  height: 50%;
-  background-image: url("../img/alumni/halloween.jpg");
+  height: 100%;
+  background-image: url("../img/nyc-alumni/halloween-1.jpg");
 }
 
-#halloween2 {
+#birthdays1 {
   width: 50%;
   height: 50%;
-  background-image: url("../img/alumni/halloween-2.jpg");
+  background-image: url("../img/nyc-alumni/birthdays-2.jpg");
 }
-
-#halloween3 {
+#birthdays2 {
   width: 50%;
   height: 50%;
-  background-image: url("../img/alumni/halloween-3.jpg");
+  background-image: url("../img/nyc-alumni/birthdays-3.jpg");
 }
-
-#wedding1 {
-  width: 100%;
-  height: 50%;
-  background-image: url("../img/alumni/wedding-1.jpg");
-}
-
-#wedding2 {
+#birthdays3 {
   width: 50%;
   height: 50%;
-  background-image: url("../img/alumni/wedding-2.jpg");
+  background-image: url("../img/nyc-alumni/birthdays-4.jpg");
 }
-
-#wedding3 {
+#birthdays4 {
   width: 50%;
   height: 50%;
-  background-image: url("../img/alumni/wedding-4.jpg");
-}
-
-#trip-to-nyc1 {
-  width: 100%;
-  height: 50%;
-  background-image: url("../img/alumni/trip-to-nyc.jpg");
-}
-
-#trip-to-nyc2 {
-  width: 50%;
-  height: 50%;
-  background-image: url("../img/alumni/trip-to-nyc-1.jpg");
-}
-
-#trip-to-nyc3 {
-  width: 50%;
-  height: 50%;
-  background-image: url("../img/alumni/trip-to-nyc-2.jpg");
+  background-image: url("../img/nyc-alumni/birthdays-6.jpg");
 }
