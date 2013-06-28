@@ -8,6 +8,7 @@
   <link href="css/detail.css" rel="stylesheet" media="screen">
   <link href="css/moment.css" rel="stylesheet" media="screen">
   <link href="css/moment-timeline.css" rel="stylesheet" media="screen">
+  <link href="css/tagging.css" rel="stylesheet" media="screen">
 
 </head>
 
@@ -123,7 +124,12 @@
         <!--- MODAL WINDOW -->
 
         <div id="detailed-photo" class="hidden" >
-          <img src="img/casa/1.jpg"> </img>
+          <div id="detailed-photo-wrapper">
+            <img src="img/casa/1.jpg"> </img>
+          </div>
+        <canvas id="image-canvas" style="z-index: 100;"></canvas>
+        <button id="tag-photo" class="btn" > Tag Photo </button>
+
         </div>
 
         <div id="detailed-tags" class="container-fluid hidden detailed-tag">
@@ -383,6 +389,7 @@
 <script src="js/featurify.min.js"></script>
 <script src="js/modal.js"></script>
 <script src="js/moment-timeline.js"></script>
+<script src="js/tagging.js"></script>
 <script src="js/moment.js"></script>
 </body>
 </html>
