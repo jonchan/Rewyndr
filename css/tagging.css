@@ -2,11 +2,38 @@
 {
 	z-index: 100;
 	position: absolute;
-	height: 600px;
-	width: 477px;
+	max-width: 500px !important;
+	max-height: 500px !important;
 }
 
-#tag-photo
+.passive-tag
 {
-	margin-top: 700px;
+	opacity: .5;
+	cursor: pointer;
+}
+
+#live-tag-entry
+{
+	background-color: #fdfdfd;
+	padding: 5px;
+}
+
+#activeTag form
+{
+	margin-left: 15px;
+}
+
+#live-tag-entry 
+{
+	float: right;
+}
+
+#live-tag-entry .button-wrapper
+{
+	margin-left: 300px;
+}
+
+#live-tag-entry .input-noun
+{
+	font-size: inherit;
 }

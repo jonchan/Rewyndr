@@ -32,7 +32,6 @@ function createModalBackground()
 		closeModalWindow();
 	})
 
-	console.log($background);
 }
 
 function destroyModalBackground()
@@ -51,6 +50,8 @@ function openModalWindow()
 
 function closeModalWindow()
 {
+	tagging.leaveTaggingState();
+	tagging.hideAllPassiveTags();
 	$("#detailed-photo").addClass("hidden");
 	$("#detailed-tags").addClass("hidden");
 	destroyModalBackground();

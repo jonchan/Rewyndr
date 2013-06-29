@@ -28,6 +28,9 @@
 
             this.createDate(context, 1, 'March 1, 2013');
             this.createDate(context, 3, 'March 2, 2013');
+            this.createDate(context, 5, 'March 3, 2013');
+            this.createDate(context, 7, 'March 4, 2013');
+
             // dates
 /*
             context.beginPath();

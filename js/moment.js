@@ -52,7 +52,7 @@ PhotoContainer.prototype.isElementInView = function()
 	var topOfWindow = $(window).scrollTop();
 	var bottomOfWindow = bottomOfWindow + $(window).height();
 
-	var topOfElement = this.container.offset().top;
+	var topOfElement = this.container.offset().top - 150;
 	var bottomOfElement = topOfElement + this.container.height();
 	return topOfElement >= topOfWindow && bottomOfElement <= bottomOfElement;
 }
@@ -84,6 +84,39 @@ function initializePhotoContainerObjects()
 	return photoContainers;
 }
 
+function initializeAddThoughtForms()
+{
+
+	$(".add-thoughts").click(function(){
+		$(this).hide();
+		$(this).next().show();
+	})
+
+	$(".btn-cancel").click(function() {
+		var $formContainer = $(this).parent().parent();
+		hideAddThoughtsForm($formContainer);
+	})
+
+	$(".photo").click(function(){
+		openModalWindow();
+	})
+
+	$(".btn-save").click(function() {
+		var $formContainer = $(this).parent().parent();
+
+		var status = $formContainer.find(".input-noun").text() + " " + $formContainer.find(".input-verb option:selected").text() + " " + $formContainer.find(".input-adjective").val();
+
+		var $recentData = $formContainer.parent().next().clone();
+		$recentData.after($("<div class='row-fluid line'><hr/> </div>"));
+		$recentData.find(".user").text("You");
+		$recentData.find(".time").text("Just Now");
+		$recentData.find(".content").text(status);
+		$recentData.find(".people-like-link").text("0 people liked this");
+
+		$formContainer.after($recentData);
+		hideAddThoughtsForm($formContainer);
+	})
+}
 
 $(document).ready(function() 
 {
@@ -138,35 +171,7 @@ $(document).ready(function()
 
 	$(".thoughts-form").hide();
 
-	$(".add-thoughts").click(function(){
-		$(this).hide();
-		$(this).next().show();
-	})
-
-	$(".btn-cancel").click(function() {
-		var $formContainer = $(this).parent().parent();
-		hideAddThoughtsForm($formContainer);
-	})
-
-	$(".photo").click(function(){
-		openModalWindow();
-	})
-
-	$(".btn-save").click(function() {
-		var $formContainer = $(this).parent().parent();
-
-		var status = $formContainer.find(".input-noun").text() + " " + $formContainer.find(".input-verb option:selected").text() + " " + $formContainer.find(".input-adjective").val();
-
-		var $recentData = $formContainer.parent().next().clone();
-		$recentData.after($("<div class='row-fluid line'><hr/> </div>"));
-		$recentData.find(".user").text("You");
-		$recentData.find(".time").text("Just Now");
-		$recentData.find(".content").text(status);
-		$recentData.find(".people-like-link").text("0 people liked this");
-
-		$formContainer.after($recentData);
-		hideAddThoughtsForm($formContainer);
-	})
+	initializeAddThoughtForms();
 
 	$("#moment-header-content form").hide();
 
@@ -188,6 +193,7 @@ $(document).ready(function()
 	})
 
 	momentTimeline.draw();
+	tagging.initialize();
 
 });
 

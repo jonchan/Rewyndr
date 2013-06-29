@@ -84,6 +84,7 @@ taggerMouseDown = function(e){
 	console.log("inside taggerMouseDown");
     getMouse(e);
     taggerStarted = true;
+
     rectX = mx;
     rectY = my;
 };
@@ -240,11 +241,15 @@ var removeAnnotation = function(i) {
     canvasElem.mousemove();
 }
 
-function tagPhoto() { 
+function createTag()
+{
 
-canvas.onmousedown = taggerMouseDown;
-canvas.onmouseup = taggerMouseUp;
-canvas.onmousemove = taggerMouseMove;
+}
+
+function tagPhoto() { 
+    canvas.onmousedown = createTag;
+    canvas.onmouseup = taggerMouseUp;
+    canvas.onmousemove = taggerMouseMove;
 }; 
 
 //tagPhoto();
@@ -258,6 +263,29 @@ function viewTags(){
    canvas.onmousedown = null;
    canvas.onmouseup = null;
    canvas.onmousemove = annotatedMouseMove;
+}
+
+function getMousePos(canvas, evt) {
+    var rect = canvas.getBoundingClientRect();
+    return {
+        x: evt.clientX - rect.left,
+        y: evt.clientY - rect.top
+    };
+}
+
+function drawTag(canvas, centerX, centerY)
+{
+
+      context.beginPath();
+      console.log(centerX-25);
+      console.log(centerX);
+
+      context.rect(centerX, centerY, 50, 50);
+
+
+      context.lineWidth = 4;
+      context.strokeStyle = '#fff';
+      context.stroke();
 }
 
 var taggerStarted;
@@ -274,15 +302,26 @@ $(document).ready(function()
 {
     $("#detailed-photo img").hide();
     image.src = $("#detailed-photo img").attr("src");
+    image = $("#detailed-photo img").get(0);
     var imageX = 10;
     var imageY = 10;
 
-    image.onload = function() {
-       context.drawImage(image, 10, 10, 277, 320); // Draw image only after loading is finished
-    }
+    $("#image-canvas").attr("width", image.width);
+    $("#image-canvas").attr("height", image.height);
 
+    context.drawImage(image, 10, 10); // Draw image only after loading is finished
 
     $("#tag-photo").click(function() {
-        tagPhoto();
+        $("#image-canvas").css("cursor", "crosshair");
+
+        canvas.addEventListener('mousedown', function(evt) {
+            var mousePos = getMousePos(canvas, evt);
+            var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
+            console.log(message);
+            drawTag(canvas, mousePos.x, mousePos.y);
+        }, false);
     });
+
+
+
 });

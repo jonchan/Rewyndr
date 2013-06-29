@@ -45,7 +45,7 @@ body
 
 #moment-header-content a
 {
-	font-size: 36px;
+	font-size: 24px;
 }
 
 #moment-caption
@@ -89,11 +89,6 @@ ul
 	color: #eeeeee;
 }
 
-.tag
-{
-	line-height: 20px;
-}
-
 
 .photo-wrapper
 {
@@ -108,12 +103,12 @@ img
 
 .enabled
 {
-	background-color: #e28f8a;
+	background-color: #555;
 }
 
 .disabled
 {
-	background-color: #e2cdcc
+	background-color: #ccc
 }
 
 .disabled .separator hr
