@@ -1,133 +1,126 @@
-body
+
+
+#header
 {
-	background-color: #fdfdfd;
-}
-
-#top-container
-{
-	position: fixed;
-	background-color: #fdfdfd;
-	z-index: 1;
-	width: 100%;
-}
-
-#header-color {
-  width: 100%;
-  height: 70px;
-  background-color: rgba(134,208,226,1);
-}
-
-
-#header-text {
-	display: block;
-	height: 70px;
-	color: #fdfdfd;
-	font-size: 30px;
-	line-height: 70px;
-}
-
-#moment-header
-{
-	background-color: #444;
-	height: 70px;
-	margin-top: 15px;
-	margin-right: auto;
-	margin-left: auto;
-	padding: 15px;
-}
-
-#moment-header-content
-{
-	margin-right: auto;
-	margin-left: auto;
-	text-align: center;
-}
-
-#moment-header-content a
-{
-	font-size: 24px;
-}
-
-#moment-caption
-{
-	margin-right: auto;
-	margin-left: auto;
-	width: 50%;
+	height: 100px;
 	color: #fff;
 }
 
-
-#photo-container
+#header a
 {
-	z-index: 0;
-	padding-bottom: 800px;
-	margin-top: 200px;
+	color: #fff;
+}
+
+#header .moment-name
+{
+	font-size: 28px;
+	margin-top: 5px;
+}
+
+#photos
+{
+	position: fixed;
+	width: 5000px;
+	overflow-x: hidden;
+	-webkit-transform: translate3d(-800px,0px,0px);
+	-webkit-transition-duration : .5s;
+}
+
+.photo-background
+{
+	float: left;
+	height: 500px;
+	width: 900px;	
+	margin-right: 50px;
+	background-color: #000;
+}
+
+.photo-background-filler
+{
+	float: left;
+	height: 500px;
+	width: 900px;
+	margin-right: 50px;
+}
+
+.photo-background .button
+{
+	margin-top: -35px;
+	margin-left: 30px;
+	position: absolute;
 
 }
 
-ul
+.photo
 {
-	list-style: none;
-	margin: 0px;
+	min-height: 100%;
+	vertical-align: middle;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-.photo-container
-{
-	margin-bottom: 30px;
-	padding: 0px;
-}
-
-.photo:hover
+.nextPhoto:hover,
+.prevPhoto:hover
 {
 	cursor: pointer;
 }
 
-.tag-names
+.taggable
 {
-	margin-top: 20px;
-	font-size: 18px;
-	color: #eeeeee;
+	cursor: crosshair;
 }
 
-
-.photo-wrapper
+.active-tag
 {
-	width: 40%;
+	border-style: solid;
+	border-width: 3px;
+	border-color: #fff;
+	width: 100px;
+	height: 100px;
 }
 
-
-img
+#active-tag .tag-input
 {
-	width: 100%;
+	margin-top: 5px;
 }
 
-.enabled
+.tag-wrapper
 {
-	background-color: #555;
+	position: absolute;
 }
 
-.disabled
+.tag
 {
-	background-color: #ccc
+	border-style: solid;
+	border-width: 1px;
+	border-color: #fff;
+	width: 100px;
+	height: 100px;
 }
 
-.disabled .separator hr
+.tag-wrapper:hover .tag
 {
-	border-color: #fdfdfd;
+	border-style: solid;
+	border-color: #ff2d00;
+	border-width: 2px;
+	cursor: pointer;
 }
 
-.enabled .separator hr
+.tag-content
 {
-	border-color: #eee;
+	display: none;
+	width: 100px;
+	margin-top: 5px;
+	padding: 2px;
 }
 
-.adjectives
+.tag-wrapper:hover .tag-content
 {
-	z-index: 0 !important;
-	width: 100%;
-}
-
-.adjectives li
-{
-	z-index: 0 !important;
+	display: block;
+	color: #fff;
+	background-color: #000;
+	border-width: 2px;
+	border-color: #ff2d00;
+	border-style: solid;
 }

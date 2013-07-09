@@ -2,16 +2,19 @@
 
       createDate : function(context, index, date)
       {
-            var length = 20;
+            var length = 40;
             var dateGap = 150;
             var yvalue = (dateGap*index);
 
             context.beginPath();
-            context.moveTo(80, yvalue);
-            context.lineTo(80 + length, yvalue);
+            context.lineWidth = 10;
+            context.moveTo(60, yvalue);
+            context.lineTo(60 + length, yvalue);
             context.stroke();
-            context.font = "12px sans-serif";
-            context.fillText(date, 105, yvalue + 5);
+            context.strokeStyle = "#444";
+            context.font = "18px sans-serif";
+            context.fillStyle = "#444";
+            context.fillText(date, 115, yvalue + 5);
       },
 
       draw : function ()
@@ -22,14 +25,16 @@
 
             // Timeline
             context.beginPath();
-            context.moveTo(80, 000);
-            context.lineTo(80, 1000);
+            context.moveTo(60, 000);
+            context.lineTo(60, 1300);
+            context.lineWidth = 10;
+            context.strokeStyle = "#444";
             context.stroke();
 
-            this.createDate(context, 1, 'March 1, 2013');
-            this.createDate(context, 3, 'March 2, 2013');
-            this.createDate(context, 5, 'March 3, 2013');
-            this.createDate(context, 7, 'March 4, 2013');
+            this.createDate(context, 1, 'March 1');
+            this.createDate(context, 3, 'March 2');
+            this.createDate(context, 5, 'March 3');
+            this.createDate(context, 8, 'March 4');
 
             // dates
 /*

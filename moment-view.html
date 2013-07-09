@@ -34,12 +34,11 @@
         <a href="#"> Turn sound off </a>
       </div>
     </div>
-
   </div>
-  <div class="container row">
+  <div id="content-pane" class="container row">
     <div class="span3">
       <div id="moment-timeline-wrapper">
-          <canvas id="moment-timeline" width="200" height="1000"></canvas>
+          <canvas id="moment-timeline" width="200" height="2000"></canvas>
       </div>
     </div>
     <div class="span8">
@@ -116,7 +115,7 @@
             </div>             
           </div>
           <audio > 
-            <source src="audio/char.mp3"> 
+            <source src="audio/beach.mp3"> 
             </audio>
           </div>
 
@@ -130,11 +129,11 @@
               <div class="span3">
                 Kpop 
               </div>
-              <div class="adjectives span9" style="margin-left: -40px">
+              <div class="adjectives span9" style="margin-left: -48px">
                 <ul >
                   <li class="adjective"> is lost</li>
                   <li class="adjective"> is looking sexyyyy </li>
-                  <li class="adjective"> is hungry and might just eat Bothra up</li>
+                  <li class="adjective"> is hungry </li>
                 </ul>
               </div>
             </div>
@@ -156,13 +155,53 @@
             </div>             
         </div>
           <audio > 
-            <source src="audio/.mp3"> 
+            <source src="audio/char.mp3"> 
             </audio>
           </div>
 
        <div class="photo-container row-fluid disabled" id="photo-container-1">
           <div class="span4 photo-wrapper">
             <img class="photo" src="img/nyc-alumni/springbreak-10.jpg"> </img>
+          </div>
+          <div class="tag-names span8" >
+            <div class="row-fluid tag">
+              <div class="tag row-fluid">
+              <div class="span3">
+                Kpop 
+              </div>
+              <div class="adjectives span10" style="margin-left: -48px">
+                <ul >
+                  <li class="adjective"> is lost</li>
+                  <li class="adjective"> is looking sexyyyy </li>
+                  <li class="adjective"> looks really bored </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+            <div class="row separator">
+              <hr/>
+            </div>
+            <div class="tag row-fluid">
+              <div class="span3">
+                Bothrs
+              </div>
+              <div class="adjectives span9" style="margin-left: -35px">
+                <ul >
+                  <li class="adjective"> is enjoying PV with them coconut</li>
+                  <li class="adjective"> is thinking 'i'm sexy and i know it' </li>
+                  <li class="adjective"> is dying to smoke</li>
+                </ul>
+              </div>
+            </div>             
+          </div>
+          <audio > 
+            <source src="audio/.mp3"> 
+            </audio>
+          </div>
+
+       <div class="photo-container row-fluid disabled" id="photo-container-1">
+          <div class="span4 photo-wrapper">
+            <img class="photo" src="img/nyc-alumni/springbreak-17.jpg"> </img>
           </div>
           <div class="tag-names span8" >
             <div class="row-fluid tag">
@@ -178,6 +217,7 @@
                 </ul>
               </div>
             </div>
+          </div>
             <div class="row separator">
               <hr/>
             </div>
@@ -211,6 +251,13 @@
             <img src="img/nyc-alumni/springbreak-27.jpg"> </img>
             <button id="tag-photo" class="btn" > Tag Photo </button>
           </div>
+        <!-- Tags on photo -->
+        <div class="passive-tag" style="top: 79px; left: 124px; position: absolute; z-index: 101;"  data-anchor="tag-1">
+          <img src="img/tag-outline.png" style="width: 100px; height: 100px;">
+        </div>
+        <div class="passive-tag" style="top: 150px; left: 248px; position: absolute; z-index: 101;" data-anchor="tag-2">
+          <img src="img/tag-outline.png" style="width: 100px; height: 100px;">
+        </div>
           <!--<canvas id="image-canvas"> </canvas> -->
         </div>
 
@@ -232,13 +279,6 @@
           </div>
         </form>
 
-        <!-- Tags on photo -->
-        <div class="passive-tag" style="top: 139px; left: 224px; position: absolute; z-index: 101;"  data-anchor="tag-1">
-          <img src="img/tag-outline.png" style="width: 100px; height: 100px;">
-        </div>
-        <div class="passive-tag" style="top: 200px; left: 348px; position: absolute; z-index: 101;" data-anchor="tag-2">
-          <img src="img/tag-outline.png" style="width: 100px; height: 100px;">
-        </div>
 
 
         <!-- List of tags on the right side -->
@@ -346,11 +386,11 @@
 
               <div class="row-fluid data-row">
                 <div class="span2 profile-pic">
-                  <img src="img/profiles/puja.jpg"/>
+                  <img src="img/profiles/kiril.jpg"/>
                 </div>
                 <div class="span9 data-wrapper">
                   <div class="row-fluid">
-                    <div class="user span5"> Puja A</div>
+                    <div class="user span5"> Kpop </div>
                     <div class="time span4 offset3"> 2 days ago</div>
                   </div>
                   <div class="row-fluid">
@@ -394,7 +434,6 @@
           </a>
         </div>
         <div id="detailed-2" class="accordian-body collapse in ">
-          <div class="accordian-inner container-fluid">
           <div class="accordian-inner container-fluid">
               <div class="row-fluid add-thoughts-wrapper">
                 <input class="add-thoughts" type="text" placeholder="Add your thoughts ">

@@ -1,205 +1,250 @@
-var PHOTO_CONTAINER_CLASS_NAME = ".photo-container";
-var PHOTO_CONTAINERS;
-var PHOTO_CONTAINER_IN_VIEW;
-var SOUND_OFF = false;
+reflect = { };
+reflect.moment = { };
 
-/*****
-** PhotoContainer
-******/
+reflect.moment.util = {
+	resetPhotos : function() {
+		$(".photo-background .button").hide();
+		$(".photo-background").unbind();
+	},
 
-function PhotoContainer($element)
-{
-	this.container = $element;
-}
-
-PhotoContainer.prototype.enable = function () 
-{
-	this.playSound();
-	this.container.addClass("enabled");
-	this.container.removeClass("disabled");
-}
-
-PhotoContainer.prototype.disable = function () 
-{
-	this.fade();
-	this.container.removeClass("enabled");
-	this.container.addClass("disabled");
-}
-
-
-PhotoContainer.prototype.playSound = function () 
-{
-	var audio = $("audio", this.container).get(0);
-	if (audio && !SOUND_OFF)
+	extractInteger : function(str)
 	{
-		$("audio", this.container).get(0).play();
+		return parseInt(str.replace("px", "").trim());
 	}
 }
 
-PhotoContainer.prototype.fade = function () 
-{
-	var audio = $("audio", this.container);
-	if (audio.get(0))
+reflect.moment.phototransition = {
+	
+	nextPhoto : function() {
+		var pixelsToMove = photoTransition.calculateDistanceToMove(photoTransition.imageWidth, (photoTransition.currentPhotoIndex + 1));
+		$("#photos").css("-webkit-transform", "translate3d(-"+pixelsToMove+"px,0px,0px)");
+
+		var $nextPhoto = photoTransition.currentPhoto.next();
+
+		photoTransition.currentPhotoIndex++;
+		photoTransition.setCurrentPhoto($nextPhoto, photoTransition.currentPhoto);
+	},
+
+	prevPhoto : function() {
+		var pixelsToMove = photoTransition.calculateDistanceToMove(photoTransition.imageWidth, (photoTransition.currentPhotoIndex - 1));
+		$("#photos").css("-webkit-transform", "translate3d(-"+pixelsToMove+"px,0px,0px)");
+
+		var $prevPhoto = photoTransition.currentPhoto.prev();
+
+		photoTransition.currentPhotoIndex--;
+		photoTransition.setCurrentPhoto($prevPhoto, photoTransition.currentPhoto);
+	},
+
+	calculateDistanceToMove : function(imageWidth, index)
 	{
-		audio.get(0).pause();
+		return imageWidth * index + 800;
+	},
 
-	}
-}
-
-
-PhotoContainer.prototype.isElementInView = function() 
-{
-	var topOfWindow = $(window).scrollTop();
-	var bottomOfWindow = bottomOfWindow + $(window).height();
-
-	var topOfElement = this.container.offset().top - 150;
-	var bottomOfElement = topOfElement + this.container.height();
-	return topOfElement >= topOfWindow && bottomOfElement <= bottomOfElement;
-}
-
-
-function firstElementInView() 
-{
-	var $photos = $(PHOTO_CONTAINER_CLASS_NAME);
-	for (i = 0; i < PHOTO_CONTAINERS.length; i++)
+	setCurrentPhoto : function($photo, $oldCurrentPhoto)
 	{
-		var container = PHOTO_CONTAINERS[i];
-		if (container.isElementInView())
-		{
-			return container;
-		}
-	}
-}
+		photoTransition.currentPhoto = $photo;
 
-function initializePhotoContainerObjects()
-{
-	var photoContainers = [];
-	var $photos = $(PHOTO_CONTAINER_CLASS_NAME);
-	for (i = 0; i < $photos.length; i++)
-	{
-		photoContainers.push(
-			new PhotoContainer($($photos.get(i)))
-		);
-	}
-	return photoContainers;
-}
+		$photo.removeClass("nextPhoto").removeClass("prevPhoto");
+		$photo.next().addClass("nextPhoto");
 
-function initializeAddThoughtForms()
-{
-
-	$(".add-thoughts").click(function(){
-		$(this).hide();
-		$(this).next().show();
-	})
-
-	$(".btn-cancel").click(function() {
-		var $formContainer = $(this).parent().parent();
-		hideAddThoughtsForm($formContainer);
-	})
-
-	$(".photo").click(function(){
-		openModalWindow();
-	})
-
-	$(".btn-save").click(function() {
-		var $formContainer = $(this).parent().parent();
-
-		var status = $formContainer.find(".input-noun").text() + " " + $formContainer.find(".input-verb option:selected").text() + " " + $formContainer.find(".input-adjective").val();
-
-		var $recentData = $formContainer.parent().next().clone();
-		$recentData.after($("<div class='row-fluid line'><hr/> </div>"));
-		$recentData.find(".user").text("You");
-		$recentData.find(".time").text("Just Now");
-		$recentData.find(".content").text(status);
-		$recentData.find(".people-like-link").text("0 people liked this");
-
-		$formContainer.after($recentData);
-		hideAddThoughtsForm($formContainer);
-	})
-}
-
-$(document).ready(function() 
-{
-	PHOTO_CONTAINERS = initializePhotoContainerObjects();
-
-	$(window).scroll(function() {
-		var inView = firstElementInView(); 
-		if (PHOTO_CONTAINER_IN_VIEW)
-		{
-			PHOTO_CONTAINER_IN_VIEW.disable();
-		}
-		PHOTO_CONTAINER_IN_VIEW = inView;
-		inView.enable();
-	})
-
-	for (i=0; i<$(".adjectives").length; i++)
-	{
-		$($(".adjectives").get(i)).featurify({
-			directionIn : -1,
-			directionOut: -1,
-			pause: 4000, 
-			transition: 200 
-		});	
-	}
-
-		for (i=0; i<$(".detailed-adjectives").length; i++)
-		{
-			$($(".detailed-adjectives").get(i)).featurify({
-				directionIn : -1,
-				directionOut: -1,
-				pause: 4000, 
-				transition: 200 
-			});		
+		if (photoTransition.hasPrevPhoto()) {
+			$photo.prev().addClass("prevPhoto");
 		}
 
-	$("#audio-control a").click(function(e) {
-		e.preventDefault();
-
-		if ($(this).text().indexOf("off") != -1)
+		if ($oldCurrentPhoto)
 		{
-			SOUND_OFF = true;
-			PHOTO_CONTAINER_IN_VIEW.fade();
-			$(this).text("Turn sound on");
+			tagging.enterNontaggingState($oldCurrentPhoto);
+		}
+
+		util.resetPhotos();
+		tagging.enterNontaggingState($photo);
+
+
+		photoTransition.createBindings();
+	},
+
+	createBindings : function() {
+		$(".nextPhoto").click(photoTransition.nextPhoto);
+		$(".prevPhoto").click(photoTransition.prevPhoto);
+	},
+
+	hasPrevPhoto : function()
+	{
+		return photoTransition.currentPhotoIndex > 0; 
+	}
+
+}
+
+reflect.moment.phototransition.imageWidth = 950;
+reflect.moment.phototransition.currentPhotoIndex = 0;
+reflect.moment.phototransition.currentPhoto = undefined;
+
+reflect.moment.tagging = {
+
+	enterTaggingState : function($photo)
+	{
+		$photo.unbind();
+		$photo.addClass("taggable");
+
+		var $tagButton = $photo.find(".button");
+		
+		$tagButton.addClass("open")
+				  .text("I'm finished tagging")
+				  .unbind()
+				  .click(function() { tagging.enterNontaggingState($photo) });
+
+		$photo.click(function(event) { 
+			tagging.createActiveTag(event, $photo); 
+		});
+	},
+
+	enterNontaggingState : function($photo)
+	{
+		$photo.unbind();
+		$photo.mouseenter(function() {
+			$photo.find(".button").show();
+		});
+
+		$photo.mouseleave(function() {
+			$photo.find(".button").hide();
+		});
+
+		$photo.removeClass("taggable");
+
+		var $tagButton = $photo.find(".button");
+		$tagButton.text("Tag this photo!")
+				  .unbind()
+				  .click(function(ev) { 
+				  	tagging.enterTaggingState($photo); 
+				  	ev.stopPropagation(); 
+				  })
+				  .removeClass("open");
+
+		tagging.removeActiveTag();
+	},
+
+	createActiveTag : function(event, $photo)
+	{
+		var $tag = $("#active-tag").show();
+		var yCoord = event.pageY;
+		var xCoord = (photoTransition.currentPhotoIndex + 1) * photoTransition.imageWidth + event.pageX;
+
+		if ($tag.length == 0)
+		{
+			var $tag = $("<div/>").attr("id", "active-tag")
+								  .css("top", yCoord - 225)
+								  .css("left", xCoord - 225)
+						   		  .css("position", "absolute");
+
+			var $tagEntry = $("#tag-entry").show();
+
+
+			var $image = $("<div/>").addClass("active-tag");
+			$tag.append($image);
+			$tag.append($tagEntry);
 		}
 		else
 		{
-			SOUND_OFF = false;
-			PHOTO_CONTAINER_IN_VIEW.playSound();
-			$(this).text("Turn sound off");
+			$tag.css("top", yCoord - 225);
+			$tag.css("left", xCoord - 225);
 		}
-	})
 
-	$(".thoughts-form").hide();
+		$photo.append($tag);
+	},
 
-	initializeAddThoughtForms();
+	removeActiveTag : function()
+	{
+		$("#active-tag").hide();
+	}, 
 
-	$("#moment-header-content form").hide();
+	addTag : function($photo, id, xCoord, yCoord)
+	{
+		var $tagWrapper = $("<div/>").css("top", yCoord)
+							  		 .css("left", xCoord)
+							  		 .attr("id", id)
+							  		 .addClass("tag-wrapper");
 
-	$("#moment-header-content a").click(function(){
-		$(this).hide();
-		var $form = $(this).next();
-		$form.find("input").val($(this).text());
-		$(this).next().show();
-	})
+		var $tag = $("<div/>").addClass("tag");
+		var $tagContent = $("<div/>").text(id)
+									 .addClass("tag-content");
 
-	$("#moment-header-content button").click(function(){
-		var $form = $(this).parent();
-		var $title = $form.parent().find("a");
-		$form.hide();
-		var inputValue = $form.find("input").val();
-		$title.text(inputValue);
-		$title.show();
-		var $form = $(this).next();
-	})
+		$tagWrapper.append($tag);
+		$tagWrapper.append($tagContent);
+		$photo.append($tagWrapper);
 
-	momentTimeline.draw();
-	tagging.initialize();
+		$tagWrapper.click(function() {
+			reflect.lightbox.createLightbox(photoTransition.currentPhoto, $(this));
+		});
+	},
 
-});
+	submitActiveTag : function($activeTag)
+	{
+		var id = $activeTag.find(".tag-input").val();
+		var xCoord = $activeTag.css("left");
+		console.log($activeTag);
+		var yCoord = $activeTag.css("top");
+		var $photo = photoTransition.currentPhoto;
+		tagging.addTag($photo, id, xCoord, yCoord);
+		tagging.enterNontaggingState($photo);
+	}
 
-function hideAddThoughtsForm($formContainer)
-{
-	$formContainer.hide();
-	$formContainer.prev().show();
 }
 
+reflect.lightbox = { 
+
+	createLightbox : function($photo, $tag) {
+		$lightboxShade = $("<div/>").attr("id", "lightbox-shade")
+		$("body").append($lightboxShade);
+
+		lightbox.createNewPhoto($photo);
+	},
+
+	createNewPhoto : function($photo)
+	{
+		var $photoCopy = $photo.clone().attr("id", "lightbox-photo");
+		$("body").append($photoCopy);
+
+		// modify tag so it's positioned correctly
+		var $tag = $photoCopy.find(".tag-wrapper");
+
+		var xCoord = util.extractInteger($tag.css("left"));
+		xCoord = xCoord - (photoTransition.currentPhotoIndex + 1) * photoTransition.imageWidth;
+
+		$tag.css("left", xCoord);
+		$tag.addClass("lightbox-tag-wrapper");
+
+		// remove tag button
+		$photoCopy.find(".button").remove();
+	},
+
+
+};
+
+
+var photoTransition = reflect.moment.phototransition;
+var tagging = reflect.moment.tagging;
+var util = reflect.moment.util;
+var lightbox = reflect.lightbox;
+
+
+$(document).ready(function() {
+	util.resetPhotos();
+	reflect.moment.phototransition.setCurrentPhoto($(".photo-background:first"));
+
+	$("#tag-entry").hide();
+	$("#tag-entry .tag-input").click(function(ev){
+		ev.stopPropagation();
+	})
+	$("#tag-entry .tag-input").typeahead({
+		source: ["John Smith", "Sarah Stevens", "Jerry Frick"]
+	});
+
+	$("#tag-entry").submit(function(ev) {
+		tagging.submitActiveTag($("#active-tag"));
+		ev.preventDefault();
+	});
+
+	tagging.addTag(photoTransition.currentPhoto, "test", 1073, 174);
+
+
+});
