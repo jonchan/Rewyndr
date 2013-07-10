@@ -120,12 +120,13 @@
 .content-type-wrapper,
 .content-wrapper
 {
-	display: inline-block;
+	display: table-cell;
+	vertical-align: middle;
 }
 
 .content-type-wrapper
 {
-	margin-left: 10px;
+	padding-left: 10px;
 }
 
 .content-type-wrapper img
@@ -136,12 +137,18 @@
 
 .content-wrapper
 {
-	margin-left: 10px;
+	padding-left: 10px;
 }
 
-.content-wrapper .content
+.content-wrapper .thought-header
 {
-	margin-bottom: -5px;
+	margin-bottom: -22px;
+	color: #04756f;
+}
+
+.content-wrapper .content2
+{
+	margin-bottom: 0px;
 }
 
 .content-wrapper .info
@@ -191,7 +198,6 @@
 {
 	margin: 10px;
 	-webkit-transition: opacity .5s ease-in;
-	-webkit-transition-delay: .5s;
 }
 
 .add-comment-box textarea

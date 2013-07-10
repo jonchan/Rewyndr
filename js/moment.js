@@ -322,12 +322,15 @@ reflect.lightbox = {
 		$element.find(".content-type-wrapper").append($img);
 
 		// add content
-		$element.find(".content").text(content.content1);
+		if (content.type === "thought")
+		{
+			$element.find(".content1").addClass("thought-header").text(content.content1);
+		}
+		$element.find(".content2").text(content.content2);
 
 		// add info
 		$element.find(".info").text(content.user + " " + content.time);
 
-		console.log($element);
 		lightbox.feed.find("ul").prepend($element);
 	},
 
@@ -385,24 +388,37 @@ reflect.lightbox = {
 	},
 
 	createBindingsForInput : function() {
-		lightbox.feed.find(".add-comment").click(lightbox.toggleCommentInput);
+		lightbox.feed.find(".add-comment").click(function() { lightbox.toggleCommentInput(true);});
 
 		lightbox.feed.find(".add-comment-box textarea").keyup(function(e) {
 			e = e || event;
 			if (e.keyCode === 13 && !e.ctrlKey) {
-				lightbox.submitContent("comment", $(this).val());
+				lightbox.submitContent("comment", undefined, $(this).val());
 				// reset comment entry
 				$(this).val(""); 
-				lightbox.toggleCommentInput();
+				lightbox.toggleCommentInput(false);
 				e.preventDefault();
 			}
 
 		})
 	},
 
-	toggleCommentInput : function() {
-		$("#feed").find(".feed-header").toggleClass("feed-header-open");
-		$("#feed").find(".add-comment-box").toggleClass("transparent");
+	toggleCommentInput : function(turnOn) {
+		$commentBox = $("#feed").find(".add-comment-box");
+		$header = $("#feed").find(".feed-header");
+
+		if (turnOn)
+		{
+			$commentBox.css("-webkit-transition-delay", ".5s");
+			$header.css("-webkit-transition-delay", "0s");
+		}
+		else
+		{
+			$commentBox.css("-webkit-transition-delay", "0s");
+			$header.css("-webkit-transition-delay", ".5s");
+		}
+		$header.toggleClass("feed-header-open");
+		$commentBox.toggleClass("transparent");
 	},
 
 	submitContent : function(type, content1, content2) {
@@ -441,13 +457,13 @@ var tags = [
 		feed : [
 			{
 				type : "comment",
-				content1 : "this is great",
+				content2 : "this is great",
 				user : "leslie l",
 				time : "3 minutes ago"
 			},
 			{
 				type : "song",
-				content1 : "song by taylor swift",
+				content2 : "song by taylor swift",
 				user : "leslie l",
 				time : "3 hours ago"
 			},
