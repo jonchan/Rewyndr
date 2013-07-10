@@ -93,7 +93,7 @@
 .tag
 {
 	border-style: solid;
-	border-width: 1px;
+	border-width: 2px;
 	border-color: #fff;
 	width: 100px;
 	height: 100px;
@@ -112,7 +112,6 @@
 	display: none;
 	width: 100px;
 	margin-top: 5px;
-	padding: 2px;
 }
 
 .tag-wrapper:hover .tag-content

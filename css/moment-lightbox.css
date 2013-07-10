@@ -1,0 +1,208 @@
+#lightbox-shade
+{
+	top: 0;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	opacity: .4;
+	background-color: #000;
+	z-index: 1032;
+}
+
+#lightbox-shade:hover
+{
+	cursor: pointer;
+}
+
+.lightbox-tag-wrapper .tag
+{
+	border-style: solid;
+	border-color: #ff2d00;
+	border-width: 2px;
+}
+
+.lightbox-tag-wrapper .tag-content
+{
+	display: block;
+	color: #fff;
+	background-color: #000;
+	border-width: 2px;
+	border-color: #ff2d00;
+	border-style: solid;
+}
+
+.second-lightbox-shade
+{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	opacity: .6;
+	background-color: #000;
+	z-index: 1033;
+}
+
+.second-lightbox-shade:hover
+{
+	cursor: pointer;
+}
+
+#feed
+{
+	width: 200px;
+	z-index: 1035;
+	position: fixed;
+	background-color: #111;
+}
+
+#lightbox-photo
+{
+	position: fixed;
+	z-index: 1032;
+	top: 181px;
+	left: 170px;
+}
+
+#lightbox-photo img,
+#feed
+{
+	border-style: solid;
+	border-color: #04756f;
+	border-width: 4px;
+}
+
+/***********
+** Feed   **
+************/
+
+#feed ul
+{
+	list-style: none;
+	color: #fff;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+#feed li
+{
+	line-height: 40px;
+}
+
+#feed li:nth-child(odd) 
+{
+	background-color: #000;
+}
+
+#feed .info
+{
+	color: #04756f;
+	font-size: 10px;	
+}
+
+.feed-header
+{
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 3px double #04756f;
+	-webkit-transition: all .5s ease-in;
+}
+
+.feed-header-open
+{
+	height: 200px;
+}
+
+#feed-header-content
+{
+	margin-left: 15px;
+}
+
+.content-type-wrapper,
+.content-wrapper
+{
+	display: inline-block;
+}
+
+.content-type-wrapper
+{
+	margin-left: 10px;
+}
+
+.content-type-wrapper img
+{
+	width: 25px;
+	vertical-align: inherit;
+}
+
+.content-wrapper
+{
+	margin-left: 10px;
+}
+
+.content-wrapper .content
+{
+	margin-bottom: -5px;
+}
+
+.content-wrapper .info
+{
+	line-height: 8px;
+}
+
+#feed .add-content:hover
+{
+	cursor: pointer;
+}
+
+.add-content-button
+{
+	z-index: 1040;
+}
+
+.add-content
+{
+	position: absolute;
+	left: 25px;
+	-webkit-transition: all .5s ease-in;
+}
+
+.add-comment-shown
+{
+	left: 65px;
+}
+
+.add-sound-shown
+{
+	left: 105px;
+}
+
+.add-thought-shown
+{
+	left: 145px;
+}
+
+.feed-header-content-input
+{
+	position: absolute;
+	top: 60px;
+}
+
+.add-comment-box
+{
+	margin: 10px;
+	-webkit-transition: opacity .5s ease-in;
+	-webkit-transition-delay: .5s;
+}
+
+.add-comment-box textarea
+{
+	width: 170px;
+	height: 100px;
+	background-color: #000;
+	color: #fff;
+}
+
+.hidden
+{
+	opacity: 0;
+}

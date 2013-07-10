@@ -1,0 +1,104 @@
+@font-face {
+	font-family: Novecentowide;
+	src: url("fonts/Novecentowide-Normal.otf") format("opentype");
+}
+
+body
+{
+	background-color: #4d4d4d;
+	padding-top: 80px;
+	font-family: helvetica;
+}
+
+.navbar
+{
+	background-color: #222;
+}
+
+.navbar-inner
+{
+	background: inherit;
+	text-shadow: inherit;
+	border: inherit;
+	box-shadow: inherit !important;
+	padding-right: 30px !important;
+	padding-left: 30px !important;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.brand
+{
+	left: 20px;
+	margin-left: 30px;
+}
+
+.nav-me
+{
+	background-color: #ff2d00;
+}
+
+.nav-me a
+{
+	background-color: #ff2d00;
+	color: #fff !important;
+	text-shadow: none !important;
+}
+
+.navbar-right
+{
+	margin-top: 5px;
+	margin-right: 20px;
+}
+
+.nav-me .dropdown 
+{
+	width: 100px;
+	line-height: 10px;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.nav-me .dropdown.open
+{
+	background-color: #fff;
+}
+
+.nav-me .dropdown.open .label
+{
+	color: #000 !important;
+}
+
+.nav-me .dropdown-menu
+{
+	border: inherit;
+	border-radius: inherit;
+	background-color: #ff2d00;
+	color: #fff;
+	width: 100px;
+}
+
+.nav-me .dropdown-menu:after,
+.nav-me .dropdown-menu:before
+{
+	display: none !important;
+}
+
+.button
+{
+	background-color: #ff2d00;
+	height: 20px;
+	color: #fff;
+	padding: 5px;
+}
+
+.open
+{
+	background-color: #fff;
+	color: #000;
+}
+
+.button:hover
+{
+	cursor: pointer;
+}
