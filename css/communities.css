@@ -1,0 +1,52 @@
+.community
+{
+	margin-top: 30px;
+}
+
+.community a
+{
+	color: #fff;
+	text-decoration: none;
+}
+
+#create-community
+{
+	background-color: #000;
+}
+
+#create-community .create-label
+{
+	margin-top: 90px;
+	background-color: #ff2d00;
+	text-transform: uppercase;
+	font-size: 10px;
+	width: 200px;
+	right: 0px;
+	text-align: center;
+}
+
+
+
+.community-image,
+.community-label
+{
+	border-style: solid;
+	border-color: #fff;
+	border-width: 1px;	
+	width: 200px;	
+}
+
+.community-image
+{
+	background-position: center center;
+	height: 200px;
+}
+
+.community-label
+{
+	background-color: #000;
+	margin-top: 10px;
+	font-size: 12px;
+	padding-left: 10px;
+	width: 190px;
+}

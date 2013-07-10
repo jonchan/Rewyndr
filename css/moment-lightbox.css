@@ -48,7 +48,7 @@
 
 #feed
 {
-	width: 200px;
+	width: 230px;
 	z-index: 1035;
 	position: fixed;
 	background-color: #111;
@@ -111,7 +111,7 @@
 
 #feed li
 {
-	line-height: 40px;
+	position: relative;
 }
 
 #feed li:nth-child(odd) 
@@ -145,10 +145,12 @@
 }
 
 .content-type-wrapper,
-.content-wrapper
+.content-wrapper,
+.play-button
 {
 	display: table-cell;
 	vertical-align: middle;
+	height: 75px;
 }
 
 .content-type-wrapper
@@ -165,21 +167,43 @@
 .content-wrapper
 {
 	padding-left: 10px;
+	width: 150px;
+}
+
+.play-button
+{
+	text-align: right;
+	position: relative;
+}
+
+.play-button-inner
+{
+	position: relative;
+	border-left-style: solid;
+	border-left-width: 1px;
+	border-left-color: #fff;
+	height: 50px;
+}
+
+.play-button-inner img
+{
+	min-width: 25px;
+	position: absolute;
+	top: 10px;
+	left: 5px;
 }
 
 .content-wrapper .thought-header
 {
-	margin-bottom: -22px;
 	color: #04756f;
+	margin-bottom: -3px;
 }
 
-.content-wrapper .content2
-{
-	margin-bottom: 0px;
-}
 
 .content-wrapper .info
 {
+	position: absolute;
+	bottom: 0px;
 	line-height: 8px;
 }
 
@@ -228,8 +252,6 @@
 	position: absolute;
 	left: 10px;
 }
-
-
 
 .add-comment-box textarea,
 .add-thought-box textarea,

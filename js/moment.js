@@ -372,7 +372,11 @@ reflect.lightbox = {
 		// add content
 		if (content.type === "thought")
 		{
-			$element.find(".content1").addClass("thought-header").text(tagName + " " + content.content1);
+			$element.find(".content1").addClass("thought-header").text(content.content1);
+		}
+		else if (content.type == "song")
+		{
+			$element.find(".play-button").removeClass("hidden");
 		}
 		$element.find(".content2").text(content.content2);
 
@@ -641,7 +645,7 @@ var tags = [
 			},
 			{
 				type : "thought",
-				content1 : "is feeling",
+				content1 : "Sam is feeling",
 				content2 : "like a diva",
 				user : "john r",
 				time : "july 7, 2013 10:30 am"
