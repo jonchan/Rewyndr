@@ -76,6 +76,26 @@
 	border-width: 4px;
 }
 
+.verticalLine
+{
+	z-index: 1040;
+	border-right-color: #04756f;
+	border-right-style: solid;
+	border-right-width: 2px;
+	height: 1px;
+	position: absolute;
+}
+
+.horizontalLine
+{
+	position: absolute;
+	border-bottom-color: #04756f;
+	z-index: 1040;
+	border-bottom-style: solid;
+	border-bottom-width: 2px;
+	height: 1px;
+}
+
 /***********
 ** Feed   **
 ************/
@@ -229,6 +249,10 @@
 	box-shadow: inherit;
 	color: #fff;
 	font-weight: normal;
+	font-size: 12px;
+	width: 120px;
+	text-shadow: inherit;
+	border-radius: inherit;
 }
 
 .hidden

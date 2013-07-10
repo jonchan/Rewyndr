@@ -110,8 +110,9 @@
 .tag-content
 {
 	display: none;
-	width: 100px;
+	width: 90px;
 	margin-top: 5px;
+	padding-left: 10px;
 }
 
 .tag-wrapper:hover .tag-content

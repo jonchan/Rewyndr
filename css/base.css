@@ -3,11 +3,22 @@
 	src: url("fonts/Novecentowide-Normal.otf") format("opentype");
 }
 
+@font-face {
+	font-family: OpenSans;
+	src: url("fonts/Open_Sans/OpenSans-Regular.ttf") format("opentype");
+}
+
 body
 {
 	background-color: #4d4d4d;
 	padding-top: 80px;
-	font-family: helvetica;
+	font-family: OpenSans, Helvetica;
+	color: #fff;
+}
+
+h1
+{
+	font-size: 28px;
 }
 
 .navbar

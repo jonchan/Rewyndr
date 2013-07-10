@@ -215,6 +215,7 @@ reflect.lightbox = {
 		lightbox.createReverseLightbox($tag);
 		lightbox.createFeed();
 		lightbox.enableAddContent();
+		lightbox.drawLines();
 
 		$(".second-lightbox-shade").click(lightbox.destroyLightbox);
 		lightbox.createBindingsForInput();
@@ -226,6 +227,9 @@ reflect.lightbox = {
 		lightbox.tag.remove();
 		$("#lightbox-shade").remove();
 		$(".second-lightbox-shade").remove();
+		lightbox.verticalLine1.remove();
+		lightbox.horizontalLine1.remove();
+		lightbox.horizontalLine2.remove();
 	},
 
 	createNewPhoto : function($photo, $tag)
@@ -251,6 +255,44 @@ reflect.lightbox = {
 		$photoCopy.find(".button").remove();
 
 		return $photoCopy;
+	},
+
+	drawLines : function() {
+		$verticalLine1 = $("<div></div>").addClass("verticalLine");
+		$horizontalLine1 = $("<div></div>").addClass("horizontalLine");
+		$horizontalLine2 = $("<div></div>").addClass("horizontalLine");
+
+		var startX = util.extractCssIntegerValue(lightbox.tag, "left") + 
+						util.extractCssIntegerValue(lightbox.photo, "left") +
+						lightbox.tag.width();
+
+		var startY = util.extractCssIntegerValue(lightbox.tag, "top") + util.extractCssIntegerValue(lightbox.photo, "top") + 10;
+
+
+		var endX = util.extractCssIntegerValue(lightbox.feed, "left");
+		var endY = util.extractCssIntegerValue(lightbox.feed, "top") + 20;
+
+		var midX = ((endX - startX) / 2) + startX;
+
+		$horizontalLine1.css("left", startX);
+		$horizontalLine1.css("top", startY);
+		$horizontalLine1.css("width", (endX - startX) / 2);
+
+		$verticalLine1.css("left", midX);
+		$verticalLine1.css("top", endY);
+		$verticalLine1.css("height", (startY - endY));
+
+		$horizontalLine2.css("left", midX);
+		$horizontalLine2.css("top", endY);
+		$horizontalLine2.css("width", (endX - startX) / 2);
+
+		$("body").append($horizontalLine1);
+		$("body").append($horizontalLine2);
+		$("body").append($verticalLine1);
+
+		lightbox.horizontalLine1 = $horizontalLine1;
+		lightbox.horizontalLine2 = $horizontalLine2;
+		lightbox.verticalLine1 = $verticalLine1;
 	},
 
 	createReverseLightbox : function() {
@@ -568,6 +610,9 @@ reflect.lightbox.feed = undefined;
 reflect.lightbox.commentOn = false;
 reflect.lightbox.thoughtOn = false;
 reflect.lightbox.soundOn = false;
+reflect.lightbox.verticalLine1 = undefined;
+reflect.lightbox.horizontalLine1 = undefined;
+reflect.lightbox.horizontalLine2 = undefined;
 
 var photoTransition = reflect.moment.phototransition;
 var tagging = reflect.moment.tagging;
