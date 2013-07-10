@@ -54,6 +54,12 @@
 	background-color: #111;
 }
 
+#feed-content
+{
+	height: 100%;
+	overflow-y: auto;
+}
+
 #lightbox-photo
 {
 	position: fixed;
@@ -97,6 +103,7 @@
 {
 	color: #04756f;
 	font-size: 10px;	
+	margin-bottom: 7px;
 }
 
 .feed-header
@@ -109,7 +116,7 @@
 
 .feed-header-open
 {
-	height: 200px;
+	height: 220px;
 }
 
 #feed-header-content
@@ -194,18 +201,34 @@
 	top: 60px;
 }
 
-.add-comment-box
+.add-comment-box,
+.add-thought-box,
+.add-sound-box
 {
-	margin: 10px;
-	-webkit-transition: opacity .5s ease-in;
+	position: absolute;
+	left: 10px;
 }
 
-.add-comment-box textarea
+
+
+.add-comment-box textarea,
+.add-thought-box textarea,
+.add-thought-box select,
+.add-sound-box input
 {
 	width: 170px;
 	background-color: #000;
 	color: #fff;
 	resize: vertical;
+}
+
+.add-sound-box .btn
+{
+	background: inherit;
+	background-color: #ff2d00;
+	box-shadow: inherit;
+	color: #fff;
+	font-weight: normal;
 }
 
 .hidden
@@ -216,4 +239,5 @@
 .transparent
 {
 	opacity: 0;	
+	z-index: -10000;
 }

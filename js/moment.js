@@ -9,7 +9,6 @@ reflect.moment.util = {
 
 	extractInteger : function(str)
 	{
-		console.log(str);
 		return parseInt(str.replace("px", "").trim());
 	},
 
@@ -163,7 +162,7 @@ reflect.moment.tagging = {
 		$("#active-tag").hide();
 	}, 
 
-	addTag : function($photo, id, xCoord, yCoord)
+	addTag : function($photo, id, xCoord, yCoord, tagName)
 	{
 		var $tagWrapper = $("<div/>").css("top", yCoord)
 							  		 .css("left", xCoord)
@@ -171,7 +170,7 @@ reflect.moment.tagging = {
 							  		 .addClass("tag-wrapper");
 
 		var $tag = $("<div/>").addClass("tag");
-		var $tagContent = $("<div/>").text(id)
+		var $tagContent = $("<div/>").text(tagName)
 									 .addClass("tag-content");
 
 		$tagWrapper.append($tag);
@@ -186,16 +185,17 @@ reflect.moment.tagging = {
 	submitActiveTag : function($activeTag)
 	{
 		var id = $activeTag.find(".tag-input").val().replace(/ /g, "");
-		console.log(id);
+		var tagName = $activeTag.find(".tag-input").val();
 		var xCoord = $activeTag.css("left");
 		var yCoord = $activeTag.css("top");
 		var $photo = photoTransition.currentPhoto;
-		tagging.addTag($photo, id, xCoord, yCoord);
+		tagging.addTag($photo, id, xCoord, yCoord, tagName);
 		tagging.enterNontaggingState($photo);
 
 		// submit to "database", this should ideally be consolidated with addTag method
 		tags.push({
 			id : id,
+			tagName : tagName,
 			photoId : $photo.attr("id"),
 			xCoord : xCoord,
 			yCoord : yCoord,
@@ -302,16 +302,22 @@ reflect.lightbox = {
 		// populate feed with data
 		var feedContent = lightbox.lookupFeedInfo(lightbox.getTagId());
 
-		for (i=0; i<feedContent.length; i++)
+		for (i=0; i<feedContent.feed.length; i++)
 		{
-			var content = feedContent[i];
-			lightbox.addContentItemToFeed(content);
-			
+			var content = feedContent.feed[i];
+			lightbox.addContentItemToFeed(feedContent.tagName, content);
 		}
 		$("body").append($feed);
+
+		$options = $feed.find(".add-thought-box option");
+		for (var i=0; i < $options.length; i++)
+		{
+			var oldText = $($options[i]).text();
+			$($options[i]).text(feedContent.tagName + " " + oldText);
+		}
 	},
 
-	addContentItemToFeed : function(content)
+	addContentItemToFeed : function(tagName, content)
 	{
 		$contentElement = lightbox.feed.find("#feed-content li:last");
 		var $element = $contentElement.clone();
@@ -324,7 +330,7 @@ reflect.lightbox = {
 		// add content
 		if (content.type === "thought")
 		{
-			$element.find(".content1").addClass("thought-header").text(content.content1);
+			$element.find(".content1").addClass("thought-header").text(tagName + " " + content.content1);
 		}
 		$element.find(".content2").text(content.content2);
 
@@ -345,7 +351,7 @@ reflect.lightbox = {
 		{
 			if (tags[i].id === tagId)
 			{
-				return tags[i].feed;
+				return tags[i];
 			}
 		}
 	},
@@ -370,6 +376,7 @@ reflect.lightbox = {
 	{
 		$addContentButton = lightbox.feed.find(".add-content-button");
 		$addContentButton.click(function() {
+
 			// toggle + icon
 			var $addContent = $(this).find("img")
 			if ($addContent.attr("src") === "img/add-icon-on.png")
@@ -384,11 +391,26 @@ reflect.lightbox = {
 			lightbox.feed.find(".add-comment").toggleClass("add-comment-shown");
 			lightbox.feed.find(".add-sound").toggleClass("add-sound-shown");
 			lightbox.feed.find(".add-thought").toggleClass("add-thought-shown");
+
+			if (lightbox.commentOn)
+			{
+				lightbox.toggleCommentInput();
+			}
+			else if (lightbox.thoughtOn)
+			{
+				lightbox.toggleThoughtInput();
+			}
+			else if (lightbox.soundOn)
+			{
+				lightbox.toggleSoundInput();
+			}
 		})
 	},
 
 	createBindingsForInput : function() {
-		lightbox.feed.find(".add-comment").click(function() { lightbox.toggleCommentInput(true);});
+
+		// comments 
+		lightbox.feed.find(".add-comment").click(lightbox.toggleCommentInput);
 
 		lightbox.feed.find(".add-comment-box textarea").keyup(function(e) {
 			e = e || event;
@@ -396,33 +418,129 @@ reflect.lightbox = {
 				lightbox.submitContent("comment", undefined, $(this).val());
 				// reset comment entry
 				$(this).val(""); 
-				lightbox.toggleCommentInput(false);
+				lightbox.toggleCommentInput();
 				e.preventDefault();
 			}
-
 		})
+
+		// thoughts
+		lightbox.feed.find(".add-thought").click(lightbox.toggleThoughtInput);
+
+		lightbox.feed.find(".add-thought-box textarea").keyup(function(e) {
+			e = e || event;
+			if (e.keyCode === 13 && !e.ctrlKey) {
+				lightbox.submitContent("thought", $(this).prev().val(), $(this).val());
+
+				// reset comment entry
+				$(this).val(""); 
+				lightbox.toggleThoughtInput();
+				e.preventDefault();
+			}
+		})
+
+
+		// sounds
+		lightbox.feed.find(".add-sound").click(lightbox.toggleSoundInput);
+
 	},
 
-	toggleCommentInput : function(turnOn) {
+	toggleCommentInput : function() {
+		if (lightbox.thoughtOn)
+		{
+			lightbox.toggleThoughtInput();
+		}
+		else if(lightbox.soundOn)
+		{
+			lightbox.toggleSoundInput();
+		}
+
+		lightbox.commentOn = !lightbox.commentOn;
+
 		$commentBox = $("#feed").find(".add-comment-box");
 		$header = $("#feed").find(".feed-header");
 
-		if (turnOn)
+		if (lightbox.commentOn)
 		{
 			$commentBox.css("-webkit-transition-delay", ".5s");
 			$header.css("-webkit-transition-delay", "0s");
+			$header.addClass("feed-header-open");
+			$commentBox.removeClass("transparent");
 		}
 		else
 		{
 			$commentBox.css("-webkit-transition-delay", "0s");
 			$header.css("-webkit-transition-delay", ".5s");
+			$header.removeClass("feed-header-open");
+			$commentBox.addClass("transparent");
 		}
-		$header.toggleClass("feed-header-open");
-		$commentBox.toggleClass("transparent");
+	},
+
+	toggleThoughtInput : function() {
+		if (lightbox.commentOn)
+		{
+			lightbox.toggleCommentInput();
+		}
+		else if(lightbox.soundOn)
+		{
+			lightbox.toggleSoundInput();
+		}
+
+		lightbox.thoughtOn = !lightbox.thoughtOn;
+
+		$thoughtBox = $("#feed").find(".add-thought-box");
+		$header = $("#feed").find(".feed-header");
+
+		if (lightbox.thoughtOn)
+		{
+			$thoughtBox.css("-webkit-transition-delay", ".5s");
+			$header.css("-webkit-transition-delay", ".2s");
+			$header.addClass("feed-header-open");
+			$thoughtBox.removeClass("transparent");
+		}
+		else
+		{
+			$thoughtBox.css("-webkit-transition-delay", ".2s");
+			$header.css("-webkit-transition-delay", ".5s");
+			$header.removeClass("feed-header-open");
+			$thoughtBox.addClass("transparent");
+		}
+	},
+
+	toggleSoundInput : function() {
+
+		if (lightbox.commentOn)
+		{
+			lightbox.toggleCommentInput();
+		}
+		else if (lightbox.thoughtOn)
+		{
+			lightbox.toggleThoughtInput();
+		}
+
+		lightbox.soundOn = !lightbox.soundOn;
+
+		$soundBox = $("#feed").find(".add-sound-box");
+		$header = $("#feed").find(".feed-header");
+
+		if (lightbox.soundOn)
+		{
+			$soundBox.css("-webkit-transition-delay", ".5s");
+			$header.css("-webkit-transition-delay", ".2s");
+			$header.addClass("feed-header-open");
+			$soundBox.removeClass("transparent");
+		}
+		else
+		{
+			$soundBox.css("-webkit-transition-delay", ".2s");
+			$header.css("-webkit-transition-delay", ".5s");
+			$header.removeClass("feed-header-open");
+			$soundBox.addClass("transparent");
+		}
 	},
 
 	submitContent : function(type, content1, content2) {
-		var feedInfo = lightbox.lookupFeedInfo(lightbox.getTagId());
+		var tagContent = lightbox.lookupFeedInfo(lightbox.getTagId());
+		var feedInfo = tagContent.feed;
 		var content = {
 			type : type,
 			content1 : content1,
@@ -431,17 +549,25 @@ reflect.lightbox = {
 			time : "just now"
 		}
 
-		var feedInfo = feedInfo.reverse();
+		if (feedInfo.length === undefined)
+		{
+			feedInfo = [];			
+		}
+
+		feedInfo = feedInfo.reverse();
 		feedInfo.push(content);
-		feedInfo = feedInfo.reverse()
-		lightbox.addContentItemToFeed(content);
+		feedInfo = feedInfo.reverse();
+
+		lightbox.addContentItemToFeed(tagContent.tagName, content);
 	}
 };
 
 reflect.lightbox.photo = undefined;
 reflect.lightbox.tag = undefined;
 reflect.lightbox.feed = undefined;
-
+reflect.lightbox.commentOn = false;
+reflect.lightbox.thoughtOn = false;
+reflect.lightbox.soundOn = false;
 
 var photoTransition = reflect.moment.phototransition;
 var tagging = reflect.moment.tagging;
@@ -451,6 +577,7 @@ var lightbox = reflect.lightbox;
 var tags = [
 	{
 		id : "test",
+		tagName : "Sam",
 		xCoord : 1073,
 		yCoord : 174,
 		photoId : "#santancon1",
@@ -469,7 +596,7 @@ var tags = [
 			},
 			{
 				type : "thought",
-				content1 : "Sam is feeling",
+				content1 : "is feeling",
 				content2 : "like a diva",
 				user : "john r",
 				time : "july 7, 2013 10:30 am"
@@ -500,6 +627,6 @@ $(document).ready(function() {
 	for (i = 0; i<tags.length; i++)
 	{
 		var tag = tags[i];
-		tagging.addTag($(tag.photoId), tag.id , tag.xCoord, tag.yCoord);
+		tagging.addTag($(tag.photoId), tag.id , tag.xCoord, tag.yCoord, tag.tagName);
 	}
 });
