@@ -289,6 +289,8 @@ reflect.lightbox = {
 	createFeed : function() {
 		var $photo = lightbox.photo;
 		var $feed = $("#feed-template").clone().attr("id", "feed");
+		reflect.lightbox.feed = $feed;
+
 		$feed.css("height", $photo.height());
 
 		var extraSpace = ($photo.width() - $photo.find("img").width()) / 2;
@@ -298,29 +300,39 @@ reflect.lightbox = {
 		$feed.removeClass("hidden");
 
 		// populate feed with data
-		var feedContent = lightbox.lookupFeedInfo($photo.find(".lightbox-tag-wrapper").attr("id"));
-		$contentElement = $feed.find("#feed-content li:first");
+		var feedContent = lightbox.lookupFeedInfo(lightbox.getTagId());
 
 		for (i=0; i<feedContent.length; i++)
 		{
 			var content = feedContent[i];
-			var $element = $contentElement.clone();
-
-			// add icon
-			$img = $("<img/>").attr("src", lightbox.getIconLocation(content.type));
-			$element.find(".content-type-wrapper").append($img);
-
-			// add content
-			$element.find(".content").text(content.content1);
-
-			// add info
-			$element.find(".info").text(content.user + " " + content.time);
-
-			$feed.find("ul").append($element);
+			lightbox.addContentItemToFeed(content);
+			
 		}
-		$contentElement.remove();
 		$("body").append($feed);
-		reflect.lightbox.feed = $feed;
+	},
+
+	addContentItemToFeed : function(content)
+	{
+		$contentElement = lightbox.feed.find("#feed-content li:last");
+		var $element = $contentElement.clone();
+		$element.removeClass("hidden");
+
+		// add icon
+		var $img = $("<img/>").attr("src", lightbox.getIconLocation(content.type));
+		$element.find(".content-type-wrapper").append($img);
+
+		// add content
+		$element.find(".content").text(content.content1);
+
+		// add info
+		$element.find(".info").text(content.user + " " + content.time);
+
+		console.log($element);
+		lightbox.feed.find("ul").prepend($element);
+	},
+
+	getTagId : function() {
+		return lightbox.photo.find(".lightbox-tag-wrapper").attr("id");
 	},
 
 	// ideally ajax call to server
@@ -328,7 +340,7 @@ reflect.lightbox = {
 	{
 		for (i=0; i<tags.length; i++)
 		{
-			if (tags[i].id == tagId)
+			if (tags[i].id === tagId)
 			{
 				return tags[i].feed;
 			}
@@ -373,10 +385,40 @@ reflect.lightbox = {
 	},
 
 	createBindingsForInput : function() {
-		lightbox.feed.find(".add-comment").click(function(){
-			$("#feed").find(".feed-header").toggleClass("feed-header-open");
-			$("#feed").find(".add-comment-box").toggleClass("hidden");
-		});
+		lightbox.feed.find(".add-comment").click(lightbox.toggleCommentInput);
+
+		lightbox.feed.find(".add-comment-box textarea").keyup(function(e) {
+			e = e || event;
+			if (e.keyCode === 13 && !e.ctrlKey) {
+				lightbox.submitContent("comment", $(this).val());
+				// reset comment entry
+				$(this).val(""); 
+				lightbox.toggleCommentInput();
+				e.preventDefault();
+			}
+
+		})
+	},
+
+	toggleCommentInput : function() {
+		$("#feed").find(".feed-header").toggleClass("feed-header-open");
+		$("#feed").find(".add-comment-box").toggleClass("transparent");
+	},
+
+	submitContent : function(type, content1, content2) {
+		var feedInfo = lightbox.lookupFeedInfo(lightbox.getTagId());
+		var content = {
+			type : type,
+			content1 : content1,
+			content2 : content2,
+			user : "you",
+			time : "just now"
+		}
+
+		var feedInfo = feedInfo.reverse();
+		feedInfo.push(content);
+		feedInfo = feedInfo.reverse()
+		lightbox.addContentItemToFeed(content);
 	}
 };
 

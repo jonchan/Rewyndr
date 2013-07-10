@@ -197,12 +197,17 @@
 .add-comment-box textarea
 {
 	width: 170px;
-	height: 100px;
 	background-color: #000;
 	color: #fff;
+	resize: vertical;
 }
 
 .hidden
 {
-	opacity: 0;
+	display: none;
+}
+
+.transparent
+{
+	opacity: 0;	
 }
