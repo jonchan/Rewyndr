@@ -629,7 +629,7 @@ var tags = [
 		tagName : "Sam",
 		xCoord : 1073,
 		yCoord : 174,
-		photoId : "#santancon1",
+		photoId : "#graduation1",
 		feed : [
 			{
 				type : "comment",
