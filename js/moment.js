@@ -691,8 +691,8 @@ var tags = [
 	{
 		id : "test3",
 		tagName : "Jenny Bustamante",
-		xCoord : 1423,
-		yCoord : 74,
+		xCoord : 2355,
+		yCoord : 120,
 		photoId : "#graduation2",
 		feed : [
 			{
@@ -720,8 +720,8 @@ var tags = [
 	{
 		id : "test4",
 		tagName : "Jenny Bustamante",
-		xCoord : 1423,
-		yCoord : 74,
+		xCoord : 3270,
+		yCoord : 204,
 		photoId : "#graduation3",
 		feed : [
 			{
@@ -749,8 +749,8 @@ var tags = [
 	{
 		id : "test5",
 		tagName : "Johnny Shigeta",
-		xCoord : 1323,
-		yCoord : 74,
+		xCoord : 4070,
+		yCoord : 164,
 		photoId : "#graduation4",
 		feed : [
 			{
@@ -778,8 +778,8 @@ var tags = [
 	{
 		id : "test6",
 		tagName : "Jenny Bustamante",
-		xCoord : 1383,
-		yCoord : 164,
+		xCoord : 4300,
+		yCoord : 190,
 		photoId : "#graduation4",
 		feed : [
 			{
