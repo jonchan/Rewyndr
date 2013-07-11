@@ -625,30 +625,176 @@ var lightbox = reflect.lightbox;
 
 var tags = [
 	{
-		id : "test",
-		tagName : "Sam",
-		xCoord : 1073,
-		yCoord : 174,
+		id : "test1",
+		tagName : "Matt Winthrop",
+		xCoord : 1323,
+		yCoord : 74,
 		photoId : "#graduation1",
 		feed : [
 			{
+				type : "thought",
+				content1 : "Matt Winthrop is looking",
+				content2 : "quite scholarly if I do say so myself",
+				user : "Johnny Shigeta",
+				time : "May 12, 2013 8:32 am"
+			},
+			{
+				type : "thought",
+				content1 : "Matt Winthrop is feeling",
+				content2 : "LIKE A CHAMP",
+				user : "Jenny Bustamante",
+				time : "May 12, 2013 10:42 am"
+			},
+			{
 				type : "comment",
-				content2 : "this is great",
-				user : "leslie l",
-				time : "3 minutes ago"
+				content2 : "So proud of you!!",
+				user : "Christine Wang",
+				time : "May 17, 2013 10:56 am"
 			},
 			{
 				type : "song",
-				content2 : "song by taylor swift",
-				user : "leslie l",
+				content2 : "Graduation by Vitamin C",
+				user : "Jenny Bustamante",
+				time : "3 hours ago"
+			},
+			{
+				type : "comment",
+				content2 : "Really, Jenny. Really.",
+				user : "Matt Winthrop",
+				time : "3 minutes ago"
+			}
+		]
+	},
+	{
+		id : "test2",
+		tagName : "Christine Wang",
+		xCoord : 1383,
+		yCoord : 164,
+		photoId : "#graduation1",
+		feed : [
+			{
+				type : "thought",
+				content1 : "Christine Wang is feeling",
+				content2 : "so happy!",
+				user : "Jackie Davis",
 				time : "3 hours ago"
 			},
 			{
 				type : "thought",
-				content1 : "Sam is feeling",
-				content2 : "like a diva",
-				user : "john r",
-				time : "july 7, 2013 10:30 am"
+				content1 : "Christine Wang is being",
+				content2 : "awesome :)",
+				user : "Matt Winthrop",
+				time : "2 minutes ago"
+			}
+		]
+	},
+	{
+		id : "test3",
+		tagName : "Jenny Bustamante",
+		xCoord : 1423,
+		yCoord : 74,
+		photoId : "#graduation2",
+		feed : [
+			{
+				type : "thought",
+				content1 : "Jenny Bustamante is feeling",
+				content2 : "DONE!!",
+				user : "Jenny Bustamante",
+				time : "May 12, 2013 2:45 pm"
+			},
+			{
+				type : "thought",
+				content1 : "Jenny Bustamante is feeling",
+				content2 : "relieved cuz she just ran from that econ final!",
+				user : "Matt Winthrop",
+				time : "Aug 2, 2013 11:42 am"
+			},
+			{
+				type : "song",
+				content2 : "Audio from the ceremony",
+				user : "Josh Kurchenko",
+				time : "Aug 4, 2013 8:22 am"
+			}
+		]
+	},
+	{
+		id : "test4",
+		tagName : "Jenny Bustamante",
+		xCoord : 1423,
+		yCoord : 74,
+		photoId : "#graduation3",
+		feed : [
+			{
+				type : "thought",
+				content1 : "Jenny Bustamante is feeling",
+				content2 : "like a graduate",
+				user : "Michael Sheeran",
+				time : "May 12, 2013 4:30 pm"
+			},
+			{
+				type : "comment",
+				content2 : "Aww your last time in Sproul Plaza",
+				user : "Paige Larson",
+				time : "3 hours ago"
+			},
+			{
+				type : "thought",
+				content1 : "Jenny Bustamante is feeling",
+				content2 : "chilly? or shy?",
+				user : "Matt Winthrop",
+				time : "1 hour ago"
+			}
+		]
+	},
+	{
+		id : "test5",
+		tagName : "Johnny Shigeta",
+		xCoord : 1323,
+		yCoord : 74,
+		photoId : "#graduation4",
+		feed : [
+			{
+				type : "thought",
+				content1 : "Johnny Shigeta is looking",
+				content2 : "curious",
+				user : "Michael Sheeran",
+				time : "May 12, 2013 4:34 pm"
+			},
+			{
+				type : "thought",
+				content1 : "Johnny Shigeta is being",
+				content2 : "a thief on graduation day?!",
+				user : "Jenny Bustamante",
+				time : "August 18, 2013 11:32 pm"
+			},
+			{
+				type : "comment",
+				content2 : "Whatcha got there?",
+				user : "Leslie Sullivan",
+				time : "30 minutes ago"
+			}
+		]
+	},
+	{
+		id : "test6",
+		tagName : "Jenny Bustamante",
+		xCoord : 1383,
+		yCoord : 164,
+		photoId : "#graduation4",
+		feed : [
+			{
+				type : "thought",
+				content1 : "Jenny Bustamante is looking",
+				content2 : "so happy about Johnny stealing her stuff",
+				user : "Matt Winthrop",
+				time : "May 13, 2013 10:30 am"
+			},
+			{
+				type : "thought",
+				content1 : "Christine Wang is being",
+				content2 : "cute!",
+				user : "Christine Wang",
+				time : "August 8, 2013 9:22 pm"
 			}
 		]
 	}
