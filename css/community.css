@@ -1,0 +1,220 @@
+
+#header
+{
+	margin-top: -10px;
+	margin-bottom: 30px;
+}
+
+#header a
+{
+	text-decoration: none;
+	color: #fff;
+}
+
+#header h3
+{
+	margin-top: -10px;
+	margin-bottom: -20px;
+}
+
+.nav-tabs
+{
+	margin-bottom: 0px;
+}
+
+#timeline-view
+{
+	overflow-x: auto;
+	overflow-y: hidden;
+	height: 530px;
+	width: 3024px;
+	background-color: #808080;
+}
+
+.timeline-header
+{
+	color: #000;
+	margin-left: 20px;
+	margin-top: 20px;
+	font-size: 20px;
+	position: absolute;
+}
+
+.timeline-content
+{
+	margin-top: 40px;
+}
+
+.left-pane
+{
+	position: absolute;
+	height: 454px;
+	background-color: #333;
+	margin-left: 20px;
+	margin-top: 10px;
+	width: 130px;
+	padding: 10px;
+	z-index: 100;
+}
+
+.right-pane
+{
+	margin-left: 190px;
+}
+
+.right-pane, .left-pane
+{
+	float: left;
+}
+
+
+.selected-connections
+{
+	background-color: teal;
+	padding: 10px;
+	border-style: dotted;
+	border-color: #fff;
+	border-width: 1px;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+}
+
+#timeline
+{	
+	width: 100%;
+	height: 30px;
+	background-color: #222;	
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.circle,
+.year
+{
+	position: absolute;
+
+}
+
+.time
+{
+	background-color: #fff;
+	height: 100%;
+	width: 4px;
+	cursor: pointer;
+}
+
+
+.year
+{
+	margin-top: 4px;
+}
+
+#add-photos
+{
+	background-color: teal;
+	text-align: center;
+	border-color: #fff;
+	border-width: 1px;
+	border-style: dotted;
+}
+
+#drag-drop
+{
+	font-size: 12px;
+	font-weight: bold;
+	cursor: pointer;	
+
+}
+
+.span-starter,
+.moment
+{
+	height: 70px;
+	margin-top: 8px;
+	margin-bottom: 8px;	
+	padding: 10px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #808080;
+}
+
+.moment
+{
+	background-color: #000;
+	background-repeat: no-repeat;
+	background-size: cover;	
+	background-attachment: local;
+	width: 295px;
+	cursor: pointer;
+	position: relative;
+}
+
+.highlight
+{
+	border-color: #fff;
+	border-style: solid;
+	border-width: 2px;
+
+}
+
+.moment-title
+{
+	font-size: 18px;
+}
+
+.moment-date
+{
+	font-size: 12px;
+}
+
+.people
+{
+}
+
+.people,
+.people-open
+{
+	background-color: #b3b3b3;
+	width: 100%;
+	color: #ff2d00;
+	font-size: 10px;
+	line-height: 12px;
+	left: 0px;
+	top: 68px;
+	position: absolute;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.people-open
+{
+	z-index: 100;
+}
+
+.other-people
+{
+	color: #000 !important;
+}
+
+.names
+{
+	margin-left: 5px;
+}
+
+/* should be half the width of a .moment */
+.span-starter
+{
+	width: 100px;
+}
+
+.span1
+{
+	width: 20px !important;
+	margin-left: inherit;
+}
+
+.hidden
+{
+	display: none;
+}
