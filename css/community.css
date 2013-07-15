@@ -52,14 +52,14 @@
 	background-color: #333;
 	margin-left: 20px;
 	margin-top: 10px;
-	width: 130px;
+	width: 150px;
 	padding: 10px;
 	z-index: 100;
 }
 
 .right-pane
 {
-	margin-left: 190px;
+	margin-left: 200px;
 }
 
 .right-pane, .left-pane
@@ -195,6 +195,12 @@
 .other-people
 {
 	color: #000 !important;
+}
+
+.person
+{
+	background-color: #000;
+	padding: 3px;
 }
 
 .names

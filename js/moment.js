@@ -3,6 +3,8 @@ reflect.moment = { };
 
 reflect.moment.util = {
 	resetPhotos : function() {
+		$(".tag-wrapper").removeClass("hidden");
+		$(".tag-wrapper").addClass("hidden");
 		$(".photo-background .button").hide();
 		$(".photo-background").unbind();
 	},
@@ -25,7 +27,6 @@ reflect.moment.phototransition = {
 		$("#photos").css("-webkit-transform", "translate3d(-"+pixelsToMove+"px,0px,0px)");
 
 		var $nextPhoto = photoTransition.currentPhoto.next();
-
 		photoTransition.currentPhotoIndex++;
 		photoTransition.setCurrentPhoto($nextPhoto, photoTransition.currentPhoto);
 	},
@@ -42,14 +43,18 @@ reflect.moment.phototransition = {
 
 	calculateDistanceToMove : function(imageWidth, index)
 	{
-		return imageWidth * index + 800;
+		return imageWidth * index + 900;
 	},
 
 	setCurrentPhoto : function($photo, $oldCurrentPhoto)
 	{
+		if (photoTransition.currentPhoto)
+		{
+			photoTransition.currentPhoto.next().removeClass("nextPhoto");
+			photoTransition.currentPhoto.prev().removeClass("prevPhoto");
+		}
 		photoTransition.currentPhoto = $photo;
 
-		$photo.removeClass("nextPhoto").removeClass("prevPhoto");
 		$photo.next().addClass("nextPhoto");
 
 		if (photoTransition.hasPrevPhoto()) {
@@ -64,13 +69,18 @@ reflect.moment.phototransition = {
 		util.resetPhotos();
 		tagging.enterNontaggingState($photo);
 
-
 		photoTransition.createBindings();
 	},
 
 	createBindings : function() {
-		$(".nextPhoto").click(photoTransition.nextPhoto);
-		$(".prevPhoto").click(photoTransition.prevPhoto);
+		$(".photo-background").mouseenter(function(){
+			$(this).find(".tag-wrapper").show();
+		});
+
+		$(".photo-background").mouseleave(function(){
+			$(this).find(".tag-wrapper").hide();
+		});
+
 	},
 
 	hasPrevPhoto : function()
@@ -112,6 +122,14 @@ reflect.moment.tagging = {
 
 		$photo.mouseleave(function() {
 			$photo.find(".button").hide();
+		});
+
+		$(".photo-background").mouseenter(function(){
+			$(this).find(".tag-wrapper").show();
+		});
+
+		$(".photo-background").mouseleave(function(){
+			$(this).find(".tag-wrapper").hide();
 		});
 
 		$photo.removeClass("taggable");
@@ -167,7 +185,8 @@ reflect.moment.tagging = {
 		var $tagWrapper = $("<div/>").css("top", yCoord)
 							  		 .css("left", xCoord)
 							  		 .attr("id", id)
-							  		 .addClass("tag-wrapper");
+							  		 .addClass("tag-wrapper")
+							  		 .hide();
 
 		var $tag = $("<div/>").addClass("tag");
 		var $tagContent = $("<div/>").text(tagName)
@@ -373,10 +392,15 @@ reflect.lightbox = {
 		if (content.type === "thought")
 		{
 			$element.find(".content1").addClass("thought-header").text(content.content1);
+			$element.find(".play-button").remove();
 		}
 		else if (content.type == "song")
 		{
 			$element.find(".play-button").removeClass("hidden");
+		}
+		else
+		{
+			$element.find(".play-button").remove();
 		}
 		$element.find(".content2").text(content.content2);
 
@@ -805,6 +829,9 @@ var tags = [
 $(document).ready(function() {
 	util.resetPhotos();
 	reflect.moment.phototransition.setCurrentPhoto($(".photo-background:first"));
+
+	$(".next-nav").click(photoTransition.nextPhoto);
+	$(".prev-nav").click(photoTransition.prevPhoto);
 
 	$("#tag-entry").hide();
 	$("#tag-entry .tag-input").click(function(ev){

@@ -17,6 +17,11 @@ body
 	font-size: 12px;
 }
 
+.container
+{
+	width: 1024px;
+}
+
 h1
 {
 	font-size: 28px;

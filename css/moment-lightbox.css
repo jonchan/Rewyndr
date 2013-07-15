@@ -48,7 +48,7 @@
 
 #feed
 {
-	width: 230px;
+	width: 250px;
 	z-index: 1035;
 	position: fixed;
 	background-color: #111;
@@ -58,6 +58,7 @@
 {
 	height: 100%;
 	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 #lightbox-photo
@@ -65,7 +66,7 @@
 	position: fixed;
 	z-index: 1032;
 	top: 181px;
-	left: 170px;
+	left: 180px;
 }
 
 #lightbox-photo img,
@@ -112,6 +113,8 @@
 #feed li
 {
 	position: relative;
+	height: 80px;
+
 }
 
 #feed li:nth-child(odd) 
@@ -123,7 +126,10 @@
 {
 	color: #04756f;
 	font-size: 10px;	
-	margin-bottom: 7px;
+	line-height: 8px;
+	position: absolute;
+	bottom: 10px;
+
 }
 
 .feed-header
@@ -148,9 +154,9 @@
 .content-wrapper,
 .play-button
 {
-	display: table-cell;
+	float: left;
 	vertical-align: middle;
-	height: 75px;
+	margin-top: 15px;
 }
 
 .content-type-wrapper
@@ -167,7 +173,7 @@
 .content-wrapper
 {
 	padding-left: 10px;
-	width: 150px;
+	width: 80%;
 }
 
 .play-button
@@ -179,10 +185,7 @@
 
 .play-button-inner
 {
-	position: relative;
-	border-left-style: solid;
-	border-left-width: 1px;
-	border-left-color: #fff;
+	position: absolute;
 	height: 50px;
 }
 
@@ -200,13 +203,6 @@
 	margin-bottom: -3px;
 }
 
-
-.content-wrapper .info
-{
-	position: absolute;
-	bottom: 0px;
-	line-height: 8px;
-}
 
 #feed .add-content:hover
 {
