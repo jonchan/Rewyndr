@@ -108,7 +108,7 @@ timeline.year = {
 	{
 		var $activeYear;
 		$(".year-line").each(function(index){
-			if ($(this).position().left > year.startingPixels - $(this).width() && 
+			if ($(this).position().left > year.startingPixels - $(this).width() + 2 && 
 				$(this).position().left <= year.startingPixels + $(this).width())
 			{
 				$activeYear = $(this);
@@ -223,7 +223,6 @@ $(document).ready(function(){
 
 	$("#2012-anchor").click(function(){
 		var pixelsToScroll = $("#2012-line").position().left - timeline.year.startingPixels;
-		console.log(pixelsToScroll);
 		var scrollLeft = pixelsToScroll < 0 ? "-="+Math.abs(pixelsToScroll) : "+="+pixelsToScroll;
 		$(".tab-content").animate({
 				scrollLeft: scrollLeft
@@ -234,7 +233,6 @@ $(document).ready(function(){
 
 	$("#2011-anchor").click(function(){
 		var pixelsToScroll = $("#2011-line").position().left - timeline.year.startingPixels;
-		console.log(pixelsToScroll);
 		var scrollLeft = pixelsToScroll < 0 ? "-="+Math.abs(pixelsToScroll) : "+="+pixelsToScroll;
 		$(".tab-content").animate({
 				scrollLeft: scrollLeft
@@ -283,7 +281,7 @@ $(document).ready(function(){
 
 	$(".tab-content").scroll(function(){
 		var $activeLine = $(".year-line.active");
-		if ($activeLine.position().left <= year.startingPixels - $activeLine.width() ||
+		if ($activeLine.position().left <= year.startingPixels - $activeLine.width() + 2||
 			$activeLine.position().left > year.startingPixels)  
 		{
 			$activeLine.removeClass("active");
