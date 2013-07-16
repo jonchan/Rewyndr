@@ -150,7 +150,9 @@
 
 .filter-title
 {
-	color: #000;
+	font-family: "OpenSansBold", "helvetica";
+	font-weight: bolder;
+	color: #333;
 }
 
 .enabled-filter {
@@ -161,7 +163,7 @@
 	float: left;
 	margin-left: 20px;
 	border-radius: 10px;
-
+	border: #ff2100 solid 1px;
 }
 
 .enabled-filter-inner
@@ -184,8 +186,8 @@
 	margin-left: 5px;
 	background-color: inherit;
 	font-size: 14px;
+	opacity: 1;
 	text-shadow: none;
-	font-size: inherit;
 	font-weight: inherit;
 }
 
@@ -230,6 +232,7 @@
 
 .year
 {
+	font-family: "OpenSansBold";
 	float: left;
 	margin-right: 20px;
 }

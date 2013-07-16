@@ -38,9 +38,16 @@ timeline.filter = {
 			$(".filters").addClass("hidden");
 			$timeline = $(".timeline-inner");
 			$timeline.css("margin-top", parseInt($timeline.css("margin-top")) - 30);
+			$(".moment").css("border", "inherit");
 		}
+		
 
 		timeline.momentFilter.removeFilter(personId);
+
+		if ($(".enabled-filter").length > 1)
+		{
+			$(".moment:not(.disabled)").css("border", "#ff2100 1px solid");
+		}
 	},
 
 	enableFilter : function(personId)
@@ -50,7 +57,6 @@ timeline.filter = {
 			$(".filters").removeClass("hidden");
 			$timeline = $(".timeline-inner");
 			$timeline.css("margin-top", parseInt($timeline.css("margin-top")) + 30);
-
 		}
 
 		var $person = $("#" + personId);
@@ -69,6 +75,8 @@ timeline.filter = {
 		});
 
 		timeline.momentFilter.applyFilter(personId);
+		$(".disabled").css("border", "inherit");
+		$(".moment:not(.disabled)").css("border", "#ff2100 1px solid");
 	},
 
 	getActiveFilters : function() {
@@ -240,11 +248,11 @@ $(document).ready(function(){
 
 		if ($(this).is(":checked"))
 		{
-			filter.enableFilter(id);
+			timeline.filter.enableFilter(id);
 		}
 		else
 		{
-			filter.disableFilter(id);
+			timeline.filter.disableFilter(id);
 		}
 	});
 

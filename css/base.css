@@ -8,6 +8,12 @@
 	src: url("fonts/Open_Sans/OpenSans-Regular.ttf") format("opentype");
 }
 
+@font-face {
+	font-family: OpenSansBold;
+	src: url("fonts/Open_Sans/OpenSans-Bold.ttf") format("opentype");
+}
+
+
 body
 {
 	background-color: #4d4d4d;
