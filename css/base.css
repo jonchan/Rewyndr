@@ -48,6 +48,14 @@ h1
 {
 	left: 20px;
 	margin-left: 30px;
+	margin-right: 20px;
+	padding: 0px !important;
+}
+
+.brand img
+{
+	max-height: 35px;
+
 }
 
 .nav-me

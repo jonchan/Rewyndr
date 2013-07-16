@@ -36,6 +36,8 @@ timeline.filter = {
 		if ($(".enabled-filter").length == 1)
 		{
 			$(".filters").addClass("hidden");
+			$timeline = $(".timeline-inner");
+			$timeline.css("margin-top", parseInt($timeline.css("margin-top")) - 30);
 		}
 
 		timeline.momentFilter.removeFilter(personId);
@@ -46,6 +48,9 @@ timeline.filter = {
 		if ($(".filters").hasClass("hidden"))
 		{
 			$(".filters").removeClass("hidden");
+			$timeline = $(".timeline-inner");
+			$timeline.css("margin-top", parseInt($timeline.css("margin-top")) + 30);
+
 		}
 
 		var $person = $("#" + personId);
@@ -188,8 +193,8 @@ filter.people = [
 
 var year = timeline.year;
 
-timeline.year.year2013 = 800;
-timeline.year.year2012 = 800;
+timeline.year.year2013 = 480;
+timeline.year.year2012 = 850;
 timeline.year.year2011 = 800;
 timeline.year.startingPixels = 328;
 
@@ -197,6 +202,38 @@ timeline.year.startingPixels = 328;
 
 
 $(document).ready(function(){
+
+	$("#2013-anchor").click(function(){
+		var pixelsToScroll = $("#2013-line").position().left - timeline.year.startingPixels;
+		var scrollLeft = pixelsToScroll < 0 ? "-="+Math.abs(pixelsToScroll) : "+="+pixelsToScroll;
+		$(".tab-content").animate({
+				scrollLeft: scrollLeft
+			}, 300, function() {
+			}
+		);
+	})
+
+	$("#2012-anchor").click(function(){
+		var pixelsToScroll = $("#2012-line").position().left - timeline.year.startingPixels;
+		console.log(pixelsToScroll);
+		var scrollLeft = pixelsToScroll < 0 ? "-="+Math.abs(pixelsToScroll) : "+="+pixelsToScroll;
+		$(".tab-content").animate({
+				scrollLeft: scrollLeft
+			}, 300, function() {
+			}
+		);
+	})
+
+	$("#2011-anchor").click(function(){
+		var pixelsToScroll = $("#2011-line").position().left - timeline.year.startingPixels;
+		console.log(pixelsToScroll);
+		var scrollLeft = pixelsToScroll < 0 ? "-="+Math.abs(pixelsToScroll) : "+="+pixelsToScroll;
+		$(".tab-content").animate({
+				scrollLeft: scrollLeft
+			}, 300, function() {
+			}
+		);
+	})
 
 	$(".checkbox input").click(function(ev){
 		var id = $(this).parent().parent(".person").attr("id");
@@ -232,9 +269,9 @@ $(document).ready(function(){
 		window.location = 'moment.html';
 	});
 
-	year.getYear(2013).css("width", timeline.year2013);
-	year.getYear(2012).css("width", timeline.year2012);
-	year.getYear(2011).css("width", timeline.year2011);
+	year.getYear(2013).css("width", timeline.year.year2013);
+	year.getYear(2012).css("width", timeline.year.year2012);
+	year.getYear(2011).css("width", timeline.year.year2011);
 
 	$(".tab-content").scroll(function(){
 		var $activeLine = $(".year-line.active");

@@ -17,6 +17,69 @@
 	margin-bottom: -20px;
 }
 
+.nav-tabs li
+{
+	height: 45px;
+	width: 180px;
+	background-color: #333;
+	margin-right: 2px;
+}
+
+.nav-tabs li a
+{
+	margin-left: 27px;
+	border: none;
+}
+
+.nav-tabs li.active
+{
+	background-color: #fff;
+}
+
+.nav-tabs li.active a
+{
+	color: #ff2100;
+	outline: inherit;
+	border: inherit;
+	background: inherit;
+
+}
+
+.nav-tabs li.active:hover
+{
+	background-color: #fff;
+	color: #ff2100;
+	outline: none;
+	border: none;
+}
+
+.nav-tabs li.active a:hover
+{
+	background-color: inherit;
+	outline: inherit;
+	border: inherit;
+	background: inherit;
+	color: inherit;
+}
+
+.nav-tabs li:hover
+{
+	background-color: #ff2100;
+}
+
+.nav-tabs li:hover a
+{
+	background-color: inherit;
+	border: inherit;
+}
+
+.nav-tabs a
+{
+	font-size: 22px;
+	color: #fff;
+	text-transform: uppercase;
+}
+
 .nav-tabs
 {
 	margin-bottom: 0px;
@@ -26,7 +89,7 @@
 {
 	overflow-x: show;
 	overflow-y: hidden;
-	height: 530px;
+	height: 500px;
 	width: 3024px;
 	background-color: #808080;
 }
@@ -53,7 +116,7 @@
 .left-pane
 {
 	position: absolute;
-	height: 454px;
+	height: 430px;
 	background-color: #333;
 	margin-top: 10px;
 	width: 150px;
@@ -72,6 +135,7 @@
 {
 	height: 20px;
 	margin-top: 37px;
+	position: absolute;
 }
 
 .enabled-filters,
@@ -239,7 +303,7 @@
 .moment-overlay
 {
 	position: absolute;
-	z-index: 1000;
+	z-index: 99;
 	opacity: .8;
 	left: 0;
 	top: 0;

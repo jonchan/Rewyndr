@@ -23,22 +23,28 @@ reflect.moment.util = {
 reflect.moment.phototransition = {
 	
 	nextPhoto : function() {
-		var pixelsToMove = photoTransition.calculateDistanceToMove(photoTransition.imageWidth, (photoTransition.currentPhotoIndex + 1));
-		$("#photos").css("-webkit-transform", "translate3d(-"+pixelsToMove+"px,0px,0px)");
+		if (photoTransition.hasNextPhoto())
+		{
+			var pixelsToMove = photoTransition.calculateDistanceToMove(photoTransition.imageWidth, (photoTransition.currentPhotoIndex + 1));
+			$("#photos").css("-webkit-transform", "translate3d(-"+pixelsToMove+"px,0px,0px)");
 
-		var $nextPhoto = photoTransition.currentPhoto.next();
-		photoTransition.currentPhotoIndex++;
-		photoTransition.setCurrentPhoto($nextPhoto, photoTransition.currentPhoto);
+			var $nextPhoto = photoTransition.currentPhoto.next();
+			photoTransition.currentPhotoIndex++;
+			photoTransition.setCurrentPhoto($nextPhoto, photoTransition.currentPhoto);			
+		}
 	},
 
 	prevPhoto : function() {
-		var pixelsToMove = photoTransition.calculateDistanceToMove(photoTransition.imageWidth, (photoTransition.currentPhotoIndex - 1));
-		$("#photos").css("-webkit-transform", "translate3d(-"+pixelsToMove+"px,0px,0px)");
+		if (photoTransition.hasPrevPhoto())
+		{
+			var pixelsToMove = photoTransition.calculateDistanceToMove(photoTransition.imageWidth, (photoTransition.currentPhotoIndex - 1));
+			$("#photos").css("-webkit-transform", "translate3d(-"+pixelsToMove+"px,0px,0px)");
 
-		var $prevPhoto = photoTransition.currentPhoto.prev();
+			var $prevPhoto = photoTransition.currentPhoto.prev();
 
-		photoTransition.currentPhotoIndex--;
-		photoTransition.setCurrentPhoto($prevPhoto, photoTransition.currentPhoto);
+			photoTransition.currentPhotoIndex--;
+			photoTransition.setCurrentPhoto($prevPhoto, photoTransition.currentPhoto);
+		}
 	},
 
 	calculateDistanceToMove : function(imageWidth, index)
@@ -55,10 +61,12 @@ reflect.moment.phototransition = {
 		}
 		photoTransition.currentPhoto = $photo;
 
-		$photo.next().addClass("nextPhoto");
-
 		if (photoTransition.hasPrevPhoto()) {
 			$photo.prev().addClass("prevPhoto");
+		}
+
+		if (photoTransition.hasNextPhoto()) {
+			$photo.next().addClass("nextPhoto");
 		}
 
 		if ($oldCurrentPhoto)
@@ -86,6 +94,11 @@ reflect.moment.phototransition = {
 	hasPrevPhoto : function()
 	{
 		return photoTransition.currentPhotoIndex > 0; 
+	},
+
+	hasNextPhoto : function()
+	{
+		return photoTransition.currentPhotoIndex < $(".photo").length - 1; 
 	}
 
 }

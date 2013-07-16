@@ -113,8 +113,7 @@
 #feed li
 {
 	position: relative;
-	height: 80px;
-
+	height: 93px;
 }
 
 #feed li:nth-child(odd) 
@@ -255,7 +254,7 @@
 .add-thought-box select,
 .add-sound-box input
 {
-	width: 170px;
+	width: 200px;
 	background-color: #000;
 	color: #fff;
 	resize: vertical;
