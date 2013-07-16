@@ -83,13 +83,12 @@ h1
 
 .nav-me .dropdown a
 {
-	height: 12px;
+	line-height: 12px;
 }
 
 .nav-me .dropdown 
 {
 	width: 100px;
-	line-height: 10px;
 	display: table-cell;
 	vertical-align: middle;
 }
