@@ -2,7 +2,7 @@
 
 #header
 {
-	height: 100px;
+	height: 80px;
 	color: #fff;
 }
 
@@ -19,6 +19,9 @@
 
 #photos
 {
+	background-color: #808080;
+	padding-top: 30px;
+	padding-bottom: 20px;
 	position: fixed;
 	width: 5000px;
 	overflow-x: hidden;
