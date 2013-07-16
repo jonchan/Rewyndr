@@ -1,15 +1,9 @@
 
 #header
 {
-	margin-top: -10px;
 	margin-bottom: 30px;
 }
 
-#header a
-{
-	text-decoration: none;
-	color: #fff;
-}
 
 #header h3
 {
@@ -17,79 +11,18 @@
 	margin-bottom: -20px;
 }
 
-.nav-tabs li
-{
-	height: 45px;
-	width: 180px;
-	background-color: #333;
-	margin-right: 2px;
-}
-
-.nav-tabs li a
-{
-	margin-left: 27px;
-	border: none;
-}
-
-.nav-tabs li.active
-{
-	background-color: #fff;
-}
-
-.nav-tabs li.active a
+#header a
 {
 	color: #ff2100;
-	outline: inherit;
-	border: inherit;
-	background: inherit;
-
-}
-
-.nav-tabs li.active:hover
-{
-	background-color: #fff;
-	color: #ff2100;
-	outline: none;
-	border: none;
-}
-
-.nav-tabs li.active a:hover
-{
-	background-color: inherit;
-	outline: inherit;
-	border: inherit;
-	background: inherit;
-	color: inherit;
-}
-
-.nav-tabs li:hover
-{
-	background-color: #ff2100;
-}
-
-.nav-tabs li:hover a
-{
-	background-color: inherit;
-	border: inherit;
-}
-
-.nav-tabs a
-{
-	font-size: 22px;
-	color: #fff;
-	text-transform: uppercase;
-}
-
-.nav-tabs
-{
-	margin-bottom: 0px;
+	font-size: 14px;
+	margin-left: 10px;
 }
 
 #timeline-view
 {
 	overflow-x: show;
 	overflow-y: hidden;
-	height: 500px;
+	height: 530px;
 	width: 3024px;
 	background-color: #808080;
 }
@@ -116,7 +49,7 @@
 .left-pane
 {
 	position: absolute;
-	height: 430px;
+	height: 460px;
 	background-color: #333;
 	margin-top: 10px;
 	width: 150px;

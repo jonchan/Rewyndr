@@ -16,11 +16,11 @@
 
 body
 {
-	background-color: #4d4d4d;
-	padding-top: 80px;
+	background-color: #3d3d3d;
 	font-family: OpenSans, Helvetica;
 	color: #ddd;
 	font-size: 12px;
+	padding-top: 51px;
 }
 
 .container
@@ -44,16 +44,16 @@ h1
 	text-shadow: inherit;
 	border: inherit;
 	box-shadow: inherit !important;
-	padding-right: 30px !important;
-	padding-left: 30px !important;
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-right: 10px !important;
+	padding-left: 10px !important;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 
 .brand
 {
 	left: 20px;
-	margin-left: 30px;
+	margin-left: 10px;
 	margin-right: 20px;
 	padding: 0px !important;
 }
@@ -79,7 +79,11 @@ h1
 .navbar-right
 {
 	margin-top: 5px;
-	margin-right: 20px;
+}
+
+.nav-me .dropdown a
+{
+	height: 12px;
 }
 
 .nav-me .dropdown 
@@ -133,3 +137,51 @@ h1
 {
 	cursor: pointer;
 }
+
+.sub-navbar
+{
+	margin-bottom: 15px;
+	width: 100%;
+	line-height: 25px;
+}
+
+.breadcrumb-links a
+{
+	margin-left: 5px;
+	margin-right: 5px;
+
+}
+
+.sub-navbar .breadcrumb-links
+{
+	width: 450px;
+}
+
+.sub-navbar,
+.sub-navbar a
+{
+	font-size: 14px;
+	vertical-align: middle;
+}
+
+.breadcrumb-back
+{
+	color: #ff2100;	
+}
+
+.breadcrumb-here
+{
+	color: #fff;	
+}
+
+#header h3
+{
+	margin-top: -10px;
+	margin-bottom: -20px;
+}
+
+#content
+{
+	padding-top: 30px;
+}
+
