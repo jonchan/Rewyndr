@@ -1,0 +1,77 @@
+body
+{
+	background: inherit;
+	background-image: url('../img/login-bg.png');
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	text-transform: uppercase;
+	color: #fff;
+}
+
+.container-fluid
+{
+	margin-top: 100px;
+}
+
+.login-element
+{
+	font-size: 18px;
+}
+
+*
+{
+	text-align: center !important;
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+
+a
+{
+	display: block;
+	color: #ff2d00;
+}
+
+input
+{
+	border-radius: 18px !important;
+	display: block !important;
+}
+
+.button
+{
+	width: 200px;
+}
+
+#login-options
+{
+	margin-top: 40px;
+}
+
+#login-wrapper
+{
+	margin-top: 30px;
+}
+
+#login-wrapper .login-element,
+#login-wrapper input
+{
+	margin-bottom: 8px;
+}
+
+#login-fb
+{
+	margin-top: 30px;
+}
+
+#login-options .button,
+#login-options a
+{
+	margin-bottom: 10px;
+}
+
+#login-fb .login-element
+{
+	margin-bottom: 10px;
+	font-size: 12px;
+}
