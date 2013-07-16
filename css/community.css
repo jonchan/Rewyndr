@@ -24,7 +24,7 @@
 
 #timeline-view
 {
-	overflow-x: auto;
+	overflow-x: show;
 	overflow-y: hidden;
 	height: 530px;
 	width: 3024px;
@@ -45,21 +45,106 @@
 	margin-top: 40px;
 }
 
+.timeline-inner
+{
+	margin-top: 28px;
+}
+
 .left-pane
 {
 	position: absolute;
 	height: 454px;
 	background-color: #333;
-	margin-left: 20px;
 	margin-top: 10px;
 	width: 150px;
 	padding: 10px;
-	z-index: 100;
+	z-index: 150;
+	overflow-y: auto;
+}
+
+#timeline-control
+{
+	width: 800px;
+	position: fixed;
+}
+
+.filters
+{
+	height: 20px;
+	margin-top: 37px;
+}
+
+.enabled-filters,
+.filter-title
+{
+	display: table-cell;
+	margin-right: 20px;
+	height: 20px;
+	vertical-align: middle;
+}
+
+
+.filter-title
+{
+	color: #000;
+}
+
+.enabled-filter {
+	width: 120px;
+	background-color: #b2b2b2;
+	color: #000;
+	position: relative;
+	float: left;
+	margin-left: 20px;
+	border-radius: 10px;
+
+}
+
+.enabled-filter-inner
+{
+	vertical-align: middle;
+	height: 19px;
+	display: table-cell;
+}
+
+.enabled-filter .close,
+.enabled-filter .name,
+.enabled-filter img
+{
+	float: left;
+}
+
+.enabled-filter .close
+{
+	width: 15px;
+	margin-left: 5px;
+	background-color: inherit;
+	font-size: 14px;
+	text-shadow: none;
+	font-size: inherit;
+	font-weight: inherit;
+}
+
+.enabled-filter img
+{
+	max-height: 20px;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	padding: 2px;
+}
+
+.explore-header
+{
+	text-align: center;
+	font-size: 15px;
+	margin-bottom: 10px;
 }
 
 .right-pane
 {
 	margin-left: 200px;
+	margin-top: 10px;
 }
 
 .right-pane, .left-pane
@@ -67,48 +152,51 @@
 	float: left;
 }
 
-
-.selected-connections
+.filters
 {
-	background-color: teal;
-	padding: 10px;
-	border-style: dotted;
-	border-color: #fff;
-	border-width: 1px;
-	margin-right: auto;
-	margin-left: auto;
-	text-align: center;
-}
-
-#timeline
-{	
-	width: 100%;
-	height: 30px;
-	background-color: #222;	
-	margin-top: 10px;
+	margin-left: 0px;
 	margin-bottom: 10px;
+	clear: both;
 }
 
-.circle,
-.year
+.years
 {
-	position: absolute;
-
+	float: left;
 }
-
-.time
-{
-	background-color: #fff;
-	height: 100%;
-	width: 4px;
-	cursor: pointer;
-}
-
 
 .year
 {
-	margin-top: 4px;
+	float: left;
+	margin-right: 20px;
 }
+
+.year-line
+{
+	float: left;
+	margin-bottom: 5px;
+}
+
+.years .active a
+{
+	color: #000;
+}
+
+.year a
+{
+	color: #555;
+	font-weight: bold;
+}
+
+.year-lines hr.active
+{
+	border-color: #000;
+}
+
+.year-lines .year-line
+{
+	border-color: #555;
+}
+
 
 #add-photos
 {
@@ -123,14 +211,12 @@
 {
 	font-size: 12px;
 	font-weight: bold;
-	cursor: pointer;	
-
 }
 
 .span-starter,
 .moment
 {
-	height: 70px;
+	height: 62px;
 	margin-top: 8px;
 	margin-bottom: 8px;	
 	padding: 10px;
@@ -148,6 +234,18 @@
 	width: 295px;
 	cursor: pointer;
 	position: relative;
+}
+
+.moment-overlay
+{
+	position: absolute;
+	z-index: 1000;
+	opacity: .8;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
 }
 
 .highlight
@@ -168,10 +266,6 @@
 	font-size: 12px;
 }
 
-.people
-{
-}
-
 .people,
 .people-open
 {
@@ -181,7 +275,7 @@
 	font-size: 10px;
 	line-height: 12px;
 	left: 0px;
-	top: 68px;
+	top: 60px;
 	position: absolute;
 	padding-top: 5px;
 	padding-bottom: 5px;
@@ -199,8 +293,22 @@
 
 .person
 {
-	background-color: #000;
 	padding: 3px;
+	padding-bottom: 5px;
+	margin-bottom: 5px;
+	border-bottom: #555 solid 1px;
+}
+
+.person label
+{
+	font-size: 12px;
+}
+
+.person img
+{
+	width: 25px;
+	height: 25px;
+	float: right;
 }
 
 .names
@@ -211,6 +319,7 @@
 /* should be half the width of a .moment */
 .span-starter
 {
+	cursor: pointer;	
 	width: 100px;
 }
 

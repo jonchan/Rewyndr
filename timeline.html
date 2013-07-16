@@ -67,307 +67,442 @@
         <div class="timeline-content">
           <div class="left-pane">
             <div class="explore-header">
-              <h5> Explore Group Connections </h5>
+              Explore Group Connections
             </div>
-            <div class="selected-connections">
-                No connections selected! <br>
-                Add from the list below.
-            </div>
+
             <div class="persons">
-              <div class="person">
+
+              <div id="person-1" class="person">
                 <label class="checkbox">
-                  <input type="checkbox"> Peter Galliger
-                  <img src="img/profile/chris.jpg"> </img>
+                  <input type="checkbox"> Peter Galliger </input>
+                  <img src="img/profiles/chris.jpg"> </img>
                 </label>
               </div>
+
+              <div id="person-2" class="person">
+                <label class="checkbox">
+                  <input type="checkbox"> Aaron Rogers </input>
+                  <img src="img/profiles/addy.jpg"> </img>
+                </label>
+              </div>
+
+              <div id="person-3" class="person">
+                <label class="checkbox">
+                  <input type="checkbox"> Sarah Jenkins
+                  <img src="img/profiles/auldyn.jpg"> </img>
+                </label>
+              </div>
+
+              <div id="person-4" class="person">
+                <label class="checkbox">
+                  <input type="checkbox"> Chris Baker
+                  <img src="img/profiles/dave.jpg"> </img>
+                </label>
+              </div>
+
+              <div id="person-5" class="person">
+                <label class="checkbox">
+                  <input type="checkbox"> Kiril Shah
+                  <img src="img/profiles/kiril.jpg"> </img>
+                </label>
+              </div>
+
+              <div id="person-6" class="person">
+                <label class="checkbox">
+                  <input type="checkbox"> Kristina Erikson
+                  <img src="img/profiles/kristina.jpg"> </img>
+                </label>
+              </div>
+
+              <div id="person-7" class="person">
+                <label class="checkbox">
+                  <input type="checkbox"> Avi Singh
+                  <img src="img/profiles/mehnt.jpg"> </img>
+                </label>
+              </div>
+
+              <div id="person-8" class="person">
+                <label class="checkbox">
+                  <input type="checkbox"> Pooja Agrawala
+                  <img src="img/profiles/pooja.jpg"> </img>
+                </label>
+              </div>
+
+              <div id="person-9" class="person">
+                <label class="checkbox">
+                  <input type="checkbox"> Parker Bossier
+                  <img src="img/profiles/parker.jpg"> </img>
+                </label>
+              </div>
+              <div id="person-10" class="person">
+                <label class="checkbox">
+                  <input type="checkbox"> Peter Galliger
+                  <img src="img/profiles/chris.jpg"> </img>
+                </label>
+              </div>
+              <div id="person-11" class="person">
+                <label class="checkbox">
+                  <input type="checkbox"> Peter Galliger
+                  <img src="img/profiles/chris.jpg"> </img>
+                </label>
+              </div>
+
+              <div id="person-12" class="person">
+                <label class="checkbox">
+                  <input type="checkbox"> Peter Galliger
+                  <img src="img/profiles/chris.jpg"> </img>
+                </label>
+              </div>
+
+              <div id="person-13" class="person">
+                <label class="checkbox">
+                  <input type="checkbox"> Peter Galliger
+                  <img src="img/profiles/chris.jpg"> </img>
+                </label>
+              </div>
+
+              <div id="person-14" class="person">
+                <label class="checkbox">
+                  <input type="checkbox"> Peter Galliger
+                  <img src="img/profiles/chris.jpg"> </img>
+                </label>
+              </div>
+
+
             </div>
           </div>
           <div class="right-pane">
-            <div class="row">
-              <div id="add-photos" class="span-starter"> 
-                <span id="drag-drop"> Drag & Drop <span>
-                photos to add a new moment
-              </div>
-              <div id="johnnys-farewell" class="span3 moment" 
-                style="background-image: url('img/moments/johnnys-farewell.png');">
-                <div class="moment-date">
-                  Feb 18, 2012
+            <div id="timeline-control">
+              <div class="years">
+                <div class="year active" data-year="2013">
+                  <a href="#"> 2013 </a>
                 </div>
-                <div class="moment-title">
-                  Johnny's Farewell Party
+                <div class="year" data-year="2012">
+                  <a href="#"> 2012 </a>
                 </div>
-                <div class="people">
-                  <span class="names"> 
-                    Michael Shreeran, Christine Wang </span>
-                  <span class="other-people"> 
-                    & 9 others in this moment. 
-                  </span>
-                </div>
-                <div class="people-open hidden">
-                  <div class="names"> 
-                    Michael Shreeran, Christine Wang, Matt Winthrop, Jackie Davis, Jenny Bustamante, Johnny Shigeta, Russell Cruz, Leslie Sullivan, Paige Larson, Chris Lee, Josh Kurchenko 
-                  </div>
-                </div>
-              </div>
-              <div class="span1"> </div>
-              <div id="brunch-club"  class="span3 moment"
-                    style="background-image: url('img/moments/brunch-club.png');">
-                <div class="moment-date">
-                  May 16, 2012
-                </div>
-                <div class="moment-title">
-                  Brunch Club
-                </div>
-                <div class="people">
-                  <span class="names"> 
-                    Michael Shreeran, Christine Wang </span>
-                  <span class="other-people"> 
-                    & 9 others in this moment. 
-                  </span>
-                </div>
-                <div class="people-open hidden">
-                  <div class="names"> 
-                    Michael Shreeran, Christine Wang, Matt Winthrop, Jackie Davis, Jenny Bustamante, Johnny Shigeta, Russell Cruz, Leslie Sullivan, Paige Larson, Chris Lee, Josh Kurchenko 
-                  </div>
-                </div>
-              </div>
-              <div class="span1"> </div>
-              <div id="jennys-graduation" class="span3 moment"
-                    style="background-image: url('img/moments/jennys-graduation.png');">
-                <div class="moment-date">
-                  May 19, 2013
-                </div>
-                <div class="moment-title">
-                  Jenny's Graduation
-                </div>
-                <div class="people">
-                  <span class="names"> 
-                    Michael Shreeran, Christine Wang </span>
-                  <span class="other-people"> 
-                    & 9 others in this moment. 
-                  </span>
-                </div>
-                <div class="people-open hidden">
-                  <div class="names"> 
-                    Michael Shreeran, Christine Wang, Matt Winthrop, Jackie Davis, Jenny Bustamante, Johnny Shigeta, Russell Cruz, Leslie Sullivan, Paige Larson, Chris Lee, Josh Kurchenko 
-                  </div>
-                </div>
-              </div>
-              <div class="span1"> </div>
-            </div>
-
-
-
-            <div class="row">
-              <div id="mt-ranier-hike"  class="span3 moment"
-                    style="background-image: url('img/moments/mt-ranier-hike.png');">
-                <div class="moment-date">
-                  Jan 3, 2012
-                </div>
-                <div class="moment-title">
-                  Mt. Ranier Hike
-                </div>
-                <div class="people">
-                  <span class="names"> 
-                    Michael Shreeran, Christine Wang </span>
-                  <span class="other-people"> 
-                    & 9 others in this moment. 
-                  </span>
-                </div>
-                <div class="people-open hidden">
-                  <div class="names"> 
-                    Michael Shreeran, Christine Wang, Matt Winthrop, Jackie Davis, Jenny Bustamante, Johnny Shigeta, Russell Cruz, Leslie Sullivan, Paige Larson, Chris Lee, Josh Kurchenko 
-                  </div>
-                </div>
-              </div>
-              <div class="span1"> </div>
-              <div id="bears-game" class="span3 moment"
-                    style="background-image: url('img/moments/bears-game.png');">
-                <div class="moment-date">
-                  April 11, 2012
-                </div>
-                <div class="moment-title">
-                  Bears Game
-                </div>
-                <div class="people">
-                  <span class="names"> 
-                    Michael Shreeran, Christine Wang </span>
-                  <span class="other-people"> 
-                    & 9 others in this moment. 
-                  </span>
-                </div>
-                <div class="people-open hidden">
-                  <div class="names"> 
-                    Michael Shreeran, Christine Wang, Matt Winthrop, Jackie Davis, Jenny Bustamante, Johnny Shigeta, Russell Cruz, Leslie Sullivan, Paige Larson, Chris Lee, Josh Kurchenko 
-                  </div>
-                </div>
-              </div>
-              <div class="span1"> </div>
-              <div id="nyc-conference"  class="span3 moment"
-                    style="background-image: url('img/moments/nyc-conference.png');">
-                <div class="moment-date">
-                  Nov 18, 2012
-                </div>
-                <div class="moment-title">
-                  NYC Conference
-                </div>
-                <div class="people">
-                  <span class="names"> 
-                    Michael Shreeran, Christine Wang </span>
-                  <span class="other-people"> 
-                    & 9 others in this moment. 
-                  </span>
-                </div>
-                <div class="people-open hidden">
-                  <div class="names"> 
-                    Michael Shreeran, Christine Wang, Matt Winthrop, Jackie Davis, Jenny Bustamante, Johnny Shigeta, Russell Cruz, Leslie Sullivan, Paige Larson, Chris Lee, Josh Kurchenko 
-                  </div>
+                <div class="year" data-year="2011">
+                  <a href="#"> 2011 </a>
                 </div>
               </div>
             </div>
-
-            <div id="timeline">
-              <div class="year" style="margin-left: 10px"> 2012 </div>
-              <div class="time" style="margin-left: 80px" moment-id="jennys-bday"> </div>
-            </div>
-            <div class="row">
-              <div id="jennys-bday" class="span3 moment"
-                    style="background-image: url('img/moments/jennys-bday.png');">
-                <div class="moment-date">
-                  Jan 19, 2012
-                </div>
-                <div class="moment-title">
-                  Jennys Bday
-                </div>
-                <div class="people">
-                  <span class="names"> 
-                    Michael Shreeran, Christine Wang </span>
-                  <span class="other-people"> 
-                    & 9 others in this moment. 
-                  </span>
-                </div>
-                <div class="people-open hidden">
-                  <div class="names"> 
-                    Michael Shreeran, Christine Wang, Matt Winthrop, Jackie Davis, Jenny Bustamante, Johnny Shigeta, Russell Cruz, Leslie Sullivan, Paige Larson, Chris Lee, Josh Kurchenko 
-                  </div>
-                </div>
-              </div>
-              <div class="span1"> </div>
-              <div id="roadies-road-trip" class="span3 moment"
-                    style="background-image: url('img/moments/roadies-road-trip.png');">
-                <div class="moment-date">
-                  April 23, 2012
-                </div>
-                <div class="moment-title">
-                  Roadies Road Trip 2012
-                </div>
-                <div class="people">
-                  <span class="names"> 
-                    Michael Shreeran, Christine Wang </span>
-                  <span class="other-people"> 
-                    & 9 others in this moment. 
-                  </span>
-                </div>
-                <div class="people-open hidden">
-                  <div class="names"> 
-                    Michael Shreeran, Christine Wang, Matt Winthrop, Jackie Davis, Jenny Bustamante, Johnny Shigeta, Russell Cruz, Leslie Sullivan, Paige Larson, Chris Lee, Josh Kurchenko 
-                  </div>
-                </div>
-              </div>
-              <div class="span1"> </div>
-              <div id="new-years-eve" class="span3 moment"
-                    style="background-image: url('img/moments/new-years-eve.png');">
-                <div class="moment-date">
-                  December 31, 2012
-                </div>
-                <div class="moment-title">
-                  New Years Eve
-                </div>
-                <div class="people">
-                  <span class="names"> 
-                    Michael Shreeran, Christine Wang </span>
-                  <span class="other-people"> 
-                    & 9 others in this moment. 
-                  </span>
-                </div>
-                <div class="people-open hidden">
-                  <div class="names"> 
-                    Michael Shreeran, Christine Wang, Matt Winthrop, Jackie Davis, Jenny Bustamante, Johnny Shigeta, Russell Cruz, Leslie Sullivan, Paige Larson, Chris Lee, Josh Kurchenko 
-                  </div>
-                </div>
-              </div>            
+            <div class="year-lines">
+              <hr id="2013-line" data-year="2013" class="year-line active" style="width: 300px"> </hr>
+              <hr id="2012-line" data-year="2012" class="line year-line" style="width: 400px"> </hr>
+              <hr id="2011-line" data-year="2011" class="line year-line" style="width: 400px"> </hr>
             </div>
 
-            <div class="row">
-              <div class="span-starter"></div>
-              <div id="arcade-fire-concert" class="span3 moment"
-                    style="background-image: url('img/moments/arcade-fire-concert.png');">
-                <div class="moment-date">
-                  February 26, 2012
+            <div class="timeline-inner">
+              <div class="filters hidden">
+                <div class="filter-title"> Filters </div>
+                <div class="enabled-filters"> </div>
+              </div>
+
+              <div class="row">
+                <div id="add-photos" class="span-starter"> 
+                  <span id="drag-drop"> Drag & Drop <span>
+                  photos to add a new moment
                 </div>
-                <div class="moment-title">
-                  Arcade Fire Concert at the Bowl
+                <div id="johnnys-farewell" class="span3 moment" 
+                  style="background-image: url('img/moments/johnnys-farewell.png');">
+                  <div class="moment-overlay hidden"> </div>
+                  <div class="moment-date">
+                    Feb 18, 2012
+                  </div>
+                  <div class="moment-title">
+                    Johnny's Farewell Party
+                  </div>
+                  <div class="people">
+                    <span class="names"> 
+                      Michael Shreeran, Christine Wang </span>
+                    <span class="other-people"> 
+                      & 9 others in this moment. 
+                    </span>
+                  </div>
+                  <div class="people-open hidden">
+                    <div class="names"> 
+                      Michael Shreeran, Christine Wang, Matt Winthrop, Jackie Davis, Jenny Bustamante, Johnny Shigeta, Russell Cruz, Leslie Sullivan, Paige Larson, Chris Lee, Josh Kurchenko 
+                    </div>
+                  </div>
                 </div>
-                <div class="people">
-                  <span class="names"> 
-                    Michael Shreeran, Christine Wang </span>
-                  <span class="other-people"> 
-                    & 9 others in this moment. 
-                  </span>
+                <div class="span1"> </div>
+                <div id="brunch-club"  class="span3 moment"
+                      style="background-image: url('img/moments/brunch-club.png');">
+                  <div class="moment-overlay hidden"> </div>
+                  <div class="moment-date">
+                    May 16, 2012
+                  </div>
+                  <div class="moment-title">
+                    Brunch Club
+                  </div>
+                  <div class="people">
+                    <span class="names"> 
+                      Michael Shreeran, Christine Wang </span>
+                    <span class="other-people"> 
+                      & 9 others in this moment. 
+                    </span>
+                  </div>
+                  <div class="people-open hidden">
+                    <div class="names"> 
+                      Michael Shreeran, Christine Wang, Matt Winthrop, Jackie Davis, Jenny Bustamante, Johnny Shigeta, Russell Cruz, Leslie Sullivan, Paige Larson, Chris Lee, Josh Kurchenko 
+                    </div>
+                  </div>
                 </div>
-                <div class="people-open hidden">
-                  <div class="names"> 
-                    Michael Shreeran, Christine Wang, Matt Winthrop, Jackie Davis, Jenny Bustamante, Johnny Shigeta, Russell Cruz, Leslie Sullivan, Paige Larson, Chris Lee, Josh Kurchenko 
+                <div class="span1"> </div>
+                <div id="jennys-graduation" class="span3 moment"
+                      style="background-image: url('img/moments/jennys-graduation.png');">
+                  <div class="moment-overlay hidden"> </div>
+                  <div class="moment-date">
+                    May 19, 2013
+                  </div>
+                  <div class="moment-title">
+                    Jenny's Graduation
+                  </div>
+                  <div class="people">
+                    <span class="names"> 
+                      Michael Shreeran, Christine Wang </span>
+                    <span class="other-people"> 
+                      & 9 others in this moment. 
+                    </span>
+                  </div>
+                  <div class="people-open hidden">
+                    <div class="names"> 
+                      Michael Shreeran, Christine Wang, Matt Winthrop, Jackie Davis, Jenny Bustamante, Johnny Shigeta, Russell Cruz, Leslie Sullivan, Paige Larson, Chris Lee, Josh Kurchenko 
+                    </div>
+                  </div>
+                </div>
+                <div class="span1"> </div>
+              </div>
+
+
+
+              <div class="row">
+                <div id="mt-ranier-hike"  class="span3 moment"
+                      style="background-image: url('img/moments/mt-ranier-hike.png');">
+                  <div class="moment-overlay hidden"> </div>
+
+                  <div class="moment-date">
+                    Jan 3, 2012
+                  </div>
+                  <div class="moment-title">
+                    Mt. Ranier Hike
+                  </div>
+                  <div class="people">
+                    <span class="names"> 
+                      Michael Shreeran, Christine Wang </span>
+                    <span class="other-people"> 
+                      & 9 others in this moment. 
+                    </span>
+                  </div>
+                  <div class="people-open hidden">
+                    <div class="names"> 
+                      Michael Shreeran, Christine Wang, Matt Winthrop, Jackie Davis, Jenny Bustamante, Johnny Shigeta, Russell Cruz, Leslie Sullivan, Paige Larson, Chris Lee, Josh Kurchenko 
+                    </div>
+                  </div>
+                </div>
+                <div class="span1"> </div>
+                <div id="bears-game" class="span3 moment"
+                      style="background-image: url('img/moments/bears-game.png');">
+                  <div class="moment-overlay hidden"> </div>
+                  <div class="moment-date">
+                    April 11, 2012
+                  </div>
+                  <div class="moment-title">
+                    Bears Game
+                  </div>
+                  <div class="people">
+                    <span class="names"> 
+                      Michael Shreeran, Christine Wang </span>
+                    <span class="other-people"> 
+                      & 9 others in this moment. 
+                    </span>
+                  </div>
+                  <div class="people-open hidden">
+                    <div class="names"> 
+                      Michael Shreeran, Christine Wang, Matt Winthrop, Jackie Davis, Jenny Bustamante, Johnny Shigeta, Russell Cruz, Leslie Sullivan, Paige Larson, Chris Lee, Josh Kurchenko 
+                    </div>
+                  </div>
+                </div>
+                <div class="span1"> </div>
+                <div id="nyc-conference"  class="span3 moment"
+                      style="background-image: url('img/moments/nyc-conference.png');">
+                  <div class="moment-overlay hidden"> </div>
+
+                  <div class="moment-date">
+                    Nov 18, 2012
+                  </div>
+                  <div class="moment-title">
+                    NYC Conference
+                  </div>
+                  <div class="people">
+                    <span class="names"> 
+                      Michael Shreeran, Christine Wang </span>
+                    <span class="other-people"> 
+                      & 9 others in this moment. 
+                    </span>
+                  </div>
+                  <div class="people-open hidden">
+                    <div class="names"> 
+                      Michael Shreeran, Christine Wang, Matt Winthrop, Jackie Davis, Jenny Bustamante, Johnny Shigeta, Russell Cruz, Leslie Sullivan, Paige Larson, Chris Lee, Josh Kurchenko 
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="span1"> </div>
-              <div id="chicago-trip" class="span3 moment"
-                    style="background-image: url('img/moments/chicago-trip.png');">
-                <div class="moment-date">
-                  August 3, 2012
-                </div>
-                <div class="moment-title">
-                  Trip to Chicago
-                </div>
-                <div class="people">
-                  <span class="names"> 
-                    Michael Shreeran, Christine Wang </span>
-                  <span class="other-people"> 
-                    & 9 others in this moment. 
-                  </span>
-                </div>
-                <div class="people-open hidden">
-                  <div class="names"> 
-                    Michael Shreeran, Christine Wang, Matt Winthrop, Jackie Davis, Jenny Bustamante, Johnny Shigeta, Russell Cruz, Leslie Sullivan, Paige Larson, Chris Lee, Josh Kurchenko 
+              <div class="row">
+                <div class="span-starter"></div>
+                <div id="jennys-bday" class="span3 moment"
+                      style="background-image: url('img/moments/jennys-bday.png');">
+                  <div class="moment-overlay hidden"> </div>
+
+                  <div class="moment-date">
+                    Jan 19, 2012
+                  </div>
+                  <div class="moment-title">
+                    Jennys Bday
+                  </div>
+                  <div class="people">
+                    <span class="names"> 
+                      Michael Shreeran, Christine Wang </span>
+                    <span class="other-people"> 
+                      & 9 others in this moment. 
+                    </span>
+                  </div>
+                  <div class="people-open hidden">
+                    <div class="names"> 
+                      Michael Shreeran, Christine Wang, Matt Winthrop, Jackie Davis, Jenny Bustamante, Johnny Shigeta, Russell Cruz, Leslie Sullivan, Paige Larson, Chris Lee, Josh Kurchenko 
+                    </div>
                   </div>
                 </div>
+                <div class="span1"> </div>
+                <div id="roadies-road-trip" class="span3 moment"
+                      style="background-image: url('img/moments/roadies-road-trip.png');">
+                  <div class="moment-overlay hidden"> </div>
+
+                  <div class="moment-date">
+                    April 23, 2012
+                  </div>
+                  <div class="moment-title">
+                    Roadies Road Trip 2012
+                  </div>
+                  <div class="people">
+                    <span class="names"> 
+                      Michael Shreeran, Christine Wang </span>
+                    <span class="other-people"> 
+                      & 9 others in this moment. 
+                    </span>
+                  </div>
+                  <div class="people-open hidden">
+                    <div class="names"> 
+                      Michael Shreeran, Christine Wang, Matt Winthrop, Jackie Davis, Jenny Bustamante, Johnny Shigeta, Russell Cruz, Leslie Sullivan, Paige Larson, Chris Lee, Josh Kurchenko 
+                    </div>
+                  </div>
+                </div>
+                <div class="span1"> </div>
+                <div id="new-years-eve" class="span3 moment"
+                      style="background-image: url('img/moments/new-years-eve.png');">
+                  <div class="moment-overlay hidden"> </div>
+                  <div class="moment-date">
+                    December 31, 2012
+                  </div>
+                  <div class="moment-title">
+                    New Years Eve
+                  </div>
+                  <div class="people">
+                    <span class="names"> 
+                      Michael Shreeran, Christine Wang </span>
+                    <span class="other-people"> 
+                      & 9 others in this moment. 
+                    </span>
+                  </div>
+                  <div class="people-open hidden">
+                    <div class="names"> 
+                      Michael Shreeran, Christine Wang, Matt Winthrop, Jackie Davis, Jenny Bustamante, Johnny Shigeta, Russell Cruz, Leslie Sullivan, Paige Larson, Chris Lee, Josh Kurchenko 
+                    </div>
+                  </div>
+                </div>            
               </div>
-              <div class="span1"> </div>
-              <div id="board-game-night" class="span3 moment"
-                    style="background-image: url('img/moments/board-game-night.png');">
-                <div class="moment-date">
-                  Feb 2, 2013
+
+              <div class="row">
+                <div id="arcade-fire-concert" class="span3 moment"
+                      style="background-image: url('img/moments/arcade-fire-concert.png');">
+                  <div class="moment-overlay hidden"> </div>
+                  <div class="moment-date">
+                    February 26, 2012
+                  </div>
+                  <div class="moment-title">
+                    Arcade Fire Concert at the Bowl
+                  </div>
+                  <div class="people">
+                    <span class="names"> 
+                      Michael Shreeran, Christine Wang </span>
+                    <span class="other-people"> 
+                      & 9 others in this moment. 
+                    </span>
+                  </div>
+                  <div class="people-open hidden">
+                    <div class="names"> 
+                      Michael Shreeran, Christine Wang, Matt Winthrop, Jackie Davis, Jenny Bustamante, Johnny Shigeta, Russell Cruz, Leslie Sullivan, Paige Larson, Chris Lee, Josh Kurchenko 
+                    </div>
+                  </div>
                 </div>
-                <div class="moment-title">
-                  Board Game Night
+                <div class="span1"> </div>
+                <div id="chicago-trip" class="span3 moment"
+                      style="background-image: url('img/moments/chicago-trip.png');">
+                  <div class="moment-overlay hidden"> </div>
+                  <div class="moment-date">
+                    August 3, 2012
+                  </div>
+                  <div class="moment-title">
+                    Trip to Chicago
+                  </div>
+                  <div class="people">
+                    <span class="names"> 
+                      Michael Shreeran, Christine Wang </span>
+                    <span class="other-people"> 
+                      & 9 others in this moment. 
+                    </span>
+                  </div>
+                  <div class="people-open hidden">
+                    <div class="names"> 
+                      Michael Shreeran, Christine Wang, Matt Winthrop, Jackie Davis, Jenny Bustamante, Johnny Shigeta, Russell Cruz, Leslie Sullivan, Paige Larson, Chris Lee, Josh Kurchenko 
+                    </div>
+                  </div>
                 </div>
-                <div class="people">
-                  <span class="names"> 
-                    Michael Shreeran, Christine Wang </span>
-                  <span class="other-people"> 
-                    & 9 others in this moment. 
-                  </span>
-                </div>
-                <div class="people-open hidden">
-                  <div class="names"> 
-                    Michael Shreeran, Christine Wang, Matt Winthrop, Jackie Davis, Jenny Bustamante, Johnny Shigeta, Russell Cruz, Leslie Sullivan, Paige Larson, Chris Lee, Josh Kurchenko 
+                <div class="span1"> </div>
+                <div id="board-game-night" class="span3 moment"
+                      style="background-image: url('img/moments/board-game-night.png');">
+                  <div class="moment-overlay hidden"> </div>
+                  <div class="moment-date">
+                    Feb 2, 2013
+                  </div>
+                  <div class="moment-title">
+                    Board Game Night
+                  </div>
+                  <div class="people">
+                    <span class="names"> 
+                      Michael Shreeran, Christine Wang </span>
+                    <span class="other-people"> 
+                      & 9 others in this moment. 
+                    </span>
+                  </div>
+                  <div class="people-open hidden">
+                    <div class="names"> 
+                      Michael Shreeran, Christine Wang, Matt Winthrop, Jackie Davis, Jenny Bustamante, Johnny Shigeta, Russell Cruz, Leslie Sullivan, Paige Larson, Chris Lee, Josh Kurchenko 
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
       </div>
+
+      <div id="enabled-filter-template" class="hidden enabled-filter">
+        <div class="enabled-filter-inner">
+          <div class="close"> x </div>
+          <div class="name"> </div>
+        </div>
+<!--        <img src=""> </img> --> 
+      </div>
+
     </div>
       <div class="tab-pane" id="about-view"> </div>
       <div class="tab-pane" id="map-view"> </div>
