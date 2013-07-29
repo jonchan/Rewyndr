@@ -45,9 +45,28 @@
 
 .community-label
 {
-	background-color: #000;
-	margin-top: 10px;
+	background-color: #2d6960;
+	margin-top: 5px;
 	font-size: 12px;
-	padding-left: 10px;
+	padding: 5px 0px 5px 10px;
 	width: 190px;
+	color: #efe69b;
+}
+
+.header h1
+{
+	float: left;
+}
+
+.header .button
+{
+	float: right;
+	margin-top: 20px;
+	background-color: #2d6960;
+}
+
+hr
+{
+	clear: both;
+	border-color: #2d6960;
 }

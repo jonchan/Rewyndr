@@ -2,24 +2,72 @@
 
 #header
 {
-	height: 57px;
-	color: #fff;
+	height: 47px;
+	color: #2d6960;
 }
 
 #header a
 {
-	color: #fff;
+	color: #2d6960;
 }
 
 #header .moment-name
 {
-	font-size: 28px;
+	font-size: 36px;
 	margin-top: 5px;
+}
+
+.moment-description,
+.moment-actions
+{
+	float: left;
+}
+
+.moment-actions
+{
+	margin-left: 180px;
+}
+
+.moment-actions .button
+{
+	text-align: center;
+	margin-right: 10px;
+	float: left;
+	width: 100px;
+	background-color: #2d6960;
+}
+
+.moment-description
+{
+	width: 600px;
+}
+
+.description-header
+{
+	color: #91b3af;
+	font-size: 16px;
+}
+
+.when,
+.who
+{
+	margin-bottom: 5px;
+}
+
+.description
+{
+	margin-left: 30px;
+}
+
+.description,
+.description a
+{
+	color: #2d6960;
 }
 
 #photos
 {
-	background-color: #808080;
+	background-color: #678f88;
 	padding-top: 30px;
 	padding-bottom: 20px;
 	position: fixed;
@@ -50,8 +98,8 @@
 {
 	margin-top: -35px;
 	margin-left: 30px;
-	position: absolute;
-
+	position: fixed;
+	background-color: #2d6960;
 }
 
 .photo
@@ -86,8 +134,6 @@
 
 .nav img
 {
-	height: 40px;
-	width: 40px;
 	top: 380px;
 }
 
@@ -139,7 +185,7 @@
 .tag-wrapper:hover .tag
 {
 	border-style: solid;
-	border-color: #ff2d00;
+	border-color: #91b3af;
 	border-width: 2px;
 	cursor: pointer;
 }
@@ -155,9 +201,9 @@
 .tag-wrapper:hover .tag-content
 {
 	display: block;
-	color: #fff;
-	background-color: #000;
+	color: #91b3af;
+	background-color: #e7e8e1;
 	border-width: 2px;
-	border-color: #ff2d00;
+	border-color: #91b3af;
 	border-style: solid;
 }

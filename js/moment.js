@@ -672,32 +672,32 @@ var tags = [
 				type : "thought",
 				content1 : "Matt Winthrop is looking",
 				content2 : "quite scholarly if I do say so myself",
-				user : "Johnny Shigeta",
+				user : "Johnny S.",
 				time : "May 12, 2013 8:32 am"
 			},
 			{
 				type : "thought",
 				content1 : "Matt Winthrop is feeling",
 				content2 : "LIKE A CHAMP",
-				user : "Jenny Bustamante",
+				user : "Jenny B.",
 				time : "May 12, 2013 10:42 am"
 			},
 			{
 				type : "comment",
 				content2 : "So proud of you!!",
-				user : "Christine Wang",
+				user : "Christine W.",
 				time : "May 17, 2013 10:56 am"
 			},
 			{
 				type : "song",
 				content2 : "Graduation by Vitamin C",
-				user : "Jenny Bustamante",
+				user : "Jenny B.",
 				time : "3 hours ago"
 			},
 			{
 				type : "comment",
 				content2 : "Really, Jenny. Really.",
-				user : "Matt Winthrop",
+				user : "Matt W.",
 				time : "3 minutes ago"
 			}
 		]
@@ -713,14 +713,14 @@ var tags = [
 				type : "thought",
 				content1 : "Christine Wang is feeling",
 				content2 : "so happy!",
-				user : "Jackie Davis",
+				user : "Jackie W.",
 				time : "3 hours ago"
 			},
 			{
 				type : "thought",
 				content1 : "Christine Wang is being",
 				content2 : "awesome :)",
-				user : "Matt Winthrop",
+				user : "Matt W.",
 				time : "2 minutes ago"
 			}
 		]
@@ -736,20 +736,20 @@ var tags = [
 				type : "thought",
 				content1 : "Jenny Bustamante is feeling",
 				content2 : "DONE!!",
-				user : "Jenny Bustamante",
+				user : "Jenny B.",
 				time : "May 12, 2013 2:45 pm"
 			},
 			{
 				type : "thought",
 				content1 : "Jenny Bustamante is feeling",
 				content2 : "relieved cuz she just ran from that econ final!",
-				user : "Matt Winthrop",
+				user : "Matt W.",
 				time : "Aug 2, 2013 11:42 am"
 			},
 			{
 				type : "song",
 				content2 : "Audio from the ceremony",
-				user : "Josh Kurchenko",
+				user : "Josh K.",
 				time : "Aug 4, 2013 8:22 am"
 			}
 		]
@@ -765,20 +765,20 @@ var tags = [
 				type : "thought",
 				content1 : "Jenny Bustamante is feeling",
 				content2 : "like a graduate",
-				user : "Michael Sheeran",
+				user : "Michael S.",
 				time : "May 12, 2013 4:30 pm"
 			},
 			{
 				type : "comment",
 				content2 : "Aww your last time in Sproul Plaza",
-				user : "Paige Larson",
+				user : "Paige L.",
 				time : "3 hours ago"
 			},
 			{
 				type : "thought",
 				content1 : "Jenny Bustamante is feeling",
 				content2 : "chilly? or shy?",
-				user : "Matt Winthrop",
+				user : "Matt W.",
 				time : "1 hour ago"
 			}
 		]
@@ -794,20 +794,20 @@ var tags = [
 				type : "thought",
 				content1 : "Johnny Shigeta is looking",
 				content2 : "curious",
-				user : "Michael Sheeran",
+				user : "Michael S.",
 				time : "May 12, 2013 4:34 pm"
 			},
 			{
 				type : "thought",
 				content1 : "Johnny Shigeta is being",
 				content2 : "a thief on graduation day?!",
-				user : "Jenny Bustamante",
+				user : "Jenny B.",
 				time : "August 18, 2013 11:32 pm"
 			},
 			{
 				type : "comment",
 				content2 : "Whatcha got there?",
-				user : "Leslie Sullivan",
+				user : "Leslie S.",
 				time : "30 minutes ago"
 			}
 		]
@@ -823,14 +823,14 @@ var tags = [
 				type : "thought",
 				content1 : "Jenny Bustamante is looking",
 				content2 : "so happy about Johnny stealing her stuff",
-				user : "Matt Winthrop",
+				user : "Matt W.",
 				time : "May 13, 2013 10:30 am"
 			},
 			{
 				type : "thought",
 				content1 : "Christine Wang is being",
 				content2 : "cute!",
-				user : "Christine Wang",
+				user : "Christine W.",
 				time : "August 8, 2013 9:22 pm"
 			}
 		]
@@ -857,6 +857,14 @@ $(document).ready(function() {
 	$("#tag-entry").submit(function(ev) {
 		tagging.submitActiveTag($("#active-tag"));
 		ev.preventDefault();
+	});
+
+	$(".photo-wrapper").each(function(index) {
+		var imagePos = $(this).find(".photo").position().left;
+		var wrapperWidth = $(this).width();
+		var photoWidth = $(this).find(".photo").width();
+		console.log(((wrapperWidth-photoWidth) / 2));
+		$(this).find(".button").css("left", imagePos + ((wrapperWidth-photoWidth) / 2) - 10);
 	});
 
 	for (i = 0; i<tags.length; i++)

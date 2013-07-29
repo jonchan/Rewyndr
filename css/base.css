@@ -13,13 +13,22 @@
 	src: url("fonts/Open_Sans/OpenSans-Bold.ttf") format("opentype");
 }
 
+@font-face {
+	font-family: MisoRegular;
+	src: url("fonts/miso/miso-regular.otf") format("opentype");
+}
+
+@font-face {
+	font-family: MisoLight;
+	src: url("fonts/miso/miso-light.otf") format("opentype");
+}
 
 body
 {
-	background-color: #3d3d3d;
-	font-family: OpenSans, Helvetica;
+	background-color: #fff;
+	font-family: MisoRegular, Helvetica;
 	color: #ddd;
-	font-size: 12px;
+	font-size: 16px;
 	padding-top: 51px;
 }
 
@@ -31,23 +40,26 @@ body
 h1
 {
 	font-size: 28px;
+	color: #2d6960;
 }
 
 .navbar
 {
-	background-color: #222;
+	background-color: #2d6960;
+	border-bottom: #98a942 2px solid;
 }
 
 .navbar-inner
 {
+
 	background: inherit;
 	text-shadow: inherit;
-	border: inherit;
 	box-shadow: inherit !important;
 	padding-right: 10px !important;
 	padding-left: 10px !important;
 	padding-top: 5px;
 	padding-bottom: 5px;
+	border: none;
 }
 
 .brand
@@ -64,16 +76,19 @@ h1
 
 }
 
-.nav-me
-{
-	background-color: #ff2d00;
-}
-
 .nav-me a
 {
-	background-color: #ff2d00;
-	color: #fff !important;
-	text-shadow: none !important;
+	color: #efe69b;
+}
+
+.nav-me li
+{
+	float: left;
+	background-color: #98a942;
+	color: #efe69b;
+	padding: 5px 10px 5px 10px;
+	margin-left: 5px;
+	list-style: none;
 }
 
 .navbar-right
@@ -120,9 +135,9 @@ h1
 
 .button
 {
-	background-color: #ff2d00;
+	background-color: #678f88;
 	height: 20px;
-	color: #fff;
+	color: #efe69b;
 	padding: 5px;
 }
 

@@ -46,7 +46,7 @@ timeline.filter = {
 
 		if ($(".enabled-filter").length > 1)
 		{
-			$(".moment:not(.disabled)").css("border", "#ff2100 1px solid");
+//			$(".moment:not(.disabled)").css("border", "#ff2100 1px solid");
 		}
 	},
 
@@ -76,7 +76,7 @@ timeline.filter = {
 
 		timeline.momentFilter.applyFilter(personId);
 		$(".disabled").css("border", "inherit");
-		$(".moment:not(.disabled)").css("border", "#ff2100 1px solid");
+//		$(".moment:not(.disabled)").css("border", "1px solid");
 	},
 
 	getActiveFilters : function() {
@@ -247,16 +247,25 @@ $(document).ready(function(){
 		if ($(this).is(":checked"))
 		{
 			timeline.filter.enableFilter(id);
+			$(this).parent().addClass("on");
 		}
 		else
 		{
 			timeline.filter.disableFilter(id);
+			$(this).parent().removeClass("on");
 		}
 	});
 
+	$(".moment").mouseenter(function() {
+		var $hover = $("<div> </div>").addClass('moment-hover').text("Explore This Moment"); 
+		$(this).prepend($hover);
+		$(this).find(".people").hide();
+	})
 
-	$(".moment").hover(function() {
-		moment.showPeople($(this).attr("id"));
+	$(".moment").mouseleave(function() {
+		var $hover = $("<div> </div>").addClass('moment-hover').text("Explore This Moment"); 
+		$(this).find(".moment-hover").remove();
+		$(this).find(".people").show();
 	})
 
 	$(".moment").mouseenter(function(){

@@ -12,12 +12,10 @@
 
 <body>
 
-
-  <div class="navbar navbar-fixed-top">
+<div class="navbar navbar-fixed-top">
     <div class="navbar-inner container">
-
       <div class="navbar-left">
-        <a class="brand" href="communities.html"> <img src="img/logo-short.png"> </img> </a>
+        <a class="brand" href="#"> <img src="img/logo-short.png"> </img> </a>
         <ul class="nav">
           <li>
             <form class="navbar-search">
@@ -27,50 +25,58 @@
         </ul>
       </div>
       
-      <div class="navbar-right pull-right">
-        <ul class="nav nav-me">
-          <li class="dropdown">
-            <a class="label" href="#" data-toggle="dropdown">
-               Me 
-            </a>
-            <ul class="dropdown-menu">
-              <li> <a href="#"> Profile </a> </li>
-              <li> <a href="communities.html"> Communities </a> </li>
-              <li> <a href="login.html"> Logout </a> </li>
-            </ul>
-          </li>
-        </ul>
+      <div class="navbar-right pull-right nav-me">
+        <ul >
+            <li> <a href="#"> My Profile </a> </li>
+            <li> <a href="#"> My Communities </a> </li>
+            <li> <a href="login.html"> Logout </a> </li>
+          </ul>
       </div>
 
     </div>
   </div>
-  <div class="sub-navbar">
-    <div class="container">
-      <div class="breadcrumb-links">
-        <a class="breadcrumb-back" href="communities.html"> My Communities</a> >
-        <a class="breadcrumb-back" href="timeline.html"> Cleary 7th Floore 2002 </a> >
-        <a class="breadcrumb-here" href="#"> Graduation Day </a>
-      </div>
-    </div>
-  </div>
+
+
 
 
   <div id="content" class="container">
     
     <div id="header">
       <h3>
-        Graduation Day
+        <a href="timeline.html"> Cleary 7th Floor 2001: </a>  Graduation Day
       </h3>
     </div>
+
+    <div class="moment-header">
+      <div class="moment-description">
+        <div class="when">
+          <span class="description-header"> When was this? </span> <span class="description"> May 8, 2001 </span>
+        </div>
+        <div class="who">
+          <span class="description-header"> Who was here? </span> <span class="description"> <a href="#"> Chris Baker </a>, <a href="#"> Peter Larson </a>, <a href="#"> Kevin Rogers </a>, <a href="#"> Christine Wang </a> </span>
+        </div>
+      </div>
+
+      <div class="moment-actions">
+        <div class="button">
+          Share
+        </div>
+        <div class="button">
+          Add More Photos
+        </div>
+      </div>
+    </div>
+    <div style="  clear: both;"/>
+
     <div id="photos" >
       <div class="photo-background-filler">
       </div>
       <div id="graduation1" class="photo-background">
         <div class="photo-wrapper">
           <img class="photo" src="img/alumni/graduation-1.jpg">
-          <div class="button">
-            tag this photo!
-          </div>
+            <div class="button">
+              tag this photo!
+            </div>
         </div>
       </div>
       <div id="graduation2" class="photo-background">
@@ -114,47 +120,53 @@
 
   <div id="feed-template" class="hidden">
     <div class="feed-header">
+      <div class="feed-header-text">
+          ADD A NEW MEMORY...
+      </div>
+      <hr class="feed-header-line">
       <div id="feed-header-content">
-        <div class="add-content add-content-button">
-          <img src="img/add-icon.png"/> 
-        </div>
         <div class="add-content add-comment">
-          <img src="img/add-comment-icon.png"/>
+          <img src="img/story.png"/>
         </div>
         <div class="add-content add-sound">
-          <img src="img/add-sound-icon.png"/>
+          <img src="img/sound.png"/>
         </div>
         <div class="add-content add-thought">
-          <img src="img/add-thought-icon.png"/>
+          <img src="img/detail.png"/>
         </div>
       </div>
 
       <div class="feed-header-content-input">
         
         <div class="add-comment-box transparent">
-          <textarea rows="4" placeholder="Enter a comment..."></textarea>        
+          <textarea rows="4" placeholder="Add a story..."></textarea>        
         </div>
         
         <div class="add-thought-box transparent">
           <select class="input-large"> 
-            <option> is feeling </option>
-            <option> is being </option>
-            <option> is doing </option>
+            <option> was looking </option>
+            <option> was feelng </option>
+            <option> was acting</option>
+            <option> was thinking</option>
           </select>  
-          <textarea rows="4" placeholder="Enter your thoughts..."></textarea>        
+          <textarea rows="4" placeholder="Enter some details..."></textarea>        
         </div>
 
         <div class="add-sound-box transparent">
           <div class="input-append">
-            <input placeholder="Find a sound...">
+            <input placeholder="Select a file...">
             <div></div>
-            <button class="btn" type="button"> Search Youtube </button>
+            <button class="btn" type="button"> Upload A Sound </button>
           </div>
         </div>
 
       </div>
     </div>
     <div id="feed-content">
+      <div class="feed-header-text">
+          MEMORIES
+      </div>
+      <hr class="feed-header-line">
       <ul>
         <li class="hidden">
           <div class="content-type-wrapper">

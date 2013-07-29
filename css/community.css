@@ -1,7 +1,12 @@
+body
+{
+	overflow-y: hidden;
+}
+
 
 #header
 {
-	margin-bottom: 30px;
+	margin-bottom: 14px;
 }
 
 
@@ -18,13 +23,43 @@
 	margin-left: 10px;
 }
 
+.tabs ul
+{
+	padding: 0;
+	margin: 0;
+}
+
+.tabs li
+{
+	float: left;
+	margin-right: 20px;
+	list-style: none;
+}
+
+.tabs a
+{
+	font-size: 20px;
+	color: #91b3af;
+}
+
+.tabs a.active
+{
+	color: #2d6960;
+}
+
+.tab-line
+{
+	margin-top: 40px;
+	border-color: #2d6960;
+	clear: both;
+}
+
 #timeline-view
 {
 	overflow-x: show;
 	overflow-y: hidden;
 	height: 530px;
 	width: 3024px;
-	background-color: #808080;
 }
 
 .timeline-header
@@ -38,7 +73,7 @@
 
 .timeline-content
 {
-	margin-top: 40px;
+	margin-top: 0px;
 }
 
 .timeline-inner
@@ -49,13 +84,19 @@
 .left-pane
 {
 	position: absolute;
-	height: 460px;
-	background-color: #333;
+	height: 450px;
+	background-color: #e7e8e1;
+	color: #2d6960;
 	margin-top: 10px;
 	width: 150px;
 	padding: 10px;
 	z-index: 150;
 	overflow-y: auto;
+}
+
+.left-pane label 
+{
+	color: #91b3af !important;
 }
 
 #timeline-control
@@ -83,20 +124,17 @@
 
 .filter-title
 {
-	font-family: "OpenSansBold", "helvetica";
-	font-weight: bolder;
-	color: #333;
+	font-family: "Miso", "helvetica";
+	color: #2d6960;
 }
 
 .enabled-filter {
 	width: 120px;
-	background-color: #b2b2b2;
-	color: #000;
+	background-color: #e6e6e6;
+	color: #2d6960;
 	position: relative;
 	float: left;
 	margin-left: 20px;
-	border-radius: 10px;
-	border: #ff2100 solid 1px;
 }
 
 .enabled-filter-inner
@@ -111,6 +149,7 @@
 .enabled-filter img
 {
 	float: left;
+	color: #2d6960;
 }
 
 .enabled-filter .close
@@ -136,7 +175,8 @@
 .explore-header
 {
 	text-align: center;
-	font-size: 15px;
+	font-size: 21px;
+	color: #2d6960;
 	margin-bottom: 10px;
 }
 
@@ -165,7 +205,7 @@
 
 .year
 {
-	font-family: "OpenSansBold";
+	font-family: "Miso";
 	float: left;
 	margin-right: 20px;
 }
@@ -178,23 +218,22 @@
 
 .years .active a
 {
-	color: #000;
+	color: #2d6960;
 }
 
 .year a
 {
-	color: #555;
-	font-weight: bold;
+	color: #91b3af;
 }
 
 .year-lines hr.active
 {
-	border-color: #000;
+	border-color: #2d6960;
 }
 
 .year-lines .year-line
 {
-	border-color: #555;
+	border-color: #91b3af;
 }
 
 
@@ -216,31 +255,53 @@
 .span-starter,
 .moment
 {
-	height: 62px;
+	height: 72px;
 	margin-top: 8px;
 	margin-bottom: 8px;	
 	padding: 10px;
-	border-style: solid;
-	border-width: 2px;
-	border-color: #808080;
 }
 
 .moment
 {
-	background-color: #000;
-	background-repeat: no-repeat;
-	background-size: cover;	
-	background-attachment: local;
+	border-style: solid;
+	border-width: 2px;
+	border-color: none;
+	background-position: 20px 0;
+}
+
+.moment
+{
+	background-color: #2d6960;
 	width: 295px;
 	cursor: pointer;
 	position: relative;
+	background-position: 143px 0px;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.moment-hover
+{
+	background-color: #9aa951;
+	cursor: pointer;
+	width: 100%;
+	height: 100%;
+	margin: -10px -10px;
+	z-index: 0; 
+	font-size: 22px;
+	position: absolute;
+	border: none; 
+	padding-right: 20px;
+	text-align: center; 
+	line-height: 80px;
+	width: 295px;
 }
 
 .moment-overlay
 {
 	position: absolute;
 	z-index: 99;
-	opacity: .8;
+	opacity: .0;
 	left: 0;
 	top: 0;
 	width: 100%;
@@ -248,9 +309,13 @@
 	background-color: #000;
 }
 
+.moment.disabled
+{
+	opacity: .3;
+}
+
 .highlight
 {
-	border-color: #fff;
 	border-style: solid;
 	border-width: 2px;
 
@@ -258,24 +323,27 @@
 
 .moment-title
 {
-	font-size: 18px;
+	margin-top: 4px;
+	font-size: 22px;
+	width: 130px;
 }
 
 .moment-date
 {
-	font-size: 12px;
+	font-size: 16px;
 }
 
 .people,
 .people-open
 {
-	background-color: #b3b3b3;
+	background-color: #225850;
 	width: 100%;
-	color: #ff2d00;
-	font-size: 10px;
+	color: #efe69b;
+	font-size: 16px;
+	font-family: MisoLight;
 	line-height: 12px;
 	left: 0px;
-	top: 60px;
+	top: 75px;
 	position: absolute;
 	padding-top: 5px;
 	padding-bottom: 5px;
@@ -288,7 +356,7 @@
 
 .other-people
 {
-	color: #000 !important;
+	color: #efe69b !important;
 }
 
 .person
@@ -296,12 +364,17 @@
 	padding: 3px;
 	padding-bottom: 5px;
 	margin-bottom: 5px;
-	border-bottom: #555 solid 1px;
+	border-bottom: #91b3af solid 1px;
+}
+
+.checkbox.on
+{
+	color: #2d6960 !important;
 }
 
 .person label
 {
-	font-size: 12px;
+	font-size: 16px;
 }
 
 .person img

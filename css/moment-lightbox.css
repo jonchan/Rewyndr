@@ -17,17 +17,17 @@
 .lightbox-tag-wrapper .tag
 {
 	border-style: solid;
-	border-color: #ff2d00;
+	border-color: #2d6960;
 	border-width: 2px;
 }
 
 .lightbox-tag-wrapper .tag-content
 {
 	display: block;
-	color: #fff;
-	background-color: #000;
+	color: #2d6960;
+	background-color: #e7e8e1;
 	border-width: 2px;
-	border-color: #ff2d00;
+	border-color: #2d6960;
 	border-style: solid;
 }
 
@@ -48,17 +48,18 @@
 
 #feed
 {
-	width: 250px;
+	width: 260px;
 	z-index: 1035;
 	position: fixed;
-	background-color: #111;
+	background-color: #e7e8e1;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 #feed-content
 {
 	height: 100%;
-	overflow-y: auto;
-	overflow-x: hidden;
+	clear: both;
 }
 
 #lightbox-photo
@@ -74,7 +75,7 @@
 {
 	border-style: solid;
 	border-color: #04756f;
-	border-width: 4px;
+	border-width: 2px;
 }
 
 .verticalLine
@@ -104,39 +105,50 @@
 #feed ul
 {
 	list-style: none;
-	color: #fff;
+	color: #2d6960;
 	width: 100%;
 	margin: 0px;
 	padding: 0px;
+	margin-top: -20px;
 }
+
+
 
 #feed li
 {
+	margin-left: 10px;
+	margin-right: 10px;
 	position: relative;
-	height: 93px;
+	height: 80px;
+	background-color: #fff;
+	margin-bottom: 4px;
 }
 
-#feed li:nth-child(odd) 
-{
-	background-color: #000;
-}
 
 #feed .info
 {
-	color: #04756f;
-	font-size: 10px;	
+	color: #678f88;
+	font-size: 14px;	
 	line-height: 8px;
 	position: absolute;
 	bottom: 10px;
-
 }
 
 .feed-header
 {
 	height: 50px;
 	line-height: 50px;
-	border-bottom: 3px double #04756f;
 	-webkit-transition: all .5s ease-in;
+}
+
+.feed-header-line
+{
+	border-color: #678f88;
+	line-height: 1px;
+	width: 90%;
+	margin-top: 0px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .feed-header-open
@@ -146,7 +158,18 @@
 
 #feed-header-content
 {
+	margin-top: -23px;
 	margin-left: 15px;
+	margin-bottom: 100px;
+	width: 100%;
+}
+
+.feed-header-text
+{
+	color: #2d6960;
+	margin-left: 15px;
+	line-height: 20px;
+	margin-top: 10px;
 }
 
 .content-type-wrapper,
@@ -177,8 +200,8 @@
 
 .play-button
 {
-	text-align: right;
-	position: relative;
+	right: 35px;
+	position: absolute;
 	cursor: pointer;
 }
 
@@ -198,7 +221,7 @@
 
 .content-wrapper .thought-header
 {
-	color: #04756f;
+	color: #678f88;
 	margin-bottom: -3px;
 }
 
@@ -215,30 +238,30 @@
 
 .add-content
 {
-	position: absolute;
-	left: 25px;
+	opacity: .5;
+	float: left;
+	margin-right: 5px;
 	-webkit-transition: all .5s ease-in;
 }
 
 .add-comment-shown
 {
-	left: 65px;
+	opacity: 1;
 }
 
 .add-sound-shown
 {
-	left: 105px;
+	opacity: 1;
 }
 
-.add-thought-shown
-{
-	left: 145px;
+.add-thought-shown {
+	opacity: 1;
 }
 
 .feed-header-content-input
 {
 	position: absolute;
-	top: 60px;
+	top: 95px;
 }
 
 .add-comment-box,
@@ -255,15 +278,20 @@
 .add-sound-box input
 {
 	width: 200px;
-	background-color: #000;
-	color: #fff;
+	background-color: #fff;
+	color: #678f88;
 	resize: vertical;
+}
+
+.add-thought-box textarea
+{
+	height: 50px;
 }
 
 .add-sound-box .btn
 {
 	background: inherit;
-	background-color: #ff2d00;
+	background-color: #678f88;
 	box-shadow: inherit;
 	color: #fff;
 	font-weight: normal;
