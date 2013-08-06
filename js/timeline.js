@@ -187,14 +187,18 @@ filter.people = [
 			"jennys-graduation",
 			"mt-ranier-hike",
 			"bears-game",
-			"nyc-conference"
+			"arcade-fire-concert",
+			"johnnys-farewell"
 		]
 	},
 	{
 		person : "person-2",
 		moments : [ 
-			"jennys-graduation",
-			"mt-ranier-hike"
+			"nyc-conference",
+			"mt-ranier-hike",
+			"johnnys-farewell",
+			"arcade-fire-concert"
+
 		]
 	}
 ];

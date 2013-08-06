@@ -661,7 +661,7 @@ var util = reflect.moment.util;
 var lightbox = reflect.lightbox;
 
 var tags = [
-	{
+/*	{
 		id : "test1",
 		tagName : "Matt Winthrop",
 		xCoord : 1323,
@@ -835,6 +835,7 @@ var tags = [
 			}
 		]
 	}
+	*/
 ];
 
 
